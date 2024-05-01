@@ -63,38 +63,42 @@
         </div>
         <div class="bg-primary">
             <div class="container">
-                <footer class="py-5">
+                <footer class="pt-5">
                   <div class="row">
                     <div class="col-6 col-md-2 mb-3 text-white">
-                      <h5 class="fw-bold">Section</h5>
+                      {{-- <h5 class="fw-bold">Section</h5> --}}
+                      <img src="{{ asset('logo/logo.png') }}" alt="logo" style="max-width: 70%">
+                      <ul class="nav flex-column my-3">
+                        <li class="nav-item mb-2"><a href="#" class="text-white text-decoration-none fs-5">Kediri</a></li>
+                        <li class="nav-item mb-2"><a href="#" class="text-white text-decoration-none">08123123123</a></li>
+                        <li class="nav-item mb-2"><a href="#" class="text-white text-decoration-none">Email@gmail.com</a></li>
+                      </ul>
+                      <ul class="list-unstyled d-flex m-0">
+                        <li class="me-3"><a class="link-dark" href="#"><i class="bi text-white fs-3 bi-facebook"></i></a></li>
+                        <li class="me-3"><a class="link-dark" href="#"><i class="bi text-white fs-3 bi-instagram"></i></a></li>
+                        <li class="me-3"><a class="link-dark" href="#"><i class="bi text-white fs-3 bi-twitter"></i></a></li>
+                    </ul>
+                    </div>
+              
+                    <div class="col-6 col-md-2 mb-3 text-white">
+                      <h5 class="fw-bold">Menu</h5>
                       <ul class="nav flex-column">
-                        <li class="nav-item mb-2"><a href="#" class="text-white text-decoration-none">Home</a></li>
-                        <li class="nav-item mb-2"><a href="#" class="text-white text-decoration-none">Features</a></li>
-                        <li class="nav-item mb-2"><a href="#" class="text-white text-decoration-none">Pricing</a></li>
-                        <li class="nav-item mb-2"><a href="#" class="text-white text-decoration-none">FAQs</a></li>
-                        <li class="nav-item mb-2"><a href="#" class="text-white text-decoration-none">About</a></li>
+                        <li class="nav-item mb-2"><a href="#" class="text-white text-decoration-none">Beranda</a></li>
+                        <li class="nav-item mb-2"><a href="#" class="text-white text-decoration-none">Layanan</a></li>
+                        <li class="nav-item mb-2"><a href="#" class="text-white text-decoration-none">Event</a></li>
+                        <li class="nav-item mb-2"><a href="#" class="text-white text-decoration-none">Galeri</a></li>
+                        <li class="nav-item mb-2"><a href="#" class="text-white text-decoration-none">Tentang kami</a></li>
+                        <li class="nav-item mb-2"><a href="#" class="text-white text-decoration-none">Toko</a></li>
+                        <li class="nav-item mb-2"><a href="#" class="text-white text-decoration-none">Login</a></li>
                       </ul>
                     </div>
               
                     <div class="col-6 col-md-2 mb-3 text-white">
-                      <h5 class="fw-bold">Section</h5>
+                      <h5 class="fw-bold">Link Lainnya</h5>
                       <ul class="nav flex-column">
-                        <li class="nav-item mb-2"><a href="#" class="text-white text-decoration-none">Home</a></li>
-                        <li class="nav-item mb-2"><a href="#" class="text-white text-decoration-none">Features</a></li>
-                        <li class="nav-item mb-2"><a href="#" class="text-white text-decoration-none">Pricing</a></li>
-                        <li class="nav-item mb-2"><a href="#" class="text-white text-decoration-none">FAQs</a></li>
-                        <li class="nav-item mb-2"><a href="#" class="text-white text-decoration-none">About</a></li>
-                      </ul>
-                    </div>
-              
-                    <div class="col-6 col-md-2 mb-3 text-white">
-                      <h5 class="fw-bold">Section</h5>
-                      <ul class="nav flex-column">
-                        <li class="nav-item mb-2"><a href="#" class="text-white text-decoration-none">Home</a></li>
-                        <li class="nav-item mb-2"><a href="#" class="text-white text-decoration-none">Features</a></li>
-                        <li class="nav-item mb-2"><a href="#" class="text-white text-decoration-none">Pricing</a></li>
-                        <li class="nav-item mb-2"><a href="#" class="text-white text-decoration-none">FAQs</a></li>
-                        <li class="nav-item mb-2"><a href="#" class="text-white text-decoration-none">About</a></li>
+                        <li class="nav-item mb-2"><a href="#" class="text-white text-decoration-none">Media</a></li>
+                        <li class="nav-item mb-2"><a href="#" class="text-white text-decoration-none">Blog</a></li>
+                        <li class="nav-item mb-2"><a href="#" class="text-white text-decoration-none">Tim kerja</a></li>
                       </ul>
                     </div>
               
@@ -111,19 +115,24 @@
                     </div>
                   </div>
               
-                  <div class="d-flex flex-column flex-sm-row py-4 align-items-center my-4 border-top">
-                    <div class="col-4"></div>
-                    <div class="col-4 text-center text-white">
-                        <p>&copy; 2022 Company, Inc. All rights reserved.</p>
+                  <div class="d-flex flex-column flex-sm-row py-4 align-items-center justify-content-center border-top">
+                    {{-- <div class="col-4">
+                        <ul class="list-unstyled d-flex m-0">
+                            <li class="me-3"><a class="link-dark" href="#"><i class="bi text-white fs-3 bi-facebook"></i></a></li>
+                            <li class="me-3"><a class="link-dark" href="#"><i class="bi text-white fs-3 bi-instagram"></i></a></li>
+                            <li class="me-3"><a class="link-dark" href="#"><i class="bi text-white fs-3 bi-twitter"></i></a></li>
+                        </ul>
                     </div>
+                    <div class="col-4 text-center text-white"> --}}
+                        <p class="m-0 text-center text-white">&copy; Copyright Nusa Data Prima. All Rights Reserved <?php echo date("Y"); ?>.</p>
+                    {{-- </div>
                     <div class="col-4">
                         <ul class="list-unstyled d-flex flex-row-reverse">
                             <li class="ms-3"><a class="link-dark" href="#"><i class="bi text-white fs-3 bi-facebook"></i></a></li>
                             <li class="ms-3"><a class="link-dark" href="#"><i class="bi text-white fs-3 bi-instagram"></i></a></li>
                             <li class="ms-3"><a class="link-dark" href="#"><i class="bi text-white fs-3 bi-twitter"></i></a></li>
-                            {{-- <li class="ms-3"><a class="link-dark" href="#"><i class="bi bi-youtube"></i></a></li> --}}
                         </ul>
-                    </div>
+                    </div> --}}
                   </div>
                 </footer>
             </div>
