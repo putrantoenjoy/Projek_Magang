@@ -42,9 +42,15 @@
                 <li class="nav-item">
                   <a class="nav-link active fs-5 fw-bold" href="#">Toko</a>
                 </li>
-                <li class="nav-item">
-                  <a class="nav-link active fs-5 fw-bold" href="{{ route('login') }}">Login</a>
-                </li>
+                @if (Route::has('login'))
+                    @auth
+                        <li class="nav-item">
+                            <a class="nav-link active fs-5 fw-bold" href="{{ route('home') }}">Home</a>
+                        </li>
+                    @else
+                        <a class="nav-link active fs-5 fw-bold" href="{{ route('login') }}">Login</a>
+                    @endauth
+                @endif
               </ul>
             </div>
         </nav>
@@ -83,13 +89,16 @@
                     <div class="col-6 col-md-2 mb-3 text-white">
                       <h5 class="fw-bold">Menu</h5>
                       <ul class="nav flex-column">
-                        <li class="nav-item mb-2"><a href="#" class="text-white text-decoration-none">Beranda</a></li>
                         <li class="nav-item mb-2"><a href="#" class="text-white text-decoration-none">Layanan</a></li>
                         <li class="nav-item mb-2"><a href="#" class="text-white text-decoration-none">Event</a></li>
                         <li class="nav-item mb-2"><a href="#" class="text-white text-decoration-none">Galeri</a></li>
                         <li class="nav-item mb-2"><a href="#" class="text-white text-decoration-none">Tentang kami</a></li>
                         <li class="nav-item mb-2"><a href="#" class="text-white text-decoration-none">Toko</a></li>
-                        <li class="nav-item mb-2"><a href="#" class="text-white text-decoration-none">Login</a></li>
+                        @if (Route::has('login'))
+                            @auth
+                                <li class="nav-item mb-2"><a href="{{ route('home') }}" class="text-white text-decoration-none">home</a></li>
+                            @endauth
+                        @endif
                       </ul>
                     </div>
               
