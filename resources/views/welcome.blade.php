@@ -55,7 +55,10 @@
             </div>
         </nav>
         <div class="d-flex flex-column" style="background-color: #ffffff">
-            <div class="my-5">p</div>
+            <div class="py-5 d-flex flex-column">
+                <div class="col-11"></div>
+                <div class="col-1 bg-primary">p</div>
+            </div>
             <div style="background-color: #E6E6E6">
                 <div class="container my-5">
                     <h3 class="text-center fw-bold">Network Service</h3>
