@@ -31,24 +31,27 @@
                 <div class="my-3">
                     Silahkan daftar dengan Email Anda
                 </div>
-                <div class="my-3">
-                    <label for="">Nama</label>
-                    <input type="text" class="form-control">
-                    <label for="">Username</label>
-                    <input type="text" class="form-control">
-                    <label for="">Email</label>
-                    <input type="text" class="form-control">
-                    <label for="">Passwod</label>
-                    <input type="text" class="form-control">
-                    <label for="">Konfirmasi Password</label>
-                    <input type="text" class="form-control">
+                <form action="{{ route('register') }}" method="post">
+                    @csrf
                     <div class="my-3">
-                        <a href="{{ route('login') }}" class="text-decoration-none">Sudah memiliki akun?</a>
+                        <label for="nama">Nama</label>
+                        <input type="text" id="nama" name="name" class="form-control" required>
+                        <label for="username">Username</label>
+                        <input type="username" id="username" name="username" class="form-control">
+                        <label for="email">Email</label>
+                        <input type="email" id="emai" name="email" class="form-control" required>
+                        <label for="password">Passwod</label>
+                        <input type="password" id="password" name="password" class="form-control" required>
+                        <label for="confirm_password">Konfirmasi Password</label>
+                        <input type="password" id="confirm_password" name="confirm_password" class="form-control" required>
+                        <div class="my-3">
+                            <a href="{{ route('login') }}" class="text-decoration-none">Sudah memiliki akun?</a>
+                        </div>
+                        <div class="">
+                            <button type="submit" class="btn form-control btn-primary mb-5">Register</button>
+                        </div>
                     </div>
-                </div>
-                <div class="">
-                    <button type="submit" class="btn form-control btn-primary mb-5">Register</button>
-                </div>
+                </form>
             </div>
         {{-- </div> --}}
     </div>
