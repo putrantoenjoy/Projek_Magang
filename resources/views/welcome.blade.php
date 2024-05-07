@@ -57,7 +57,7 @@
         <div class="d-flex flex-column" style="background-color: #ffffff">
             <div class="py-5 d-flex flex-column">
                 <div class="col-11"></div>
-                <div class="col-1 bg-primary">p</div>
+                <div class="col-1 "></div>
             </div>
             <div style="background-color: #E6E6E6">
                 <div class="container my-5">
@@ -68,7 +68,7 @@
                     </div>
                 </div>
             </div>
-            <div class="my-5">p</div>
+            <div class="my-5"></div>
         </div>
         <div class="bg-primary">
             <div class="container">

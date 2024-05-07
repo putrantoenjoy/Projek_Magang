@@ -1,5 +1,24 @@
 <!doctype HTML5>
 <html>
+{{-- <head>
+    <meta name="generator" content="Hugo 0.87.0" />
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1">
+    <meta name="description" content="Nifty is a responsive admin dashboard template based on Bootstrap 5 framework. There are a lot of useful components.">
+    <title>Dashboard</title>
+    <!-- STYLESHEETS -->
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~--- -->
+    <!-- Fonts [ OPTIONAL ] -->
+    <link rel="preconnect" href="https://fonts.googleapis.com/">
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&amp;family=Ubuntu:wght@400;500;700&amp;display=swap" rel="stylesheet">
+    <!-- Bootstrap CSS [ REQUIRED ] -->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.75a07e3a3100a6fed983b15ad1b297c127a8c2335854b0efc3363731475cbed6.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <!-- Nifty CSS [ REQUIRED ] -->
+    <link rel="stylesheet" href="assets/css/nifty.min.4d1ebee0c2ac4ed3c2df72b5178fb60181cfff43375388fee0f4af67ecf44050.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+</head> --}}
 <head>
     <meta name="generator" content="Hugo 0.87.0" />
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
@@ -18,6 +37,11 @@
     <!-- Nifty CSS [ REQUIRED ] -->
     <link rel="stylesheet" href="assets/css/nifty.min.4d1ebee0c2ac4ed3c2df72b5178fb60181cfff43375388fee0f4af67ecf44050.css">
     <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <style>
+       .mainnav__menu.nav.flex-column .nav-link.active {
+            background-color: #0C58CA;
+        }
+    </style>
 </head>
 
 <body class="jumping">
@@ -26,8 +50,9 @@
     <div id="root" class="root mn--max hd--expanded">
         <!-- CONTENTS -->
         <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-        <section id="content" class="content">
-@yield('content')
+        <section id="content" class="content" style="background-color: #e9e9e9">
+        {{-- <div class="position-absolute" style="background-color: #0c58ca; height: 150px; width: 100%"></div> --}}
+        @yield('content')
             <!-- FOOTER -->
             <footer class="content__boxed mt-auto">
                 <div class="content__wrap py-3 py-md-1 d-flex flex-column flex-md-row align-items-md-center">
@@ -46,9 +71,9 @@
         <!-- HEADER -->
         <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
         <header class="header">
-            <div class="header__inner">
+            <div class="header__inner" style="background-color: #1770f7">
                 <!-- Brand -->
-                <div class="header__brand">
+                <div class="header__brand" style="background-color: #1e78ff">
                     <div class="brand-wrap">
                         <!-- Brand logo -->
                         <a href="index.html" class="brand-img stretched-link">
@@ -60,11 +85,11 @@
                     </div>
                 </div>
                 <!-- End - Brand -->
-                <div class="header__content">
+                <div class="header__content" style="background-color: #1770f7">
                     <!-- Content Header - Left Side: -->
                     <div class="header__content-start">
                         <!-- Navigation Toggler -->
-                        <button type="button" class="nav-toggler header__btn btn btn-icon btn-sm" aria-label="Nav Toggler">
+                        <button type="button" onclick="hideNav()" class="nav-toggler header__btn btn btn-icon btn-sm" aria-label="Nav Toggler">
                             <i class="demo-psi-view-list"></i>
                         </button>
                            </div>
@@ -106,15 +131,15 @@
                 <!-- Navigation menu -->
                 <div class="mainnav__top-content scrollable-content pb-5">
                     <!-- Profile Widget -->
-                    <div class="mainnav__profile mt-3 d-flex3">
-                        <div class="mt-2 d-mn-max"></div>
-                        <!-- Profile picture  -->
-                        <div class="mininav-toggle text-center py-2">
-                            <img class="mainnav__avatar img-md rounded-circle border" 
-                            {{-- src="{{ (Auth::user()->image == null) ? url('assets/img/profile-photos/1.png') : url('assets/img/foto/profil/' . Auth::user()->image) }}" --}}
-                            alt="Profile Picture">
+                    <div class="mainnav__profile mt-3 d-flex3" id="navhide">
+                        {{-- <div class="mt-2 d-mn-max"></div> --}}
+                        <div class="d-flex">
+                            <img class="mainnav__avatar img-md rounded-circle border me-3" alt="Profile Picture">
+                            <div class="d-flex flex-column justify-content-center">
+                                <h4 class="m-0">Admin</h4>
+                                <p class="m-0">admin@gmail.com</p>
+                            </div>
                         </div>
-
                         <div class="mininav-content collapse d-mn-max">
                             <div class="d-grid">
                                 <!-- User name and position -->
@@ -128,7 +153,7 @@
                         </div>
                     </div>
                     <!-- End - Profile widget -->
-            @include('layouts.navigation')
+                @include('layouts.navigation')
                 </div>
                 <!-- End - Navigation menu -->
                 <!-- Bottom navigation menu -->
@@ -157,6 +182,16 @@
     <div class="scroll-container">
         <a href="#root" class="scroll-page rounded-circle ratio ratio-1x1" aria-label="Scroll button"></a>
     </div>
+    <script>
+        function hideNav(){
+            var x = document.getElementById("navhide")
+            if(x.style.display === "none"){
+                x.style.display = "block";
+            }else{
+                x.style.display = "none";
+            }
+        }
+    </script>
     <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
     <!-- END - SCROLL TO TOP BUTTON -->
     <!-- JAVASCRIPTS -->
