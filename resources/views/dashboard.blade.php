@@ -2,30 +2,125 @@
 @section ('content')
 <div class="content__header content__boxed overlapping">
     <div class="content__wrap">
-        <p class="lead">
-            <h1>Dashboard</h1>
-        </p>
+        <h2>Dashboard</h2>
+        <h3 class="text-grey"><span id="greeting"></span></h3>
+        <h5 class="text-grey"><span id="date"></span></h5>
     </div>
 </div>
 <div class="content__boxed">
     <div class="content__wrap">
         <div class="row">
-            <div class="col-md-12">
-                <div class="card h-100">
-                    <div class="card-body">
-                        <div class="row justify-content-between">
-                            <div class="col-1 me-5">
-                                <img height="145px" src="https://demo3.basawa-solution.com/img/profile-photos/foto-dashboard.jpg" alt="">
-                            </div>
-                            <div class="col-12 col-md">
-                                {{-- <h2 style="color: grey"><span id="greeting"></span> {{ Auth::user()->first_name }} </h2> --}}
-                                <h5 class="mb-0 mb-md-5" style="color: grey"> <span id="date"></span></h5>
-                            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <div class="card-body d-flex align-items-center">
+                        <i class="bi bi-people-fill" style="font-size: 4rem;"></i>
+                        <div class="ml-3">
+                            <p class="mar-no">Total User</p>
+                            <p class="text-2x mar-no text-semibold">241</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <div class="card-body d-flex align-items-center">
+                        <i class="bi bi-newspaper" style="font-size: 4rem;"></i>
+                        <div class="ml-3">
+                            <p class="mar-no">Total Artikel</p>
+                            <p class="text-2x mar-no text-semibold">241</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <div class="card-body d-flex align-items-center">
+                        <i class="bi bi-images" style="font-size: 4rem;"></i>
+                        <div class="ml-3">
+                            <p class="mar-no">Galeri</p>
+                            <p class="text-2x mar-no text-semibold">241</p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+        
+        <div class="row">
+            <div class="col-sm-4 mb-4">
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="card-title mb-0">Tanggal dan Waktu</h4>
+                    </div>
+                    <div class="card-body">
+                        <p>Lorem ipsum dolor sit amet.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4 mb-4">
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="card-title mb-0">Produk Terbaru</h4>
+                    </div>
+                    <div class="card-body">
+                        <p>Lorem ipsum dolor sit amet.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4 mb-4">
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="card-title mb-0">Iklan Terbaru</h4>
+                    </div>
+                    <div class="card-body">
+                        <p>Lorem ipsum dolor sit amet.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="card-title mb-0">Artikel Terbaru</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-sm-4 mb-4">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h4 class="card-title mb-0">Artikel Terbaru 1</h4>
+                                    </div>
+                                    <div class="card-body">
+                                        <p>Lorem ipsum dolor sit amet.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-4 mb-4">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h4 class="card-title mb-0">Artikel Terbaru 2</h4>
+                                    </div>
+                                    <div class="card-body">
+                                        <p>Lorem ipsum dolor sit amet.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-4 mb-4">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h4 class="card-title mb-0">Artikel Terbaru 3</h4>
+                                    </div>
+                                    <div class="card-body">
+                                        <p>Lorem ipsum dolor sit amet.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>        
     </div>
 </div>
 @endsection
