@@ -42,7 +42,7 @@
                                 <div class="d-flex justify-content-between">
                                     <div class="d-flex">
                                         <button class="btn btn-primary">Menambah User</button>
-                                        <button class="btn btn-success mx-3">Export</button>
+                                        <button class="btn btn-success mx-3">Export PDF</button>
                                     </div>
                                     <div class="d-flex">
                                         <input type="text" class="form-control mx-3" placeholder="cari">

@@ -1,62 +1,55 @@
-@extends('layouts.app')
+<!doctype html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-@section('content')
-<section class="vh-100">
-    <div class="container py-5 h-100">
-        <div class="row d-flex align-items-center justify-content-center h-100">
-            <div class="col-md-8 col-lg-7 col-xl-6">
-                <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.svg" class="img-fluid" alt="Phone image">
-            </div>
-            <div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
-                <form method="POST" action="{{ route('login') }}" style="width: 23rem">
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
+    <title>{{ config('app.name', 'Laravel') }}</title>
+
+    <!-- Fonts -->
+    <link rel="dns-prefetch" href="//fonts.bunny.net">
+    <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
+
+    <!-- Scripts -->
+    @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+</head>
+<body>
+
+
+<div class="d-flex vh-100">
+    <div class="col-md-8 bg-secondary d-flex justify-content-center">
+        <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.svg" class="img-fluid" alt="Phone image" style="max-width: 50%;">
+    </div>
+    <div class="col-md-4 bg-white">
+        {{-- selamat datang --}}
+        <div class="d-flex justify-content-center py-5">
+            <img src="{{ asset('logo/logo.png') }}" alt="logo" style="max-width: 50%">
+        </div>
+        {{-- <div class="row justify-content-center"> --}}
+            <div class="mx-5">
+                <div class="my-3">
+                    Silahkan Login dengan Email Anda
+                </div>
+                <form action="{{ route('login') }}" method="post">
                     @csrf
-                    <h3 class="fw-normal mb-2 pb-3" style="letter-spacing: 1px;">Log in</h3>
-                    <p>Login untuk akses akun anda</p>
-                    <div class="row mb-2">
-                        <label for="email" class="col-md-12 col-form-label">{{ __('Email') }}</label>
-                        <div class="col-md-12">
-                            <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
-                            @error('email')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
+                    <div class="my-3">
+                        <label for="email">Email</label>
+                        <input type="email" id="emai" name="email" class="form-control" required>
+                        <label for="password">Passwod</label>
+                        <input type="password" id="password" name="password" class="form-control" required>
+                        <div class="my-3">
+                            <a href="{{ route('register') }}" class="text-decoration-none">Belum punya akun?</a>
                         </div>
-                    </div>
-
-                    <div class="row mb-2">
-                        <label for="password" class="col-md-12 col-form-label">{{ __('Password') }}</label>
-                        <div class="col-md-12">
-                            <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
-                            @error('password')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
-                        </div>
-                    </div>
-
-                    <div class="row mb-3">
-                        <div class="col-md-6 text-start">
-                            @if (Route::has('password.request'))
-                                <a class="btn btn-link mt-3" href="{{ route('password.request') }}">{{ __('Lupa Password?') }}</a>
-                            @endif
-                        </div>
-                        <div class="col-md-6 text-end">
-                            @if (Route::has('register'))
-                                <a class="btn btn-link mt-3" href="{{ route('register') }}">{{ __('Daftar') }}</a>
-                            @endif
-                        </div>
-                    </div>                    
-
-                    <div class="row mb-0">
-                        <div class="col-md-12">
-                            <button type="submit" class="btn btn-primary btn-block col-md-12">{{ __('Login') }}</button>
+                        <div class="">
+                            <button type="submit" class="btn form-control btn-primary mb-5">Login</button>
                         </div>
                     </div>
                 </form>
             </div>
-        </div>
+        {{-- </div> --}}
     </div>
-</section>
-@endsection
+</div>
+</body>
