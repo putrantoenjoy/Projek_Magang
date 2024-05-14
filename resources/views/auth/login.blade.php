@@ -19,13 +19,13 @@
 <body>
 
 
-<div class="d-flex vh-100">
-    <div class="col-md-8 bg-secondary d-flex justify-content-center">
+<div class="d-flex bg-secondary justify-content-center py-5">
+    {{-- <div class="col-md-8 d-flex justify-content-center">
         <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.svg" class="img-fluid" alt="Phone image" style="max-width: 50%;">
-    </div>
-    <div class="col-md-4 bg-white">
+    </div> --}}
+    <div class="col-md-4 bg-white rounded py-5">
         {{-- selamat datang --}}
-        <div class="d-flex justify-content-center py-5">
+        <div class="d-flex justify-content-center pb-5">
             <img src="{{ asset('logo/logo.png') }}" alt="logo" style="max-width: 50%">
         </div>
         {{-- <div class="row justify-content-center"> --}}
@@ -41,10 +41,13 @@
                         <label for="password">Passwod</label>
                         <input type="password" id="password" name="password" class="form-control" required>
                         <div class="my-3">
-                            <a href="{{ route('register') }}" class="text-decoration-none">Belum punya akun?</a>
+                            <div class="d-flex justify-content-between">
+                                <a href="{{ route('register') }}" class="text-decoration-none">Belum punya akun?</a>
+                                <a href="{{ route('password.request') }}" class="text-decoration-none">Lupa password?</a>
+                            </div>
                         </div>
                         <div class="">
-                            <button type="submit" class="btn form-control btn-primary mb-5">Login</button>
+                            <button type="submit" class="btn form-control btn-primary">Login</button>
                         </div>
                     </div>
                 </form>

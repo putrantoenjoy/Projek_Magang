@@ -41,6 +41,22 @@
        .mainnav__menu.nav.flex-column .nav-link.active {
             background-color: #0C58CA;
         }
+
+        .btn-primary {
+            background-color: #0c58ca;
+            color: white;
+            border: none;
+        }
+        .btn-success {
+            background-color: #10ca0c;
+            color: white;
+            border: none;
+        }
+        .btn-danger {
+            background-color: #ca0c0c;
+            color: white;
+            border: none;
+        }
     </style>
 </head>
 

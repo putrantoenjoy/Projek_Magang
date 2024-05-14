@@ -19,11 +19,11 @@
 <body>
 
 
-<div class="d-flex">
-    <div class="col-md-8 bg-secondary vh-100 d-flex justify-content-center position-fixed">
+<div class="d-flex bg-secondary justify-content-center py-5">
+    {{-- <div class="col-md-8 bg-secondary vh-100 d-flex justify-content-center position-fixed">
         <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.svg" class="img-fluid" alt="Phone image" style="max-width: 50%;">
-    </div>
-    <div class="col-md-4 bg-white position-absolute top-0 end-0">
+    </div> --}}
+    <div class="col-md-4 bg-white top-0 end-0 rounded">
         {{-- selamat datang --}}
         <div class="d-flex justify-content-center py-5">
             <img src="{{ asset('logo/logo.png') }}" alt="logo" style="max-width: 50%">

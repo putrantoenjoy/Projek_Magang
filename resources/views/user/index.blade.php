@@ -14,8 +14,8 @@
                                 <h4>Tabel User</h4>
                                 <div class="d-flex justify-content-between">
                                     <div class="d-flex">
-                                        <button class="btn btn-primary">Menambah User</button>
-                                        <button class="btn btn-success mx-3">Export PDF</button>
+                                        <button class="btn btn-primary"><i class="bi bi-plus-circle border-white text-white fs-6"></i> Menambah User</button>
+                                        <button class="btn btn-success mx-3"><i class="bi bi-download border-white text-white fs-6"></i> Export PDF</button>
                                     </div>
                                     <div class="d-flex">
                                         <input type="text" class="form-control mx-3" placeholder="cari">
