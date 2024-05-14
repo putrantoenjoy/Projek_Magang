@@ -28,6 +28,9 @@ Route::group(['middleware' => ['auth']], function () {
     // artikel
     Route::get('/artikel', [App\Http\Controllers\ArtikelController::class, 'index'])->name('artikel');
 
+    //galeri
+    Route::get('/galeri', [App\Http\Controllers\GaleriController::class, 'index'])->name('galeri');
+
     // role
     Route::get('/role', [App\Http\Controllers\RoleController::class, 'index'])->name('role-index');
 });

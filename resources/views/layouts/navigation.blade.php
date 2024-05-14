@@ -16,7 +16,7 @@
             </a>
         </li>
         <li class="nav-item">
-            <a href="" class="mininav-toggle nav-link " id="menuGaleri"><i class="bi bi-images fs-5 me-2"></i>
+            <a href="{{route('galeri')}}" class="mininav-toggle nav-link {{ Route::is('galeri') ? 'active' : ''  }}" id="menuGaleri"><i class="bi bi-images fs-5 me-2"></i>
                 <span class="nav-label ms-1">Galeri</span>
             </a>
         </li>
