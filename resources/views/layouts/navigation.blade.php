@@ -11,7 +11,7 @@
             </a>
         </li>
         <li class="nav-item">
-            <a href="" class="mininav-toggle nav-link " id="menuArtikel"><i class="bi bi-newspaper fs-5 me-2"></i>
+            <a href="{{route('artikel')}}" class="mininav-toggle nav-link {{ Route::is('artikel') ? 'active' : ''  }}" id="menuArtikel"><i class="bi bi-newspaper fs-5 me-2"></i>
                 <span class="nav-label ms-1">Artikel</span>
             </a>
         </li>
@@ -23,11 +23,6 @@
         <li class="nav-item">
             <a href="" class="mininav-toggle nav-link " id="menuRole"><i class="bi bi-screwdriver fs-5 me-2"></i>
                 <span class="nav-label ms-1">Role Permission</span>
-            </a>
-        </li>
-        <li class="nav-item">
-            <a href="{{route('blog')}}" class="mininav-toggle nav-link {{ Route::is('blog') ? 'active' : ''  }}" id="menuBlog"><i class="bi bi-clipboard fs-5 me-2"></i>
-                <span class="nav-label ms-1">Blog</span>
             </a>
         </li>
         <li class="nav-item">

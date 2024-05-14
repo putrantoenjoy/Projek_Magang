@@ -48,39 +48,6 @@
                 </div>
                 
                 <div class="row">
-                    <div class="col-sm-4 mb-4">
-                        <div class="card">
-                            <div class="card-header">
-                                <h4 class="card-title mb-0">Tanggal dan Waktu</h4>
-                            </div>
-                            <div class="card-body">
-                                <p>Lorem ipsum dolor sit amet.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-4 mb-4">
-                        <div class="card">
-                            <div class="card-header">
-                                <h4 class="card-title mb-0">Produk Terbaru</h4>
-                            </div>
-                            <div class="card-body">
-                                <p>Lorem ipsum dolor sit amet.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-4 mb-4">
-                        <div class="card">
-                            <div class="card-header">
-                                <h4 class="card-title mb-0">Iklan Terbaru</h4>
-                            </div>
-                            <div class="card-body">
-                                <p>Lorem ipsum dolor sit amet.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-        
-                <div class="row">
                     <div class="col-sm-12">
                         <div class="card">
                             <div class="card-header">

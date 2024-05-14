@@ -2,16 +2,16 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Edit Blog</h5>
+            <h5 class="modal-title" id="exampleModalLabel">Edit Artikel</h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <section id="tambah_akun">
+                <section id="tambah_artikel">
                     <div class="row">
                         <div class="col-md-12 mb-3">
                             <div class="h-100">
                                 <div class="card-body">
-                                    <form class="row g-3 justify-content-center" id="blog-tambah" method="post" action="">
+                                    <form class="row g-3 justify-content-center" id="artikel-tambah" method="post" action="">
                                         
                                         <div class="col-md-12">
                                             <label for="_dm-inputname" class="form-label">Post id</label>
@@ -66,10 +66,10 @@
     document.getElementById('_dm-inputtanggal').valueAsDate = new Date();
 
     function reset_tambah() {
-        document.getElementById("form-tambah").reset();
+        document.getElementById("artikel-tambah").reset();
     }
 
     function submit_tambah() {
-        document.getElementById("form-tambah").submit();
+        document.getElementById("artikel-tambah").submit();
     }
 </script>
