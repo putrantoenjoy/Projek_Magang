@@ -4,8 +4,8 @@
 <div class="container">
     <div class="d-flex flex-column m-3">
         <div class="card bg-transparent">
-            <p class="text-white fs-5">Galeri</p>
-            <h3 class="text-white" class="fw-bold">Data Galeri</h3>
+            <p class="text-white fs-5">Tim Kerja</p>
+            <h3 class="text-white" class="fw-bold">Data Tim Kerja</h3>
         </div>
        
             <div class="content__boxed">
@@ -28,13 +28,13 @@
         
                     <div class="card">
                         <div class="card-header">
-                            <h5 class="card-title mb-3">Tabel Galeri</h5>
+                            <h5 class="card-title mb-3">Tabel Tim Kerja</h5>
                             <div class="row">
                                 <div class="col-md-6 d-flex gap-1 align-items-center mb-3">
                                     <button type="button" class="btn btn-primary hstack gap-2 align-self-center" data-bs-toggle="modal" data-bs-target="#exampleModal">
                                         <i class="demo-psi-add fs-5"></i>
                                         <span class="vr"></span>
-                                        Tambah Galeri
+                                        Tambah Tim Kerja
                                     </button>
                                     <a href="" class="btn btn-success mx-3 hstack gap-2 align-self-center">
                                         <i class="bi bi-download border-white text-white fs-6"></i>
@@ -59,13 +59,10 @@
                                 <table id="table" class="table table-striped">
                                     <thead>
                                         <tr>
-                                            <th>Post id</th>
-                                            <th>Gambar</th>
-                                            <th>Judul</th>
-                                            <th>Deskripsi</th>
-                                            <th>Kategori</th>
-                                            <th>Tag</th>
-                                            <th>Tanggal Post</th>
+                                            <th>No</th>
+                                            <th>Nama</th>
+                                            <th>Jabatan</th>
+                                            <th>Foto Profil</th>
                                             <th>Aksi</th>
                                         </tr>
                                     </thead>
@@ -76,15 +73,12 @@
                                             <td> </td>
                                             <td> </td>
                                             <td> </td>
-                                            <td> </td>
-                                            <td> </td>
-                                            <td> </td>
                                             <td>
                                                 <div class="d-flex">
                                                     {{-- @if($data->deleted_at == null) --}}
                                                     <form action="" method="post">
                                                         @csrf
-                                                        @method('delete')    
+                                                        @method('delete')      
                                                         <button class="btn btn-primary" type="button" id="btn-edit" data-data='' data-bs-toggle="modal" data-bs-target="#ModalEdit"><i class="bi bi-pencil fs-5"></i></button>
                                                         <button class="btn btn-danger" type="submit"><i class="bi bi-trash fs-5"></i></button>
                                                     </form>
@@ -106,8 +100,8 @@
                     </div>
                 </div>
             </div>
-        @include('admin_galeri.modal_tambah')
-        @include('admin_galeri.modal_edit')
+        @include('admin_tim.modal_tambah')
+        @include('admin_tim.modal_edit')
         
     </div>
 </div>

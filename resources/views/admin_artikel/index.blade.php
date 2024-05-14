@@ -36,7 +36,8 @@
                                         <span class="vr"></span>
                                         Tambah Artikel
                                     </button>
-                                    <a href="" class="btn btn-secondary hstack gap-2 align-self-center">
+                                    <a href="" class="btn btn-success mx-3 hstack gap-2 align-self-center">
+                                        <i class="bi bi-download border-white text-white fs-6"></i>
                                         <span class="vr"></span>
                                         Export PDF
                                     </a>
@@ -44,10 +45,10 @@
                                 <div class="col-md-6 d-flex gap-1 align-items-center justify-content-md-end mb-3">
                                     <form action="" method="get" class="d-flex gap-2">
                                         <div class="form-group">
-                                            <input type="text" placeholder="Search..." name="cari" class="form-control" autocomplete="off" value="">
+                                            <input type="text" placeholder="Cari..." name="cari" class="form-control" autocomplete="off" value="">
                                         </div>
                                         <div class="btn-group">
-                                            <button class="btn btn-icon btn-outline-light"><i class="bi bi-search"></i></button>
+                                            <button class="btn btn-primary">Cari</button>
                                         </div>
                                     </form>
                                 </div>

@@ -33,4 +33,7 @@ Route::group(['middleware' => ['auth']], function () {
 
     // role
     Route::get('/role', [App\Http\Controllers\RoleController::class, 'index'])->name('role-index');
+
+    //tim kerja
+    Route::get('/tim', [App\Http\Controllers\TimController::class, 'index'])->name('tim');
 });
