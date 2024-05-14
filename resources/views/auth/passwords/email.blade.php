@@ -51,7 +51,7 @@
                         </div>
 
                         <div class="d-flex justify-content-center mt-3">
-                            Belum punya akun?&nbsp;<a href="" class="text-decoration-none">Daftar</a>
+                            Belum punya akun?&nbsp;<a href="{{ route('register') }}" class="text-decoration-none">Daftar</a>
                         </div>
                     </div>
                 </form>

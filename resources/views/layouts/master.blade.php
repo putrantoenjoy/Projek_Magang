@@ -152,8 +152,8 @@
                         <div class="d-flex">
                             <img class="mainnav__avatar img-md rounded-circle border me-3" alt="Profile Picture">
                             <div class="d-flex flex-column justify-content-center">
-                                <h4 class="m-0">Admin</h4>
-                                <p class="m-0">admin@gmail.com</p>
+                                <h4 class="m-0">{{ Auth::user()->name }}</h4>
+                                <p class="m-0">{{ Auth::user()->email }}</p>
                             </div>
                         </div>
                         <div class="mininav-content collapse d-mn-max">

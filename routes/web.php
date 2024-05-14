@@ -21,6 +21,13 @@ Auth::routes();
 Route::group(['middleware' => ['auth']], function () {
     Route::get('/dashboard', [App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard');
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+    // user
     Route::get('/user', [App\Http\Controllers\UserController::class, 'index'])->name('user-index');
+
+    // artikel
     Route::get('/artikel', [App\Http\Controllers\ArtikelController::class, 'index'])->name('artikel');
+
+    // role
+    Route::get('/role', [App\Http\Controllers\RoleController::class, 'index'])->name('role-index');
 });

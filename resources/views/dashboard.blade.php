@@ -10,7 +10,7 @@
             <h5 class="text-white"><span id="date"></span></h5>
         </div>
         <div class="content__boxed">
-            <div class="content__wrap">
+            <div class="content__wrap p-0">
                 <div class="row">
                     <div class="col-md-4 mb-4">
                         <div class="card">
