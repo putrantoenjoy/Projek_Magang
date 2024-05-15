@@ -14,7 +14,7 @@
                         <h4>Tabel Role</h4>
                         <div class="d-flex justify-content-between">
                             <div class="d-flex">
-                                <button class="btn btn-primary"><i class="bi bi-plus-circle border-white text-white fs-6"></i> Menambah Role</button>
+                                <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="bi bi-plus-circle border-white text-white fs-6"></i> Menambah Role</button>
                                 <button class="btn btn-success mx-3"><i class="bi bi-download border-white text-white fs-6"></i> Export PDF</button>
                             </div>
                             <div class="d-flex">
@@ -26,20 +26,16 @@
                 </div>
                 <table class="table table-striped px-3">
                     <thead class="fw-bold">
-                        <td>User Id</td>
+                        <td>Role Id</td>
                         <td>Nama</td>
-                        <td>Role</td>
-                        <td>Email</td>
-                        <td>Foto</td>
+                        <td>Permission</td>
                         <td>Aksi</td>
                     </thead>
                     <tbody>
                         <tr>
                             <td>U00001</td>
-                            <td>khosim</td>
                             <td>admin</td>
-                            <td>khosim@gmail.com</td>
-                            <td>admin</td>
+                            <td><button class="btn btn-primary">Permission</button></td>
                             <td>
                                 <a href="" class="btn btn-primary">Ubah</a>
                                 <a href="" class="btn btn-danger">Hapus</a>
@@ -47,10 +43,8 @@
                         </tr>
                         <tr>
                             <td>U00001</td>
-                            <td>khosim</td>
-                            <td>admin</td>
-                            <td>khosim@gmail.com</td>
-                            <td>admin</td>
+                            <td>user</td>
+                            <td><button class="btn btn-primary">Permission</button></td>
                             <td>
                                 <a href="" class="btn btn-primary">Ubah</a>
                                 <a href="" class="btn btn-danger">Hapus</a>
@@ -58,10 +52,8 @@
                         </tr>
                         <tr>
                             <td>U00001</td>
-                            <td>khosim</td>
-                            <td>admin</td>
-                            <td>khosim@gmail.com</td>
-                            <td>admin</td>
+                            <td>editor</td>
+                            <td><button class="btn btn-primary">Permission</button></td>
                             <td>
                                 <a href="" class="btn btn-primary">Ubah</a>
                                 <a href="" class="btn btn-danger">Hapus</a>
@@ -72,6 +64,7 @@
             </div>
         </div>
     </div>
+    @include('role.create')
     <!-- FOOTER -->
     <!-- END - FOOTER -->
     <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
