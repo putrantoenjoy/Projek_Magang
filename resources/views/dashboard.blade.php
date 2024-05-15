@@ -6,7 +6,7 @@
     <div class="d-flex flex-column m-3">
         <div class="card bg-transparent">
             <h2 class="text-white">Dashboard</h2>
-            <h3 class="text-white"><span id="greeting"></span></h3>
+            <h3 class="text-white"><span id="greeting"></span> {{ Auth::user()->name }}</h3>
             <h5 class="text-white"><span id="date"></span></h5>
         </div>
         <div class="content__boxed">

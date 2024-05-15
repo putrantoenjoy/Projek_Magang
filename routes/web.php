@@ -28,8 +28,14 @@ Route::group(['middleware' => ['auth']], function () {
     // artikel
     Route::get('/artikel', [App\Http\Controllers\ArtikelController::class, 'index'])->name('artikel');
 
+    //galeri
+    Route::get('/galeri', [App\Http\Controllers\GaleriController::class, 'index'])->name('galeri');
+
     // role
     Route::get('/role', [App\Http\Controllers\RoleController::class, 'index'])->name('role-index');
+
+    //tim kerja
+    Route::get('/tim', [App\Http\Controllers\TimController::class, 'index'])->name('tim');
     Route::post('/role', [App\Http\Controllers\RoleController::class, 'create'])->name('role-create');
     Route::patch('/role/update/{id}', [App\Http\Controllers\RoleController::class, 'update'])->name('role-update');
     Route::delete('/role/delete/{id}', [App\Http\Controllers\RoleController::class, 'delete'])->name('role-delete');

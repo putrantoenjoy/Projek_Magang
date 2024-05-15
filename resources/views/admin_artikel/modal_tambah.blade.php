@@ -44,7 +44,7 @@
                                         </div>
                                         <div class="col-12">
                                             <label for="_dm-inputtanggal" class="form-label">Tanggal Post</label>
-                                            <input id="_dm-inputtanggal" type="text" name="tanggal post" required class="form-control" placeholder="Tanggal Post">
+                                            <input id="_dm-inputtanggal" type="text" name="tanggal post" required class="form-control" placeholder="Tanggal Post" readonly>
                                         </div>
                                     </form>
                                 </div>
@@ -63,10 +63,20 @@
     </div>
 </div>
 <script>
-    document.getElementById('_dm-inputtanggal').valueAsDate = new Date();
+    document.addEventListener('DOMContentLoaded', function() {
+        setTodayDate();
+    });
+
+    function setTodayDate() {
+        var today = new Date();
+        var options = { day: '2-digit', month: 'long', year: 'numeric' };
+        var formattedDate = today.toLocaleDateString('id-ID', options);
+        document.getElementById('_dm-inputtanggal').value = formattedDate;
+    }
 
     function reset_tambah() {
         document.getElementById("artikel-tambah").reset();
+        setTodayDate();
     }
 
     function submit_tambah() {
