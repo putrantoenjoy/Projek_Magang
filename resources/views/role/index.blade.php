@@ -24,7 +24,7 @@
                         </div>
                     </div>
                 </div>
-                <table class="table table-striped px-3">
+                <table class="table table-striped px-3" id="table">
                     <thead class="fw-bold">
                         <td>Role Id</td>
                         <td>Role</td>
@@ -38,8 +38,8 @@
                             <td>{{ $data->name }}</td>
                             <td><button class="btn btn-primary">Permission</button></td>
                             <td>
-                                <a href="" id="edit" class="btn btn-primary">Ubah</a>
-                                <a href="" id="delete" class="btn btn-danger">Hapus</a>
+                                <button type="button" id="edit" data-data='{{ json_encode($data) }}' data-bs-toggle="modal" data-bs-target="#EditstaticBackdrop" class="btn btn-primary">Ubah</a>
+                                <button type="button" id="delete" class="btn btn-danger">Hapus</a>
                             </td>
                         </tr>
                         @endforeach
@@ -49,10 +49,14 @@
         </div>
     </div>
     @include('role.create')
+    @include('role.edit')
     <script>
-        $('#table').on('btn edit' , function () {
-            
-        });
-        console.log('h');
+        $('#table').on('click', 'tr #edit', function() {
+            let data = $(this).data('data');
+            console.log(data);
+
+            // $('#nama_edit').val(data.nama);
+            // $('#jabatan_edit').val(data.jabatan);
+        })  
     </script>
 @endsection

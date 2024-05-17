@@ -14,7 +14,7 @@
                                 <h4>Tabel User</h4>
                                 <div class="d-flex justify-content-between">
                                     <div class="d-flex">
-                                        <button class="btn btn-primary"><i class="bi bi-plus-circle border-white text-white fs-6"></i> Menambah User</button>
+                                        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="bi bi-plus-circle border-white text-white fs-6"></i> Menambah User</button>
                                         <button class="btn btn-success mx-3"><i class="bi bi-download border-white text-white fs-6"></i> Export PDF</button>
                                     </div>
                                     <div class="d-flex">
@@ -34,39 +34,19 @@
                                 <td>Aksi</td>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>U00001</td>
-                                    <td>khosim</td>
-                                    <td>admin</td>
-                                    <td>khosim@gmail.com</td>
-                                    <td>admin</td>
-                                    <td>
-                                        <a href="" class="btn btn-primary">Ubah</a>
-                                        <a href="" class="btn btn-danger">Hapus</a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>U00001</td>
-                                    <td>khosim</td>
-                                    <td>admin</td>
-                                    <td>khosim@gmail.com</td>
-                                    <td>admin</td>
-                                    <td>
-                                        <a href="" class="btn btn-primary">Ubah</a>
-                                        <a href="" class="btn btn-danger">Hapus</a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>U00001</td>
-                                    <td>khosim</td>
-                                    <td>admin</td>
-                                    <td>khosim@gmail.com</td>
-                                    <td>admin</td>
-                                    <td>
-                                        <a href="" class="btn btn-primary">Ubah</a>
-                                        <a href="" class="btn btn-danger">Hapus</a>
-                                    </td>
-                                </tr>
+                                @foreach ($alldata as $data)
+                                    <tr>
+                                        <td>{{ $data->id }}</td>
+                                        <td>{{ $data->name }}</td>
+                                        <td>{{ '$data->role' }}</td>
+                                        <td>{{ $data->email }}</td>
+                                        <td>{{ '$data->foto' }}</td>
+                                        <td>
+                                            <a href="" class="btn btn-primary">Ubah</a>
+                                            <a href="" class="btn btn-danger">Hapus</a>
+                                        </td>
+                                    </tr>
+                                @endforeach
                             </tbody>
                         </table>
                     </div>
@@ -97,4 +77,6 @@
     <!-- JAVASCRIPTS -->
     <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
     <!-- Bootstrap JS [ OPTIONAL ] -->
+        @include('user.create')
+        {{-- @include('user.edit') --}}
     @endsection

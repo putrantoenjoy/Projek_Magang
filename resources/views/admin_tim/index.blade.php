@@ -68,14 +68,14 @@
                                     </thead>
                                     <tbody>
                                         @foreach ($data as $row => $value)
-                                        <tr>
+                                        <tr class="align-middle">
                                             <td>{{ $loop->iteration }}</td>
                                             <td>{{ $value->nama }}</td>
                                             <td>{{ $value->jabatan }}</td>
                                             <td><img src="{{ url('storage/img/tim/'. $value->foto) }}" alt="foto" width="50px" height="50px" style="object-fit: cover"></td>
                                             <td>
-                                                <div class="d-flex">
-                                                    <form action="{{ url('tim/'. $value->id) }}" method="post">
+                                                <div class="d-flex align-items-center">
+                                                    <form action="{{ url('tim/'. $value->id) }}" class="m-0" method="post">
                                                         @csrf
                                                         @method('delete')      
                                                         <button class="btn btn-primary" type="button" id="btn-edit" data-data='{{ json_encode($value) }}' data-bs-toggle="modal" data-bs-target="#ModalEdit"><i class="bi bi-pencil fs-5"></i></button>

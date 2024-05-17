@@ -28,6 +28,7 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
 
     // user
     Route::get('/user', [App\Http\Controllers\UserController::class, 'index'])->name('user-index');
+    Route::post('/user', [App\Http\Controllers\UserController::class, 'create'])->name('user-create');
 
     // artikel
     Route::get('/artikel', [App\Http\Controllers\ArtikelController::class, 'index'])->name('artikel');

@@ -24,6 +24,8 @@ class RoleController extends Controller
     }
     public function update(Request $request, $id)
     {
+        $data = DB::table('role_has_permissions')->where('role_id', $id)->get();
+        
         return back();
     }
     public function delete($id)
