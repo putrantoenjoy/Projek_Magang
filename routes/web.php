@@ -37,6 +37,9 @@ Route::group(['middleware' => ['auth']], function () {
     
     //tim kerja
     Route::get('/tim', [App\Http\Controllers\TimController::class, 'index'])->name('tim');
+    Route::post('/tim', [App\Http\Controllers\TimController::class, 'simpan'])->name('tim.simpan');
+    Route::put('/tim/{id}', [App\Http\Controllers\TimController::class, 'update'])->name('tim.update');
+    Route::delete('/tim/{id}', [App\Http\Controllers\TimController::class, 'hapus'])->name('tim.hapus');
 
     // role
     Route::get('/role', [App\Http\Controllers\RoleController::class, 'index'])->name('role-index');
