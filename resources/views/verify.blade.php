@@ -3,25 +3,10 @@
 <div class="position-absolute" style="background-color: #0c58ca; height: 150px; width: 100%"></div>
 
 <div class="container">
-    @if (Auth::user()->email_verified_at === null)
-    <div class="modal fade show" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-modal="true" role="dialog" style="display: block; background-color: #00000099">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="staticBackdropLabel">Verifikasi Email</h5>
-                </div>
-                <div class="modal-body">
-                    Email anda sudah dikirim. Jika anda belum menerima email, silahkan klik <a href="{{ route('verification.send') }}" class="text-decoration-none">disini</a>
-                </div>
-            </div>
-        </div>
-    </div>
-    @endif
     <div class="d-flex flex-column m-3">
         <div class="card bg-transparent">
             <h2 class="text-white">Dashboard</h2>
-            {{-- <p class="btn btn-success">Email telah dikirim!</p> --}}
-            {{-- {{ Auth::user()->email_verified_at }} --}}
+            <p class="btn btn-success">Email telah dikirim!</p>
             <h3 class="text-white"><span id="greeting"></span> {{ Auth::user()->name }}</h3>
             <h5 class="text-white"><span id="date"></span></h5>
         </div>

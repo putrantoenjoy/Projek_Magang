@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Laravel\Fortify\Fortify;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,7 +18,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Auth::routes();
+// Auth::routes();
+// Auth::routes();
+// Route::get('/verify', [App\Http\Controllers\DashboardController::class, 'verify'])->name('verification.verify');
+// Route::get('/verify/notice', [App\Http\Controllers\DashboardController::class, 'notice'])->name('verification.notice');
 Route::group(['middleware' => ['auth']], function () {
     Route::get('/dashboard', [App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard');
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
@@ -36,29 +40,19 @@ Route::group(['middleware' => ['auth']], function () {
 
     // role
     Route::get('/role', [App\Http\Controllers\RoleController::class, 'index'])->name('role-index');
-
     Route::post('/role', [App\Http\Controllers\RoleController::class, 'create'])->name('role-create');
     Route::patch('/role/update/{id}', [App\Http\Controllers\RoleController::class, 'update'])->name('role-update');
     Route::delete('/role/delete/{id}', [App\Http\Controllers\RoleController::class, 'delete'])->name('role-delete');
 });
-
-// Route::get('routes', function () {
-//     $routeCollection = Route::getRoutes();
-
-//     echo "<table style='width:100%'>";
-//     echo "<tr>";
-//     echo "<td width='10%'><h4>HTTP Method</h4></td>";
-//     echo "<td width='10%'><h4>Route</h4></td>";
-//     echo "<td width='10%'><h4>Name</h4></td>";
-//     echo "<td width='70%'><h4>Corresponding Action</h4></td>";
-//     echo "</tr>";
-//     foreach ($routeCollection as $value) {
-//         echo "<tr>";
-//         echo "<td>" . $value->methods()[0] . "</td>";
-//         echo "<td>" . $value->uri() . "</td>";
-//         echo "<td>" . $value->getName() . "</td>";
-//         echo "<td>" . $value->getActionName() . "</td>";
-//         echo "</tr>";
-//     }
-//     echo "</table>";
+Fortify::loginView(function () {
+    return view('auth.login');
+});
+Fortify::registerView(function () {
+    return view('auth.register');
+});
+// Fortify::verifyEmailView(function (){
+//     return view('auth.verify');
 // });
+Route::get('/email/verify', function () {
+    return view('auth.verify');
+})->name('verification.notice');

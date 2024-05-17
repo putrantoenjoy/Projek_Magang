@@ -1,5 +1,16 @@
 <div class="mainnav__categoriy py-2">
     <ul class="mainnav__menu nav flex-column" id="myMenu">
+        {{-- @if (Auth::user()->email_verified_at === null)
+        <div class="card border">
+            <p>Anda belum verifikasi email!</p>
+            <a href="" class="text-decoration-none">Klik disini untuk memverifikasi</a>
+        </div>
+        <li class="nav-item mt-3">
+            <a href="{{route('dashboard')}}" class="mininav-toggle nav-link active" id="menuDashboard"><i class="demo-pli-home fs-5 me-2"></i>
+                <span class="nav-label ms-1">Dashboard</span>
+            </a>
+        </li>
+        @else --}}
         <li class="nav-item">
             <a href="{{route('dashboard')}}" class="mininav-toggle nav-link {{ Route::is('dashboard') ? 'active' : ''  }}" id="menuDashboard"><i class="demo-pli-home fs-5 me-2"></i>
                 <span class="nav-label ms-1">Dashboard</span>
@@ -30,5 +41,6 @@
                 <span class="nav-label ms-1">Tim Kerja</span>
             </a>
         </li>
+        {{-- @endif --}}
     </ul>
 </div>
