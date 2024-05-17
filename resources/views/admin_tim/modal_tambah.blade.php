@@ -11,7 +11,7 @@
                         <div class="col-md-12 mb-3">
                             <div class="h-100">
                                 <div class="card-body">
-                                    <form class="row g-3 justify-content-center" id="tim-tambah" method="post" action="">
+                                    <form class="row g-3 justify-content-center" id="tim-tambah" method="post" action="{{ url('tim') }}" enctype="multipart/form-data">
                                         @csrf
                                         <div class="col-md-12">
                                             <label for="_dm-inputnama" class="form-label">Nama</label>

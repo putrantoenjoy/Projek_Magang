@@ -67,35 +67,28 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        {{-- @foreach ($allData as $row => $data) --}}
+                                        @foreach ($data as $row => $value)
                                         <tr>
-                                            <td> </td>
-                                            <td> </td>
-                                            <td> </td>
-                                            <td> </td>
+                                            <td>{{ $loop->iteration }}</td>
+                                            <td>{{ $value->nama }}</td>
+                                            <td>{{ $value->jabatan }}</td>
+                                            <td><img src="{{ url('storage/img/tim/'. $value->foto) }}" alt="foto" width="50px" height="50px" style="object-fit: cover"></td>
                                             <td>
                                                 <div class="d-flex">
-                                                    {{-- @if($data->deleted_at == null) --}}
-                                                    <form action="" method="post">
+                                                    <form action="{{ url('tim/'. $value->id) }}" method="post">
                                                         @csrf
                                                         @method('delete')      
-                                                        <button class="btn btn-primary" type="button" id="btn-edit" data-data='' data-bs-toggle="modal" data-bs-target="#ModalEdit"><i class="bi bi-pencil fs-5"></i></button>
+                                                        <button class="btn btn-primary" type="button" id="btn-edit" data-data='{{ json_encode($value) }}' data-bs-toggle="modal" data-bs-target="#ModalEdit"><i class="bi bi-pencil fs-5"></i></button>
                                                         <button class="btn btn-danger" type="submit"><i class="bi bi-trash fs-5"></i></button>
                                                     </form>
-                                                    {{-- @else --}}
-                                                    <form action="" method="post">
-                                                        @csrf
-                                                        {{-- <button class="btn btn-danger disabled" type="button">Deleted</button> --}}
-                                                    </form>
-                                                    {{-- @endif --}}
                                                 </div>
                                             </td>
                                         </tr>
-                                        {{-- @endforeach --}}
+                                        @endforeach
                                     </tbody>
                                 </table>
                             </div>
-                            {{-- {{$allData->onEachSide(2)->links()}} --}}
+                            {{$data->links()}}
                         </div>
                     </div>
                 </div>
@@ -106,4 +99,12 @@
     </div>
 </div>
 
+<script>
+    $('#table').on('click', 'tr #btn-edit', function() {
+        let data = $(this).data('data');
+        $('#form-edit').attr('action', "{{ url('tim') }}" + '/' + data.id)
+        $('#nama_edit').val(data.nama);
+        $('#jabatan_edit').val(data.jabatan);
+    })  
+</script>
 @endsection
