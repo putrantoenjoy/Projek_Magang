@@ -25,7 +25,7 @@
             @if (Route::has('login'))
                 @auth
                     <li class="nav-item">
-                        <a class="nav-link active fs-5 fw-bold" href="{{ route('home') }}">Home</a>
+                        <a class="nav-link active fs-5 fw-bold" href="{{ route('dashboard') }}">Home</a>
                     </li>
                 @else
                     <a class="nav-link active fs-5 fw-bold" href="{{ route('login') }}">Login</a>

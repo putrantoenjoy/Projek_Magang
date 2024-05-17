@@ -22,7 +22,7 @@ Route::get('/', function () {
 // Auth::routes();
 // Route::get('/verify', [App\Http\Controllers\DashboardController::class, 'verify'])->name('verification.verify');
 // Route::get('/verify/notice', [App\Http\Controllers\DashboardController::class, 'notice'])->name('verification.notice');
-Route::group(['middleware' => ['auth']], function () {
+Route::group(['middleware' => ['auth', 'verified']], function () {
     Route::get('/dashboard', [App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard');
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 

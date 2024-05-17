@@ -27,67 +27,32 @@
                 <table class="table table-striped px-3">
                     <thead class="fw-bold">
                         <td>Role Id</td>
-                        <td>Nama</td>
+                        <td>Role</td>
                         <td>Permission</td>
                         <td>Aksi</td>
                     </thead>
                     <tbody>
+                        @foreach ($alldata as $data)
                         <tr>
-                            <td>U00001</td>
-                            <td>admin</td>
+                            <td>{{ $data->id }}</td>
+                            <td>{{ $data->name }}</td>
                             <td><button class="btn btn-primary">Permission</button></td>
                             <td>
-                                <a href="" class="btn btn-primary">Ubah</a>
-                                <a href="" class="btn btn-danger">Hapus</a>
+                                <a href="" id="edit" class="btn btn-primary">Ubah</a>
+                                <a href="" id="delete" class="btn btn-danger">Hapus</a>
                             </td>
                         </tr>
-                        <tr>
-                            <td>U00001</td>
-                            <td>user</td>
-                            <td><button class="btn btn-primary">Permission</button></td>
-                            <td>
-                                <a href="" class="btn btn-primary">Ubah</a>
-                                <a href="" class="btn btn-danger">Hapus</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>U00001</td>
-                            <td>editor</td>
-                            <td><button class="btn btn-primary">Permission</button></td>
-                            <td>
-                                <a href="" class="btn btn-primary">Ubah</a>
-                                <a href="" class="btn btn-danger">Hapus</a>
-                            </td>
-                        </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>
         </div>
     </div>
     @include('role.create')
-    <!-- FOOTER -->
-    <!-- END - FOOTER -->
-    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-    <!-- END - CONTENTS -->
-    <!-- HEADER -->
-    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-    
-    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-    <!-- END - HEADER -->
-    <!-- MAIN NAVIGATION -->
-    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-    
-    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-    <!-- END - MAIN NAVIGATION -->
-    
-    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-    <!-- END - PAGE CONTAINER -->
-    <!-- SCROLL TO TOP BUTTON -->
-    
-    
-    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-    <!-- END - SCROLL TO TOP BUTTON -->
-    <!-- JAVASCRIPTS -->
-    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-    <!-- Bootstrap JS [ OPTIONAL ] -->
+    <script>
+        $('#table').on('btn edit' , function () {
+            
+        });
+        console.log('h');
+    </script>
 @endsection
