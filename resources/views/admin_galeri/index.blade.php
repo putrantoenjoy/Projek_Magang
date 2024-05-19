@@ -62,46 +62,35 @@
                                             <th>Post id</th>
                                             <th>Gambar</th>
                                             <th>Judul</th>
-                                            <th>Deskripsi</th>
                                             <th>Kategori</th>
-                                            <th>Tag</th>
                                             <th>Tanggal Post</th>
                                             <th>Aksi</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        {{-- @foreach ($allData as $row => $data) --}}
-                                        <tr>
-                                            <td> </td>
-                                            <td> </td>
-                                            <td> </td>
-                                            <td> </td>
-                                            <td> </td>
-                                            <td> </td>
-                                            <td> </td>
+                                        @foreach ($data as $row => $value)
+                                        <tr class="align-middle">
+                                            <td>{{ $value->post_id }}</td>
+                                            <td><img src="{{ url('storage/img/galeri/'. $value->gambar) }}" alt="gambar" width="50px" height="50px" style="object-fit: cover"></td>
+                                            <td>{{ $value->judul }}</td>
+                                            <td>{{ $value->kategori }}</td>
+                                            <td>{{ date('d-m-Y', strtotime($value->created_at)) }}</td>
                                             <td>
-                                                <div class="d-flex">
-                                                    {{-- @if($data->deleted_at == null) --}}
-                                                    <form action="" method="post">
+                                                <div class="d-flex align-items-center">
+                                                    <form action="{{ url('galeri/'. $value->id) }}" method="post">
                                                         @csrf
                                                         @method('delete')    
-                                                        <button class="btn btn-primary" type="button" id="btn-edit" data-data='' data-bs-toggle="modal" data-bs-target="#ModalEdit"><i class="bi bi-pencil fs-5"></i></button>
+                                                        <button class="btn btn-primary" type="button" id="btn-edit" data-data='{{ json_encode($value) }}' data-bs-toggle="modal" data-bs-target="#ModalEdit"><i class="bi bi-pencil fs-5"></i></button>
                                                         <button class="btn btn-danger" type="submit"><i class="bi bi-trash fs-5"></i></button>
                                                     </form>
-                                                    {{-- @else --}}
-                                                    <form action="" method="post">
-                                                        @csrf
-                                                        {{-- <button class="btn btn-danger disabled" type="button">Deleted</button> --}}
-                                                    </form>
-                                                    {{-- @endif --}}
                                                 </div>
                                             </td>
                                         </tr>
-                                        {{-- @endforeach --}}
+                                        @endforeach
                                     </tbody>
                                 </table>
                             </div>
-                            {{-- {{$allData->onEachSide(2)->links()}} --}}
+                            {{$data->links()}}
                         </div>
                     </div>
                 </div>
@@ -112,4 +101,14 @@
     </div>
 </div>
 
+<script>
+    $('#table').on('click', 'tr #btn-edit', function() {
+        let data = $(this).data('data');
+        $('#form-edit').attr('action', "{{ url('galeri') }}" + '/' + data.id)
+        // $('#post_edit').val(data.post_id);
+        $('#judul_edit').val(data.judul);
+        $('#kategori_edit').val(data.kategori);
+        // $('#tanggal_edit').val(data.tanggal);
+    })  
+</script>
 @endsection
