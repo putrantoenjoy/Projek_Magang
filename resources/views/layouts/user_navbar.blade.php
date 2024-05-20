@@ -1,36 +1,45 @@
-<nav class="navbar navbar-expand-sm bg-primary navbar-dark p-0">
-    <div class="container-fluid">
-        <div class="m-1">
-            <img src="{{ asset('logo/logo.png') }}" alt="logo" style="width: 70px">
-        </div>
-        <ul class="navbar-nav">
-            <li class="nav-item">
-                <a class="nav-link active fs-5 fw-bold" href="#">Beranda</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link active fs-5 fw-bold" href="#">Layanan</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link active fs-5 fw-bold" href="#">Event</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link active fs-5 fw-bold" href="#">Galeri</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link active fs-5 fw-bold" href="#">Tentang Kami</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link active fs-5 fw-bold" href="#">Toko</a>
-            </li>
-            @if (Route::has('login'))
-                @auth
-                    <li class="nav-item">
-                        <a class="nav-link active fs-5 fw-bold" href="{{ route('dashboard') }}">Home</a>
-                    </li>
-                @else
-                    <a class="nav-link active fs-5 fw-bold" href="{{ route('login') }}">Login</a>
-                @endauth
-            @endif
+<header id="header" class="fixed-top">
+    <div class="container d-flex align-items-center justify-content-between">
+      {{-- <h1 class="logo"><a href="index.html">Multi</a></h1> --}}
+      <a href="index.html" class="logo"><img src="{{ asset('logo/logo.png') }}" alt="" class="img-fluid"></a>
+  
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a class="nav-link scrollto active" href="#hero">Beranda</a></li>
+          <li><a class="nav-link scrollto" href="#layanan">Layanan</a></li>
+          <li><a class="nav-link scrollto" href="#event">Event</a></li>
+          <li><a class="nav-link scrollto " href="#galeri">Galeri</a></li>
+          <li><a class="nav-link scrollto" href="#tentangkami">Tentang Kami</a></li>
+          {{-- <li class="dropdown"><a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down"></i></a>
+            <ul>
+              <li><a href="#">Drop Down 1</a></li>
+              <li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i class="bi bi-chevron-right"></i></a>
+                <ul>
+                  <li><a href="#">Deep Drop Down 1</a></li>
+                  <li><a href="#">Deep Drop Down 2</a></li>
+                  <li><a href="#">Deep Drop Down 3</a></li>
+                  <li><a href="#">Deep Drop Down 4</a></li>
+                  <li><a href="#">Deep Drop Down 5</a></li>
+                </ul>
+              </li>
+              <li><a href="#">Drop Down 2</a></li>
+              <li><a href="#">Drop Down 3</a></li>
+              <li><a href="#">Drop Down 4</a></li>
+            </ul>
+          </li> --}}
+          <li><a class="nav-link scrollto" href="#toko">Toko</a></li>
+          <li>
+        @if (Route::has('login'))
+        @auth
+            <a class="getstarted scrollto" href="{{ route('dashboard') }}">Home</a>
+          @else
+            <a class="getstarted scrollto" href="{{ route('login') }}">Login</a>
+          @endauth
+        @endif
+        </li>
         </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
     </div>
-</nav>
+  </header><!-- End Header -->
+  
