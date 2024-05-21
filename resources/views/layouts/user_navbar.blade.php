@@ -5,11 +5,11 @@
   
       <nav id="navbar" class="navbar">
         <ul>
-          <li><a class="nav-link scrollto active" href="#hero">Beranda</a></li>
+          <li><a class="nav-link scrollto {{ Request::is('beranda') ? 'active' : '' }}" href="{{route('beranda')}}">Beranda</a></li>
           <li><a class="nav-link scrollto" href="#layanan">Layanan</a></li>
           <li><a class="nav-link scrollto" href="#event">Event</a></li>
           <li><a class="nav-link scrollto " href="#galeri">Galeri</a></li>
-          <li><a class="nav-link scrollto" href="#tentangkami">Tentang Kami</a></li>
+          <li><a class="nav-link scrollto {{ Request::is('tentang-kami') ? 'active' : '' }}" href="{{route('tentang-kami')}}">Tentang Kami</a></li>
           {{-- <li class="dropdown"><a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
               <li><a href="#">Drop Down 1</a></li>
