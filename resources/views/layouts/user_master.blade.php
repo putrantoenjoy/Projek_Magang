@@ -1,90 +1,120 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        
-        <!-- CSRF Token -->
-        <meta name="csrf-token" content="{{ csrf_token() }}">
+<html lang="en">
 
-        <title>{{ config('app.name', 'Laravel') }}</title>
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-        <!-- Fonts -->
-        <link rel="dns-prefetch" href="//fonts.bunny.net">
-        <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <title>@yield('title', 'NusaDataPrima - Beranda')</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
 
-        <!-- Scripts -->
-        @vite(['resources/sass/app.scss', 'resources/js/app.js'])
-    </head>
-    <body class="antialiased">
-        @include('layouts.user_navbar')
-        
-        <div class="container-fluid p-0">
-            @yield('content')
-        </div>
-        
-        <div class="bg-primary">
-            <div class="container">
-                <footer class="pt-5">
-                    <div class="row">
-                        <div class="col-6 col-md-2 mb-3 text-white">
-                            <img src="{{ asset('logo/logo.png') }}" alt="logo" style="max-width: 70%">
-                            <ul class="nav flex-column my-3">
-                                <li class="nav-item mb-2"><a href="#" class="text-white text-decoration-none fs-5">Kediri</a></li>
-                                <li class="nav-item mb-2"><a href="#" class="text-white text-decoration-none">08123123123</a></li>
-                                <li class="nav-item mb-2"><a href="#" class="text-white text-decoration-none">Email@gmail.com</a></li>
-                            </ul>
-                            <ul class="list-unstyled d-flex m-0">
-                                <li class="me-3"><a class="link-dark" href="#"><i class="bi text-white fs-3 bi-facebook"></i></a></li>
-                                <li class="me-3"><a class="link-dark" href="#"><i class="bi text-white fs-3 bi-instagram"></i></a></li>
-                                <li class="me-3"><a class="link-dark" href="#"><i class="bi text-white fs-3 bi-twitter"></i></a></li>
-                            </ul>
-                        </div>
+  <!-- Favicons -->
+  <link href="multi/assets/img/" rel="icon">
+  <link href="multi/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
-                        <div class="col-6 col-md-2 mb-3 text-white">
-                            <h5 class="fw-bold">Menu</h5>
-                            <ul class="nav flex-column">
-                                <li class="nav-item mb-2"><a href="#" class="text-white text-decoration-none">Layanan</a></li>
-                                <li class="nav-item mb-2"><a href="#" class="text-white text-decoration-none">Event</a></li>
-                                <li class="nav-item mb-2"><a href="#" class="text-white text-decoration-none">Galeri</a></li>
-                                <li class="nav-item mb-2"><a href="#" class="text-white text-decoration-none">Tentang kami</a></li>
-                                <li class="nav-item mb-2"><a href="#" class="text-white text-decoration-none">Toko</a></li>
-                                @if (Route::has('login'))
-                                    @auth
-                                        <li class="nav-item mb-2"><a href="{{ route('home') }}" class="text-white text-decoration-none">home</a></li>
-                                    @endauth
-                                @endif
-                            </ul>
-                        </div>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
-                        <div class="col-6 col-md-2 mb-3 text-white">
-                            <h5 class="fw-bold">Link Lainnya</h5>
-                            <ul class="nav flex-column">
-                                <li class="nav-item mb-2"><a href="#" class="text-white text-decoration-none">Media</a></li>
-                                <li class="nav-item mb-2"><a href="#" class="text-white text-decoration-none">Blog</a></li>
-                                <li class="nav-item mb-2"><a href="#" class="text-white text-decoration-none">Tim kerja</a></li>
-                            </ul>
-                        </div>
+  <!-- Vendor CSS Files -->
+  <link href="multi/assets/vendor/animate.css/animate.min.css" rel="stylesheet">
+  <link href="multi/assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="multi/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="multi/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="multi/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="multi/assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="multi/assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+  <link href="multi/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
-                        <div class="col-md-5 offset-md-1 mb-3">
-                            <form>
-                                <h5 class="text-white">Subscribe to our newsletter</h5>
-                                <p class="text-white">Monthly digest of what's new and exciting from us.</p>
-                                <div class="d-flex flex-column flex-sm-row w-100 gap-2">
-                                    <label for="newsletter1" class="visually-hidden">Email address</label>
-                                    <input id="newsletter1" type="text" class="form-control" placeholder="Email address">
-                                    <button class="btn btn-dark" type="button">Subscribe</button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
+  <!-- Template Main CSS File -->
+  <link href="multi/assets/css/style.css" rel="stylesheet">
+</head>
 
-                    <div class="d-flex flex-column flex-sm-row py-4 align-items-center justify-content-center border-top">
-                        <p class="m-0 text-center text-white">&copy; Copyright Nusa Data Prima. All Rights Reserved {{ date("Y") }}.</p>
-                    </div>
-                </footer>
+<body>
+  @include('layouts.user_navbar')
+
+  @yield('content')
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+    <div class="footer-top">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-4 col-md-6">
+            <div class="footer-info">
+              <h3>Nusa Data Prima</h3>
+              <p> Kediri <br><br>
+                <strong>Phone:</strong> +1 5589 55488 55<br>
+                <strong>Email:</strong> info@example.com<br>
+              </p>
+              <div class="social-links mt-3">
+                <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+                <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+                <a href="#" class="youtube"><i class="bx bxl-youtube"></i></a>
+                <a href="#" class="whatsapp"><i class="bx bxl-whatsapp"></i></a>
+              </div>
             </div>
+          </div>
+
+          <div class="col-lg-2 col-md-6 footer-links">
+            <h4>Menu</h4>
+            <ul>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Layanan</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Event</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Galeri</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Tentang Kami</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Toko</a></li>
+              @if (Route::has('login'))
+                @auth
+                    <li><i class="bx bx-chevron-right"></i> <a href="{{ route('home') }}">Home</a></li>
+                @endauth
+            @endif
+            </ul>
+          </div>    
+
+          <div class="col-lg-2 col-md-6 footer-links">
+            <h4>Link Lainnya</h4>
+            <ul>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Media</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Blog</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Tim Kerja</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Marketing</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Graphic Design</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-4 col-md-6 footer-newsletter">
+            <h4>Newsletter Kami</h4>
+            <p>Masukkan alamat email anda untuk menerima notifikasi Newsletter kami</p>
+            <form action="" method="post">
+              <input type="email" name="email"><input type="submit" value="Subscribe">
+            </form>
+          </div>
         </div>
-    </body>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="copyright">
+        &copy; Copyright <strong><span>Nusa Data Prima</span></strong>. All Rights Reserved {{ date("Y") }}
+      </div>
+    </div>
+  </footer><!-- End Footer -->
+
+  <div id="preloader"></div>
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="multi/assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="multi/assets/vendor/aos/aos.js"></script>
+  <script src="multi/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="multi/assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="multi/assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="multi/assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="multi/assets/vendor/php-email-form/validate.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="multi/assets/js/main.js"></script>
+</body>
+
 </html>
