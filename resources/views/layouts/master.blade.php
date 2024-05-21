@@ -34,8 +34,17 @@
     <!-- Bootstrap CSS [ REQUIRED ] -->
     <link rel="stylesheet" href="{{ url('assets/css/bootstrap.min.75a07e3a3100a6fed983b15ad1b297c127a8c2335854b0efc3363731475cbed6.css') }}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    {{-- <link href="{{ asset('node_modules/froala-editor/css/froala_editor.pkgd.min.css') }}" rel="stylesheet" type="text/css" /> --}}
+    {{-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/froala-editor/4.2.0/css/froala_editor.min.css" integrity="sha512-G6PT5gDSYDKUq3VZqV4iKw6XNaz9jQd9zslIf+uJcgelmqSFOwmv7UM+QW3NRphYsGmG0Dlb1nNLp6HX/pwf3A==" crossorigin="anonymous" referrerpolicy="no-referrer" /> --}}
+    
+
+    <link href='https://cdn.jsdelivr.net/npm/froala-editor@latest/css/froala_editor.pkgd.min.css' rel='stylesheet' type='text/css' />
+
     <!-- Nifty CSS [ REQUIRED ] -->
+    {{-- <script type="text/javascript" src="{{ asset('node_modules/froala-editor/js/froala_editor.pkgd.min.js') }}"></script> --}}
     <link rel="stylesheet" href="{{ url('assets/css/nifty.min.4d1ebee0c2ac4ed3c2df72b5178fb60181cfff43375388fee0f4af67ecf44050.css') }}">
+    
+    <script type='text/javascript' src='https://cdn.jsdelivr.net/npm/froala-editor@latest/js/froala_editor.pkgd.min.js'></script>
     <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
     <style>
        .mainnav__menu.nav.flex-column .nav-link.active {
@@ -218,6 +227,6 @@
     <script src="{{ url('assets/js/nifty.min.b53472f123acc27ffd0c586e4ca3dc5d83c0670a3a5e120f766f88a92240f57b.js') }}" defer></script>
     <!-- Plugin scripts [ OPTIONAL ] -->
     <script src="{{ url('assets/pages/dashboard-1.min.07239cfbfa13a684f5c4668d5282cf217c7793bc57557b4ec22c36740ffb5bf1.js') }}" defer></script>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/froala-editor/4.2.0/js/froala_editor.min.js" integrity="sha512-w4jW1LYhfHs76gpWwx7itIM5HHvvw0Co2AJA60Xgqiljzj7jGnaRyV/CxOFO5PCbUuxVeBuKlgPr6qoq3eoUmw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </body>
 </html>

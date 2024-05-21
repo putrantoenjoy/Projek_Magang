@@ -11,41 +11,29 @@
                         <div class="col-md-12 mb-3">
                             <div class="h-100">
                                 <div class="card-body">
-                                    <form class="row g-3 justify-content-center" id="artikel-tambah" method="post" action="">
-                                        
-                                        <div class="col-md-12">
-                                            <label for="_dm-inputname" class="form-label">Post id</label>
-                                            <input id="_dm-inputname" type="text" value="" name="post_id" required class="form-control" disabled>
+                                    <form method="POST" > 
+                                        @csrf
+                                        <div class="mb-3">
+                                            <label for="name" class="form-label">Full Name</label>
+                                            <input type="text" class="form-control" id="name">
                                         </div>
-                                        <div class="col-md-12">
-                                            <label for="_dm-inputjudul" class="form-label">Judul</label>
-                                            <input id="_dm-inputjudul" type="text" name="judul" required placeholder="Judul" class="form-control">
+                                        <div class="mb-3">
+                                            <label for="exampleInputEmail1" class="form-label">Email address</label>
+                                            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                                            <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
                                         </div>
-                                        <div class="col-12">
-                                            <label for="_dm-inputKategori" class="form-label">Kategori</label>
-                                            <select id="_dm-inputKategori" name="kategori" class="form-select" required>
-                                                <option value="" selected disabled>Pilih Kategori</option>
-                                                {{-- <?php foreach ($kategori as $kat) { ?>
-                                                    <option value="<?php echo $kat; ?>"><?php echo $kat; ?></option>
-                                                <?php } ?> --}}
-                                            </select>
+                                        <div class="mb-3">
+                                            <label for="subject" class="form-label">Subject</label>
+                                            <input type="text" class="form-control" id="subject">
                                         </div>
-                                        <div class="col-12">
-                                            <label for="_dm-inputtags" class="form-label">Tags</label>
-                                            <select id="_dm-inputtags" name="tags[]" required class="form-control" multiple>
-                                                {{-- <?php foreach ($tags as $tag) { ?>
-                                                    <option value="<?php echo $tag; ?>"><?php echo $tag; ?></option>
-                                                <?php } ?> --}}
-                                            </select>
+        
+                                        <div class="mb-3">
+                                            <label for="request" class="form-label">Request Details</label>
+                                            <textarea class="form-control" id="request" rows="5"></textarea>
                                         </div>
-                                        <div class="col-12">
-                                            <label for="_dm-inputpenulis" class="form-label">Penulis</label>
-                                            <input id="_dm-inputpenulis" type="text" name="penulis" required class="form-control" placeholder="Penulis">
-                                        </div>
-                                        <div class="col-12">
-                                            <label for="_dm-inputtanggal" class="form-label">Tanggal Post</label>
-                                            <input id="_dm-inputtanggal" type="text" name="tanggal post" required class="form-control" placeholder="Tanggal Post" readonly>
-                                        </div>
+        
+                                        {{-- <button type="submit" class="btn btn-primary">Submit</button> --}}
+        
                                     </form>
                                 </div>
                                 <div class="d-flex justify-content-end p-3">
@@ -62,24 +50,4 @@
         </div>
     </div>
 </div>
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        setTodayDate();
-    });
 
-    function setTodayDate() {
-        var today = new Date();
-        var options = { day: '2-digit', month: 'long', year: 'numeric' };
-        var formattedDate = today.toLocaleDateString('id-ID', options);
-        document.getElementById('_dm-inputtanggal').value = formattedDate;
-    }
-
-    function reset_tambah() {
-        document.getElementById("artikel-tambah").reset();
-        setTodayDate();
-    }
-
-    function submit_tambah() {
-        document.getElementById("artikel-tambah").submit();
-    }
-</script>

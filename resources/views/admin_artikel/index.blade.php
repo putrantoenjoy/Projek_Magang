@@ -110,5 +110,16 @@
         
     </div>
 </div>
-
+{{-- <script type="text/javascript" src="{{ asset('node_modules/froala-editor/js/froala_editor.pkgd.min.js') }}"></script> --}}
+<script>
+    new FroalaEditor("#request", {
+ 
+        toolbarButtons: [
+             ['fontSize', 'bold', 'italic', 'underline', 'strikeThrough'],
+             [ 'alignLeft', 'alignCenter', 'alignRight', 'alignJustify','textColor', 'backgroundColor'],
+             ['formatOLSimple', 'formatUL', 'insertLink','insertImage','insertFile'],
+        ]
+ 
+     });
+ </script>
 @endsection
