@@ -13,12 +13,13 @@
                     <div class="border-bottom  pb-3">
                         <h4>Tabel Role</h4>
                         <div class="d-flex justify-content-between">
-                            <div class="d-flex">
+                            <div class="d-flex justify-content-start gap-3">
                                 <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="bi bi-plus-circle border-white text-white fs-6"></i> Menambah Role</button>
-                                <button class="btn btn-success mx-3"><i class="bi bi-download border-white text-white fs-6"></i> Export PDF</button>
+                                <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addPermissionStaticBackdrop"><i class="bi bi-plus-circle border-white text-white fs-6"></i> Menambah Permission</button>
+                                <button class="btn btn-success"><i class="bi bi-download border-white text-white fs-6"></i> Export PDF</button>
                             </div>
-                            <div class="d-flex">
-                                <input type="text" class="form-control mx-3" placeholder="cari">
+                            <div class="d-flex gap-3">
+                                <input type="text" class="form-control" placeholder="cari">
                                 <button class="btn btn-primary">Cari</button>
                             </div>
                         </div>
@@ -38,8 +39,12 @@
                             <td>{{ $data->name }}</td>
                             <td><button class="btn btn-primary">Permission</button></td>
                             <td>
-                                <button type="button" id="edit" data-data='{{ json_encode($data) }}' data-bs-toggle="modal" data-bs-target="#EditstaticBackdrop" class="btn btn-primary">Ubah</a>
-                                <button type="button" id="delete" class="btn btn-danger">Hapus</a>
+                                <form action="{{ route('role-delete', $data->id) }}" method="POST">
+                                    @csrf
+                                    @method('delete')      
+                                    <button class="btn btn-primary" type="button" id="edit" data-data='{{ json_encode($data) }}' data-bs-toggle="modal" data-bs-target="#EditstaticBackdrop">Ubah</button>
+                                    <button class="btn btn-danger" type="submit">Hapus</button>
+                                </form>
                             </td>
                         </tr>
                         @endforeach
@@ -49,6 +54,7 @@
         </div>
     </div>
     @include('role.create')
+    @include('role.permission')
     @include('role.edit')
     <script>
         $('#table').on('click', 'tr #edit', function() {

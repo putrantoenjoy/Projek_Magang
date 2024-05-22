@@ -25,8 +25,10 @@ return new class extends Migration
         }
 
         Schema::create($tableNames['permissions'], function (Blueprint $table) {
-            $table->bigIncrements('id'); // permission id
+            $table->bigIncrements('id');
+            $table->unsignedMediumInteger('navigation_id');
             $table->string('name');       // For MySQL 8.0 use string('name', 125);
+            $table->string('view');       // For MySQL 8.0 use string('name', 125);
             $table->string('guard_name')->nullable(); // For MySQL 8.0 use string('guard_name', 125);
             $table->timestamps();
 

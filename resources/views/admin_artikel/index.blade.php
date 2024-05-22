@@ -115,9 +115,7 @@
     new FroalaEditor("#request", {
  
         toolbarButtons: [
-             ['fontSize', 'bold', 'italic', 'underline', 'strikeThrough'],
-             [ 'alignLeft', 'alignCenter', 'alignRight', 'alignJustify','textColor', 'backgroundColor'],
-             ['formatOLSimple', 'formatUL', 'insertLink','insertImage','insertFile'],
+             ['fontSize', 'bold', 'italic', 'underline', 'strikeThrough', 'alignLeft', 'alignCenter', 'alignRight', 'alignJustify','textColor', 'backgroundColor', 'formatOLSimple', 'formatUL', 'insertLink','insertImage','insertFile'],
         ]
  
      });

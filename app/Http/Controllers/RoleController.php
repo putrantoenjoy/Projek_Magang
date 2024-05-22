@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Navigation;
 use Illuminate\Http\Request;
 use DB;
+use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
 
 class RoleController extends Controller
@@ -12,7 +14,9 @@ class RoleController extends Controller
     public function index()
     {
         $alldata = Role::get();
-        return view('role.index', compact('alldata'));
+        $permissions = Permission::get();
+        $allnavigasi = Navigation::get();
+        return view('role.index', compact('alldata', 'permissions', 'allnavigasi'));
     }
     public function create(Request $request)
     {
@@ -30,6 +34,7 @@ class RoleController extends Controller
     }
     public function delete($id)
     {
+        Role::find($id)->delete();
         return back();
     }
 }

@@ -11,7 +11,7 @@
                 <h5 class="modal-title" id="staticBackdropLabel">Menambah Role</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form action="{{ route('role-create') }}" method="post" id="addrole">
+            <form action="{{ route('role-create') }}" method="post" class="" id="addrole">
                 @csrf
                 <div class="modal-body">
                     <div class="d-flex flex-column">
@@ -19,11 +19,13 @@
                         <input type="text" id="namarole" name="nama" id="" class="form-control">
                     </div>
                 </div>
-                <div class="p-3 d-flex justify-content-end">
+            </form>
+            <div class="p-3 d-flex justify-content-end">
+                <form action="{{ route('role-create') }}" method="post">
                     <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
                     <button type="submit" class="btn btn-primary">Simpan</button>
-                </div>
-            </form>
+                </form>
+            </div>
         </div>
     </div>
 </div>
