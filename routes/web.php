@@ -16,7 +16,7 @@ use Laravel\Fortify\Fortify;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('beranda');
 
 // Auth::routes();
 // Auth::routes();
@@ -54,6 +54,9 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
     Route::patch('/role/update/{id}', [App\Http\Controllers\RoleController::class, 'update'])->name('role-update');
     Route::delete('/role/delete/{id}', [App\Http\Controllers\RoleController::class, 'delete'])->name('role-delete');
 });
+//tentang kami
+Route::get('/tentang-kami', [App\Http\Controllers\TentangKamiController::class, 'index'])->name('tentang-kami');
+
 Fortify::loginView(function () {
     return view('auth.login');
 });
