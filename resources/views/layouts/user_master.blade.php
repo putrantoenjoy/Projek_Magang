@@ -63,7 +63,6 @@
               <li><i class="bx bx-chevron-right"></i> <a href="#">Event</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="#">Galeri</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="#">Tentang Kami</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Toko</a></li>
               @if (Route::has('login'))
                 @auth
                     <li><i class="bx bx-chevron-right"></i> <a href="{{ route('home') }}">Home</a></li>
@@ -76,10 +75,9 @@
             <h4>Link Lainnya</h4>
             <ul>
               <li><i class="bx bx-chevron-right"></i> <a href="#">Media</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Blog</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Artikel</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="#">Tim Kerja</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Marketing</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Graphic Design</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Toko</a></li>
             </ul>
           </div>
 

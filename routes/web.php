@@ -54,6 +54,16 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
     Route::patch('/role/update/{id}', [App\Http\Controllers\RoleController::class, 'update'])->name('role-update');
     Route::delete('/role/delete/{id}', [App\Http\Controllers\RoleController::class, 'delete'])->name('role-delete');
 });
+
+//layanan
+Route::get('/layanan', [App\Http\Controllers\LayananController::class, 'index'])->name('layanan');
+
+//event
+Route::get('/event', [App\Http\Controllers\EventController::class, 'index'])->name('event');
+
+//galeri
+Route::get('/galeri', [App\Http\Controllers\UserGaleriController::class, 'index'])->name('galeri');
+
 //tentang kami
 Route::get('/tentang-kami', [App\Http\Controllers\TentangKamiController::class, 'index'])->name('tentang-kami');
 
