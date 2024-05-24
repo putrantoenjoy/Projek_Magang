@@ -62,10 +62,16 @@ Route::get('/layanan', [App\Http\Controllers\LayananController::class, 'index'])
 Route::get('/event', [App\Http\Controllers\EventController::class, 'index'])->name('event');
 
 //galeri
-Route::get('/galeri', [App\Http\Controllers\UserGaleriController::class, 'index'])->name('galeri');
+Route::get('/galeri-kami', [App\Http\Controllers\UserGaleriController::class, 'index'])->name('galeri-kami');
 
 //tentang kami
 Route::get('/tentang-kami', [App\Http\Controllers\TentangKamiController::class, 'index'])->name('tentang-kami');
+
+//artikel
+Route::get('/artikel-kami', [App\Http\Controllers\UserArtikelController::class, 'index'])->name('artikel-kami');
+
+//tim
+Route::get('/tim-kerja', [App\Http\Controllers\UserTimController::class, 'index'])->name('tim-kerja');
 
 Fortify::loginView(function () {
     return view('auth.login');

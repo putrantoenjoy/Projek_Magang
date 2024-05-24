@@ -9,10 +9,11 @@ class TimController extends Controller
 {
     public function index()
     {
+        $timkerja = TimKerja::all();
         $set = [
             'data' => TimKerja::where('soft_delete', 0)->paginate(10),
         ];
-        return view('admin_tim.index', $set);
+        return view('admin_tim.index', $set, compact('timkerja'));
     }
 
     public function simpan(Request $request)
