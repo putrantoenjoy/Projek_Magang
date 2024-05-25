@@ -27,7 +27,8 @@ class ArtikelController extends Controller
             'instagram' => $request->instagram,
             'youtube' => $request->youtube,
         ];
-        Blog::insert($data);
+        dd($data);
+        // Blog::insert($data);
 
         return redirect()->back();
     }

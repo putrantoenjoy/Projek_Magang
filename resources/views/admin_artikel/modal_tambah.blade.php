@@ -11,62 +11,58 @@
                         <div class="col-md-12 mb-3">
                             <div class="h-100">
                                 <div class="card-body">
-                                    <form method="POST" > 
+                                    <form method="POST" action="{{ route('artikel-create') }}"> 
                                         @csrf
                                         <div class="mb-3">
                                             <label for="name" class="form-label">Penulis</label>
                                             <input type="text" class="form-control" value="{{ Auth::user()->name }}" disabled id="name">
                                         </div>
                                         <div class="mb-3">
-                                            <label for="subject" class="form-label">Judul</label>
-                                            <input type="text" class="form-control" id="subject">
+                                            <label for="judul" class="form-label">Judul</label>
+                                            <input type="text" name="judul" class="form-control" id="judul">
                                         </div>
                                         <div class="mb-3">
-                                            <label for="subject" class="form-label">Deskripsi</label>
-                                            <input type="text" class="form-control" id="subject">
+                                            <label for="deskripsi" class="form-label">Deskripsi</label>
+                                            <input type="text" name="deskripsi" class="form-control" id="deskripsi">
                                         </div>
                                         <div class="mb-3">
-                                            <label for="exampleInputEmail1" class="form-label">Kategori</label>
-                                            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                                        </div>
-                                        
-                                        <div class="mb-3">
-                                            <label for="request" class="form-label">Konten</label>
-                                            <textarea class="form-control" id="request" rows="5"></textarea>
+                                            <label for="kategori" class="form-label">Kategori</label>
+                                            <select name="kategori" id="kategori" class="form-control">
+                                                <option value="1">kategori a</option>
+                                            </select>
                                         </div>
                                         <div class="mb-3">
-                                            <label for="subject" class="form-label">Tags</label>
-                                            <input type="text" class="form-control" id="subject">
+                                            <label for="konten" class="form-label">Konten</label>
+                                            <textarea class="form-control" id="konten" name="konten" rows="5"></textarea>
                                         </div>
                                         <div class="mb-3">
-                                            <label for="subject" class="form-label">Link Facebook (opsional)</label>
+                                            <label for="tags" class="form-label">Tags</label>
+                                            <input type="text" class="form-control" name="tags" id="tags">
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="facebook" class="form-label">Link Facebook (opsional)</label>
                                             <div class="input-group flex-nowrap">
                                                 <span class="input-group-text" id="facebook-span">@</span>
-                                                <input type="text" class="form-control" id="facebook" aria-describedby="facebook-span" placeholder="......">
+                                                <input type="text" class="form-control" id="facebook" name="facebook" aria-describedby="facebook-span" placeholder="......">
                                             </div>
                                         </div>
                                         <div class="mb-3">
-                                            <label for="subject" class="form-label">Link Instagram (opsional)</label>
+                                            <label for="instagram" class="form-label">Link Instagram (opsional)</label>
                                             <div class="input-group flex-nowrap">
                                                 <span class="input-group-text" id="instagram-span">@</span>
-                                                <input type="text" class="form-control" id="instagram" aria-describedby="instagram-span" placeholder="......">
+                                                <input type="text" class="form-control" id="instagram" name="instagram" aria-describedby="instagram-span" placeholder="......">
                                             </div>
                                         </div>
                                         <div class="mb-3">
-                                            <label for="subject" class="form-label">Channel Youtube (opsional)</label>
-                                            <input type="text" class="form-control" id="youtube" placeholder="......">
+                                            <label for="youtube" class="form-label">Channel Youtube (opsional)</label>
+                                            <input type="text" class="form-control" id="youtube" name="youtube" placeholder="......">
                                         </div>
-        
-                                        {{-- <button type="submit" class="btn btn-primary">Submit</button> --}}
-        
+                                        <div class="d-flex justify-content-end gap-3">
+                                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                                            <button type="submit" class="btn btn-primary">Simpan</button>
+                                        </div>
                                     </form>
                                 </div>
-                                <div class="d-flex justify-content-end p-3">
-                                    <div>
-                                        <button type="reset" onclick="reset_tambah()" class="btn btn-danger">Reset</button>
-                                        <button type="submit" onclick="submit_tambah()" class="btn btn-primary">Tambah</button>
-                                    </div>
-                                  </div>
                             </div>
                         </div>
                     </div>

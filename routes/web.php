@@ -32,6 +32,7 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
 
     // artikel
     Route::get('/artikel', [App\Http\Controllers\ArtikelController::class, 'index'])->name('artikel');
+    Route::post('/artikel', [App\Http\Controllers\ArtikelController::class, 'create'])->name('artikel-create');
 
     //event
     Route::get('/event', [App\Http\Controllers\EventController::class, 'index'])->name('event');
