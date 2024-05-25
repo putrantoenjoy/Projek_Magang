@@ -33,6 +33,12 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
     // artikel
     Route::get('/artikel', [App\Http\Controllers\ArtikelController::class, 'index'])->name('artikel');
 
+    //event
+    Route::get('/event', [App\Http\Controllers\EventController::class, 'index'])->name('event');
+    Route::post('/event', [App\Http\Controllers\EventController::class, 'simpan'])->name('event.simpan');
+    Route::put('/event/{id}', [App\Http\Controllers\EventController::class, 'update'])->name('event.update');
+    Route::delete('/event/{id}', [App\Http\Controllers\EventController::class, 'hapus'])->name('event.hapus');
+
     //galeri
     Route::get('/galeri', [App\Http\Controllers\GaleriController::class, 'index'])->name('galeri');
     Route::post('/galeri', [App\Http\Controllers\GaleriController::class, 'simpan'])->name('galeri.simpan');
@@ -59,7 +65,7 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
 Route::get('/layanan', [App\Http\Controllers\LayananController::class, 'index'])->name('layanan');
 
 //event
-Route::get('/event', [App\Http\Controllers\EventController::class, 'index'])->name('event');
+Route::get('/event-kami', [App\Http\Controllers\UserEventController::class, 'index'])->name('event-kami');
 
 //galeri
 Route::get('/galeri-kami', [App\Http\Controllers\UserGaleriController::class, 'index'])->name('galeri-kami');

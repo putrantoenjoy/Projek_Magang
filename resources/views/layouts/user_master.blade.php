@@ -60,7 +60,7 @@
             <h4>Menu</h4>
             <ul>
               <li><i class="bx bx-chevron-right"></i> <a href="{{route('layanan')}}">Layanan</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="{{route('event')}}">Event</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="{{route('event-kami')}}">Event</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="{{route('galeri-kami')}}">Galeri</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="{{route('tentang-kami')}}">Tentang Kami</a></li>
               @if (Route::has('login'))

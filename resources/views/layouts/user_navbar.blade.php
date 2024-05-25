@@ -7,8 +7,8 @@
         <ul>
           <li><a class="nav-link scrollto {{ Request::is('beranda') ? 'active' : '' }}" href="{{route('beranda')}}">Beranda</a></li>
           <li><a class="nav-link scrollto {{ Request::is('layanan') ? 'active' : '' }}" href="{{route('layanan')}}">Layanan</a></li>
-          <li><a class="nav-link scrollto {{ Request::is('event') ? 'active' : '' }}" href="{{route('event')}}">Event</a></li>
-          <li><a class="nav-link scrollto {{ Request::is('galeri') ? 'active' : '' }}" href="{{route('galeri-kami')}}">Galeri</a></li>
+          <li><a class="nav-link scrollto {{ Request::is('event-kami') ? 'active' : '' }}" href="{{route('event-kami')}}">Event</a></li>
+          <li><a class="nav-link scrollto {{ Request::is('galeri-kami') ? 'active' : '' }}" href="{{route('galeri-kami')}}">Galeri</a></li>
           <li><a class="nav-link scrollto {{ Request::is('tentang-kami') ? 'active' : '' }}" href="{{route('tentang-kami')}}">Tentang Kami</a></li>
           {{-- <li class="dropdown"><a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down"></i></a>
             <ul>

@@ -18,14 +18,14 @@
                 </tr>
             </thead>
             <tbody>
-                {{-- @foreach ($events as $event) --}}
+                @foreach ($event as $event)
                     <tr>
-                        <td>1</td>
-                        <td>Jalan Lingkar</td>
-                        <td>20 Mei 2024</td>
-                        <td>15.00</td>
+                        <td>{{ $loop->iteration }}</td>
+                        <td>{{ $event['tempat'] }}</td>
+                        <td>{{ $event['tanggal'] }}</td>
+                        <td>{{ $event['waktu'] }}</td>
                     </tr>
-                {{-- @endforeach --}}
+                @endforeach
             </tbody>
         </table>
         

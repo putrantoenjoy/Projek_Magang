@@ -27,6 +27,11 @@
             </a>
         </li>
         <li class="nav-item">
+            <a href="{{route('event')}}" class="mininav-toggle nav-link {{ Route::is('event') ? 'active' : ''  }}" id="menuEvent"><i class="bi bi-calendar-event fs-5 me-2"></i>
+                <span class="nav-label ms-1">Event</span>
+            </a>
+        </li>
+        <li class="nav-item">
             <a href="{{route('galeri')}}" class="mininav-toggle nav-link {{ Route::is('galeri') ? 'active' : ''  }}" id="menuGaleri"><i class="bi bi-images fs-5 me-2"></i>
                 <span class="nav-label ms-1">Galeri</span>
             </a>
