@@ -15,11 +15,16 @@ return new class extends Migration
     {
         Schema::create('blogs', function (Blueprint $table) {
             $table->id();
-            $table->string('judul');
-            $table->string('kategori');
-            $table->string('tags');
+            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('kategori_id');
             $table->string('penulis');
-            $table->date('tanggal_post');
+            $table->string('judul');
+            $table->string('deskripsi');
+            $table->string('konten');
+            $table->string('tags');
+            $table->string('facebook');
+            $table->string('instagram');
+            $table->string('youtube');
             $table->timestamps();
         });
     }

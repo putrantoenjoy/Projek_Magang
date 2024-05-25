@@ -60,17 +60,29 @@
                                     <thead>
                                         <tr>
                                             <th>Post id</th>
-                                            <th>Judul</th>
-                                            <th>Kategori</th>
-                                            <th>Tag</th>
+                                            <th>User Id</th>
                                             <th>Penulis</th>
-                                            <th>Tanggal Post</th>
+                                            <th>Judul</th>
+                                            <th>Deskripsi</th>
+                                            <th>Kategori</th>
+                                            <th>Konten</th>
+                                            <th>Tag</th>
+                                            <th>Facebook</th>
+                                            <th>Intagram</th>
+                                            <th>Youtube</th>
+                                            <th>Tanggal Posting</th>
                                             <th>Aksi</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         {{-- @foreach ($allData as $row => $data) --}}
                                         <tr>
+                                            <td> </td>
+                                            <td> </td>
+                                            <td> </td>
+                                            <td> </td>
+                                            <td> </td>
+                                            <td> </td>
                                             <td> </td>
                                             <td> </td>
                                             <td> </td>
@@ -100,7 +112,6 @@
                                     </tbody>
                                 </table>
                             </div>
-                            {{-- {{$allData->onEachSide(2)->links()}} --}}
                         </div>
                     </div>
                 </div>
