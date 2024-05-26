@@ -85,7 +85,7 @@
             <h4>Newsletter Kami</h4>
             <p>Masukkan alamat email anda untuk menerima notifikasi Newsletter kami</p>
             <form action="" method="post">
-              <input type="email" name="email"><input type="submit" value="Subscribe">
+              <input type="email" name="email" placeholder="Email"><input type="submit" value="Subscribe">
             </form>
           </div>
         </div>
