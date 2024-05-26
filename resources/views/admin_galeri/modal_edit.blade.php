@@ -15,10 +15,10 @@
                                         <div class="row g-3 justify-content-center">
                                             @csrf
                                             @method('PUT')
-                                            <div class="col-md-12">
+                                            {{-- <div class="col-md-12">
                                                 <label for="post_edit" class="form-label">Post ID</label>
                                                 <input id="post_edit" type="text" value="" name="post_id" required class="form-control" disabled>
-                                            </div>
+                                            </div> --}}
                                             <div class="mb-3">
                                                 <label for="file" class="form-label">Pilih Gambar</label>
                                                 <input type="file" class="form-control" id="file" name="file">
@@ -30,10 +30,13 @@
                                             <div class="col-12">
                                                 <label for="Kategori_edit" class="form-label">Kategori</label>
                                                 <select id="Kategori_edit" name="kategori" class="form-select">
-                                                    <option value="" selected disabled>Pilih Kategori</option>
-                                                    {{-- <?php foreach ($kategori as $kat) { ?>
-                                                        <option value="<?php echo $kat; ?>"><?php echo $kat; ?></option>
-                                                    <?php } ?> --}}
+                                                    <option value="proyek" {{ old('kategori') == 'proyek' ? 'selected' : '' }}>Proyek</option>
+                                                    <option value="acara" {{ old('kategori') == 'acara' ? 'selected' : '' }}>Acara</option>
+                                                    <option value="produk" {{ old('kategori') == 'produk' ? 'selected' : '' }}>Produk</option>
+                                                    <option value="sertifikat" {{ old('kategori') == 'sertifikat' ? 'selected' : '' }}>Sertifikat</option>
+                                                    <option value="fasilitas" {{ old('kategori') == 'fasilitas' ? 'selected' : '' }}>Fasilitas</option>
+                                                    <option value="klien" {{ old('kategori') == 'klien' ? 'selected' : '' }}>Klien</option>
+                                                    <option value="kegiatan_sosial" {{ old('kategori') == 'kegiatan_sosial' ? 'selected' : '' }}>Kegiatan Sosial</option>
                                                 </select>
                                             </div>
                                             <div class="col-12">

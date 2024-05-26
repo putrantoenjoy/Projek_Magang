@@ -11,12 +11,12 @@
                         <div class="col-md-12 mb-3">
                             <div class="h-100">
                                 <div class="card-body">
-                                    <form class="row g-3 justify-content-center" id="galeri-tambah" method="post" action="">
+                                    <form class="row g-3 justify-content-center" id="galeri-tambah" method="post" action="{{ url('galeri') }}" enctype="multipart/form-data">
                                         @csrf
-                                        <div class="col-md-12">
+                                        {{-- <div class="col-md-12">
                                             <label for="_dm-inputname" class="form-label">Post id</label>
                                             <input id="_dm-inputname" type="text" value="" name="post_id" required class="form-control" disabled>
-                                        </div>
+                                        </div> --}}
                                         <div class="mb-3">
                                             <label for="file" class="form-label">Pilih Gambar</label>
                                             <input type="file" class="form-control" id="file" name="file" required>
@@ -26,12 +26,15 @@
                                             <input id="_dm-inputjudul" type="text" name="judul" required placeholder="Judul" class="form-control">
                                         </div>
                                         <div class="col-12">
-                                            <label for="_dm-inputKategori" class="form-label">Kategori</label>
-                                            <select id="_dm-inputKategori" name="kategori" class="form-select" required>
-                                                <option value="" selected disabled>Pilih Kategori</option>
-                                                {{-- <?php foreach ($kategori as $kat) { ?>
-                                                    <option value="<?php echo $kat; ?>"><?php echo $kat; ?></option>
-                                                <?php } ?> --}}
+                                            <label for="kategori" class="form-label">Kategori</label>
+                                            <select id="kategori" name="kategori" class="form-control" required placeholder="Pilih Kategori">
+                                                <option value="proyek" {{ old('kategori') == 'proyek' ? 'selected' : '' }}>Proyek</option>
+                                                <option value="acara" {{ old('kategori') == 'acara' ? 'selected' : '' }}>Acara</option>
+                                                <option value="produk" {{ old('kategori') == 'produk' ? 'selected' : '' }}>Produk</option>
+                                                <option value="sertifikat" {{ old('kategori') == 'sertifikat' ? 'selected' : '' }}>Sertifikat</option>
+                                                <option value="fasilitas" {{ old('kategori') == 'fasilitas' ? 'selected' : '' }}>Fasilitas</option>
+                                                <option value="klien" {{ old('kategori') == 'klien' ? 'selected' : '' }}>Klien</option>
+                                                <option value="kegiatan_sosial" {{ old('kategori') == 'kegiatan_sosial' ? 'selected' : '' }}>Kegiatan Sosial</option>
                                             </select>
                                         </div>
                                         <div class="col-12">

@@ -59,7 +59,7 @@
                                 <table id="table" class="table table-striped">
                                     <thead>
                                         <tr>
-                                            <th>Post id</th>
+                                            <th>No</th>
                                             <th>Gambar</th>
                                             <th>Judul</th>
                                             <th>Kategori</th>
@@ -70,7 +70,7 @@
                                     <tbody>
                                         @foreach ($data as $row => $value)
                                         <tr class="align-middle">
-                                            <td>{{ $value->post_id }}</td>
+                                            <td>{{ $loop->iteration }}</td>
                                             <td><img src="{{ url('storage/img/galeri/'. $value->gambar) }}" alt="gambar" width="50px" height="50px" style="object-fit: cover"></td>
                                             <td>{{ $value->judul }}</td>
                                             <td>{{ $value->kategori }}</td>
@@ -80,8 +80,8 @@
                                                     <form action="{{ url('galeri/'. $value->id) }}" method="post">
                                                         @csrf
                                                         @method('delete')    
-                                                        <button class="btn btn-primary" type="button" id="btn-edit" data-data='{{ json_encode($value) }}' data-bs-toggle="modal" data-bs-target="#ModalEdit"><i class="bi bi-pencil fs-5"></i></button>
-                                                        <button class="btn btn-danger" type="submit"><i class="bi bi-trash fs-5"></i></button>
+                                                        <button class="btn btn-primary" type="button" id="btn-edit" data-data='{{ json_encode($value) }}' data-bs-toggle="modal" data-bs-target="#ModalEdit">Ubah</button>
+                                                        <button class="btn btn-danger" type="submit">Hapus</button>
                                                     </form>
                                                 </div>
                                             </td>

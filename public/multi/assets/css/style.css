@@ -1159,7 +1159,7 @@ section {
 
 .portfolio #portfolio-flters li:hover,
 .portfolio #portfolio-flters li.filter-active {
-  color: #ed502e;
+  color: #1307ff;
 }
 
 .portfolio #portfolio-flters li:last-child {
@@ -1178,7 +1178,7 @@ section {
   bottom: 0;
   z-index: 3;
   transition: all ease-in-out 0.3s;
-  background: rgba(255, 255, 255, 0.9);
+  background: rgba(255, 255, 255, 0.7);
   padding: 15px;
 }
 
@@ -1206,7 +1206,7 @@ section {
 
 .portfolio .portfolio-item .portfolio-info .preview-link:hover,
 .portfolio .portfolio-item .portfolio-info .details-link:hover {
-  color: #ed502e;
+  color: #1307ff;
 }
 
 .portfolio .portfolio-item .portfolio-info .details-link {
