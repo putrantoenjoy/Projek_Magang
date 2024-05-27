@@ -7,13 +7,23 @@ use App\Models\Event;
 
 class EventController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $event = Event::all();
+        $query = Event::where('soft_delete', 0);
+
+        if ($request->has('cari') && !empty($request->cari)) {
+            $cari = $request->cari;
+            $query->where('tempat', 'like', "%". $cari ."%");
+        } else {
+            $cari = ''; 
+        }
+    
         $set = [
-            'data' => Event::where('soft_delete', 0)->paginate(10),
+            'data' => $query->paginate(10),
+            'cari' => $cari, 
         ];
-        return view('admin_event.index', $set, compact('event'));
+    
+        return view('admin_event.index', $set);
     }
 
     public function simpan(Request $request)

@@ -15,12 +15,12 @@ body {
 }
 
 a {
-  color: #ed502e;
+  color: #000000;
   text-decoration: none;
 }
 
 a:hover {
-  color: #f1775d;
+  color: #000000;
   text-decoration: none;
 }
 
@@ -1180,6 +1180,7 @@ section {
   transition: all ease-in-out 0.3s;
   background: rgba(255, 255, 255, 0.7);
   padding: 15px;
+  border-radius: 10px;
 }
 
 .portfolio .portfolio-item .portfolio-info h4 {
@@ -1314,6 +1315,7 @@ section {
   background: #343a40;
   position: relative;
   overflow: hidden;
+  border-radius: 15px;
 }
 
 .team .member .member-info {

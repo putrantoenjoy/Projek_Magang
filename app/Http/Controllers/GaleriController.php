@@ -7,14 +7,26 @@ use App\Models\Galeri;
 
 class GaleriController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {   
+        $query = Galeri::where('soft_delete', 0);
+
+        if ($request->has('cari') && !empty($request->cari)) {
+            $cari = $request->cari;
+            $query->where(function($q) use ($cari) {
+                $q->where('judul', 'like', "%". $cari ."%")
+                  ->orWhere('kategori', 'like', "%". $cari ."%");
+            });
+        } else {
+            $cari = ''; 
+        }
+    
         $set = [
-            'data' => Galeri::where('soft_delete', 0)->paginate(10),
+            'data' => $query->paginate(10),
+            'cari' => $cari, 
         ];
-        // $total_galeri = Galeri::count();
-        // $kode  = "PG". sprintf("%04d", $total_galeri + 1);
-        return view('admin_galeri.index',$set);
+    
+        return view('admin_galeri.index', $set);
     }
 
     public function simpan(Request $request)

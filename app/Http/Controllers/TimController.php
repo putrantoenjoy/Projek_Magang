@@ -7,13 +7,25 @@ use App\Models\TimKerja;
 
 class TimController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $timkerja = TimKerja::all();
+        $query = TimKerja::where('soft_delete', 0);
+
+        if ($request->has('cari') && !empty($request->cari)) {
+            $cari = $request->cari;
+            $query->where(function($q) use ($cari) {
+                $q->where('nama', 'like', "%". $cari ."%")
+                  ->orWhere('jabatan', 'like', "%". $cari ."%");
+            });
+        } else {
+            $cari = ''; 
+        }
+    
         $set = [
-            'data' => TimKerja::where('soft_delete', 0)->paginate(10),
+            'data' => $query->paginate(10),
+            'cari' => $cari, 
         ];
-        return view('admin_tim.index', $set, compact('timkerja'));
+        return view('admin_tim.index', $set);
     }
 
     public function simpan(Request $request)

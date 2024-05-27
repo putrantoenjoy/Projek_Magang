@@ -21,9 +21,17 @@
                 @foreach ($event as $event)
                     <tr>
                         <td>{{ $loop->iteration }}</td>
-                        <td>{{ $event['tempat'] }}</td>
-                        <td>{{ $event['tanggal'] }}</td>
-                        <td>{{ $event['waktu'] }}</td>
+                        <td> 
+                            @if($event['tempat'] === 'Online Zoom')
+                                {{ $event['tempat'] }}
+                            @elseif($event['tempat'] === 'Online Meet')
+                                {{ $event['tempat'] }}
+                            @else
+                                <a href="https://www.google.com/maps/search/?api=1&query={{ $event['tempat'] }}" target="_blank">{{ $event['tempat'] }}</a>
+                            @endif
+                        </td>
+                        <td>{{ \Carbon\Carbon::parse($event['tanggal'])->format('d-m-Y') }}</td>
+                        <td>{{ \Carbon\Carbon::parse($event['waktu'])->format('H:i') }}</td>
                     </tr>
                 @endforeach
             </tbody>

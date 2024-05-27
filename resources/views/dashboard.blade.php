@@ -16,7 +16,7 @@
                         <div class="card">
                             <div class="card-body d-flex align-items-center">
                                 <i class="bi bi-people-fill" style="font-size: 4rem;"></i>
-                                <div class="ml-3">
+                                <div class="ms-3"> 
                                     <p class="mar-no">Total User</p>
                                     <p class="text-2x mar-no text-semibold">{{ $alldata }}</p>
                                 </div>
@@ -27,7 +27,7 @@
                         <div class="card">
                             <div class="card-body d-flex align-items-center">
                                 <i class="bi bi-newspaper" style="font-size: 4rem;"></i>
-                                <div class="ml-3">
+                                <div class="ms-3"> 
                                     <p class="mar-no">Total Artikel</p>
                                     <p class="text-2x mar-no text-semibold">241</p>
                                 </div>
@@ -38,14 +38,14 @@
                         <div class="card">
                             <div class="card-body d-flex align-items-center">
                                 <i class="bi bi-images" style="font-size: 4rem;"></i>
-                                <div class="ml-3">
+                                <div class="ms-3"> 
                                     <p class="mar-no">Galeri</p>
-                                    <p class="text-2x mar-no text-semibold">241</p>
+                                    <p class="text-2x mar-no text-semibold">{{ $galeri }}</p>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                </div>                
                 
                 <div class="row">
                     <div class="col-sm-12">
