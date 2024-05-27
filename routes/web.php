@@ -75,7 +75,7 @@ Route::get('/galeri-kami', [App\Http\Controllers\UserGaleriController::class, 'i
 Route::get('/tentang-kami', [App\Http\Controllers\TentangKamiController::class, 'index'])->name('tentang-kami');
 
 //artikel
-Route::get('/artikel-kami', [App\Http\Controllers\UserArtikelController::class, 'index'])->name('artikel-kami');
+Route::get('/artikel-kami', [App\Http\Controllers\ArtikelController::class, 'index'])->name('artikel-kami');
 
 //tim
 Route::get('/tim-kerja', [App\Http\Controllers\UserTimController::class, 'index'])->name('tim-kerja');
