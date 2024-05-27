@@ -22,9 +22,9 @@ return new class extends Migration
             $table->string('deskripsi');
             $table->string('konten');
             $table->string('tags');
-            $table->string('facebook');
-            $table->string('instagram');
-            $table->string('youtube');
+            $table->string('facebook')->nullable();
+            $table->string('instagram')->nullable();
+            $table->string('youtube')->nullable();
             $table->timestamps();
         });
     }

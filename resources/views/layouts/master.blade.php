@@ -66,6 +66,20 @@
             color: white;
             border: none;
         }
+
+        .navbar a:hover::after,
+        .navbar .active::after,
+        .navbar .active:focus::after,
+        .navbar li:hover>a::after {
+            content: '';
+            position: absolute; 
+            bottom: 2px;
+            left: 0px;
+            width: 100%;
+            height: 2px;
+            background-color: #fff;
+            z-index: -1;
+        }
     </style>
 </head>
 

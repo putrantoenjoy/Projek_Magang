@@ -27,7 +27,19 @@ class ArtikelController extends Controller
             'instagram' => $request->instagram,
             'youtube' => $request->youtube,
         ];
-        dd($data);
+        $data = new Blog();
+        $data->user_id = Auth::user()->id;
+        $data->kategori_id = $request->kategori;
+        $data->penulis = Auth::user()->name;
+        $data->judul = $request->judul;
+        $data->deskripsi = $request->deskripsi;
+        $data->konten = $request->konten;
+        $data->tags = $request->tags;
+        $data->facebook = $request->facebook;
+        $data->instagram = $request->instagram;
+        $data->youtube = $request->youtube;
+        $data->save();
+        // dd($data);
         // Blog::insert($data);
 
         return redirect()->back();
