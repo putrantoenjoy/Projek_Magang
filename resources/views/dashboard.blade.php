@@ -18,7 +18,7 @@
                                 <i class="bi bi-people-fill" style="font-size: 4rem;"></i>
                                 <div class="ml-3">
                                     <p class="mar-no">Total User</p>
-                                    <p class="text-2x mar-no text-semibold">241</p>
+                                    <p class="text-2x mar-no text-semibold">{{ $alldata }}</p>
                                 </div>
                             </div>
                         </div>

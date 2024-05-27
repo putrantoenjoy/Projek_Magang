@@ -8,48 +8,91 @@
                 <p class="text-white fs-5">Role</p>
                 <h3 class="text-white" class="fw-bold">Data Role</h3>
             </div>
-            <div class="card">
-                <div class="d-flex flex-column px-3 pt-3">
-                    <div class="border-bottom  pb-3">
-                        <h4>Tabel Role</h4>
-                        <div class="d-flex justify-content-between">
-                            <div class="d-flex justify-content-start gap-3">
-                                <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="bi bi-plus-circle border-white text-white fs-6"></i> Menambah Role</button>
-                                <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addPermissionStaticBackdrop"><i class="bi bi-plus-circle border-white text-white fs-6"></i> Menambah Permission</button>
-                                <button class="btn btn-success"><i class="bi bi-download border-white text-white fs-6"></i> Export PDF</button>
-                            </div>
-                            <div class="d-flex gap-3">
-                                <input type="text" class="form-control" placeholder="cari">
-                                <button class="btn btn-primary">Cari</button>
-                            </div>
+            <div class="content__boxed">
+                <div class="content__wrap">
+        
+                    @if (session('status'))
+                        <div class="alert alert-success" id="success">
+                            {{ session('status') }}
                         </div>
+                    @elseif (session('delete'))
+                        <div class="alert alert-danger" id="danger">
+                            {{ session('delete') }}
+                        </div>
+                    @endif
+                    @if($errors->any())
+                    <div class="alert alert-danger alert-dismissible fade show">
+                        <strong>Error!</strong> {!! implode('', $errors->all('<div>:message</div>')) !!}
+                    </div>  
+                    @endif
+
+                    <div class="card">
+                        <div class="card-header">
+                            <h5 class="card-title mb-3">Tabel Role</h5>
+                            <div class="row">
+                                <div class="col-md-6 d-flex gap-2 align-items-center mb-3">
+                                    <button type="button" class="btn btn-primary d-flex align-items-center gap-2" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                                        <i class="demo-psi-add fs-5"></i>
+                                        <span class="vr"></span>
+                                        Tambah Role
+                                    </button>
+                                    <button type="button" class="btn btn-primary d-flex align-items-center gap-2" data-bs-toggle="modal" data-bs-target="#addPermissionStaticBackdrop">
+                                        <i class="demo-psi-add fs-5"></i>
+                                        <span class="vr"></span>
+                                        Tambah Permission
+                                    </button>
+                                    <a href="" class="btn btn-success d-flex align-items-center gap-2">
+                                        <i class="bi bi-download border-white text-white fs-6"></i>
+                                        <span class="vr"></span>
+                                        Export PDF
+                                    </a>
+                                </div>
+                                
+                                <div class="col-md-6 d-flex gap-1 align-items-center justify-content-md-end mb-3">
+                                    <form action="" method="get" class="d-flex gap-2">
+                                        <div class="form-group">
+                                            <input type="text" placeholder="Cari..." name="cari" class="form-control" autocomplete="off" value="">
+                                        </div>
+                                        <div class="btn-group">
+                                            <button class="btn btn-primary">Cari</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                          </div>
+                          <div class="card-body">
+                            <div class="table-responsive">
+                                <table id="table" class="table table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th>Role Id</th>
+                                            <th>Role</th>
+                                            <th>Permission</th>
+                                            <th>Aksi</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach ($alldata as $data)
+                                        <tr>
+                                            <td>{{ $data->id }}</td>
+                                            <td>{{ $data->name }}</td>
+                                            <td><button class="btn btn-primary">Permission</button></td>
+                                            <td>
+                                                <form action="{{ route('role-delete', $data->id) }}" method="POST">
+                                                    @csrf
+                                                    @method('delete')      
+                                                    <button class="btn btn-primary" type="button" id="edit" data-data='{{ json_encode($data) }}' data-bs-toggle="modal" data-bs-target="#EditstaticBackdrop">Ubah</button>
+                                                    <button class="btn btn-danger" type="submit">Hapus</button>
+                                                </form>
+                                            </td>
+                                        </tr>
+                                        @endforeach
+                                    </tbody>
+                                </table>
+                            </div>
+                           </div>
                     </div>
                 </div>
-                <table class="table table-striped px-3" id="table">
-                    <thead class="fw-bold">
-                        <td>Role Id</td>
-                        <td>Role</td>
-                        <td>Permission</td>
-                        <td>Aksi</td>
-                    </thead>
-                    <tbody>
-                        @foreach ($alldata as $data)
-                        <tr>
-                            <td>{{ $data->id }}</td>
-                            <td>{{ $data->name }}</td>
-                            <td><button class="btn btn-primary">Permission</button></td>
-                            <td>
-                                <form action="{{ route('role-delete', $data->id) }}" method="POST">
-                                    @csrf
-                                    @method('delete')      
-                                    <button class="btn btn-primary" type="button" id="edit" data-data='{{ json_encode($data) }}' data-bs-toggle="modal" data-bs-target="#EditstaticBackdrop">Ubah</button>
-                                    <button class="btn btn-danger" type="submit">Hapus</button>
-                                </form>
-                            </td>
-                        </tr>
-                        @endforeach
-                    </tbody>
-                </table>
             </div>
         </div>
     </div>

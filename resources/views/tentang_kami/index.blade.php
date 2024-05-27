@@ -22,7 +22,7 @@
             </p>
           </div>
 
-          <div class="content mb-4">
+          <div class="content mb-3">
             <h3 class="mb-3"><strong>Mengapa Memilih NUSA DATA PRIMA?</strong></h3>
           </div>
 
@@ -76,7 +76,7 @@
             <div class="icon-box">
             <div class="icon"><i class="bx bxl-facebook"></i></div>
             <h4><a href="">Facebook</a></h4>
-            <p>Ikuti Facebook kami untuk mendapatkan berita terbaru tentang kami</p>
+            <p>Ikuti Facebook kami untuk mendapatkan berita terbaru dan menarik tentang kami</p>
             </div>
         </div>
 
@@ -84,7 +84,7 @@
             <div class="icon-box">
             <div class="icon"><i class="bx bxl-instagram"></i></div>
             <h4><a href="">Instagram</a></h4>
-            <p>Ikuti Instagram kami agar mendapatkan informasi baru tentang kami</p>
+            <p>Ikuti Instagram kami agar mendapatkan informasi baru dan menarik tentang kami</p>
             </div>
         </div>
 

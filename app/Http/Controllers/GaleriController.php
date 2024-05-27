@@ -20,7 +20,7 @@ class GaleriController extends Controller
     public function simpan(Request $request)
     {
         $data = [
-            'post_id' => $request->post_id,
+            // 'post_id' => $request->post_id,
             'judul' => $request->judul,
             'kategori' => $request->kategori,
             'created_by' => auth()->user()->id
@@ -32,7 +32,7 @@ class GaleriController extends Controller
             $gambar->storeAs('img/galeri', $file_name, 'public');
             $data['gambar'] = $file_name;
         }
-
+        // dd($request->all());
         Galeri::create($data);
 
         return back();
