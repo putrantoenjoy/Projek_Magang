@@ -1407,10 +1407,6 @@ section {
   text-align: center;
 }
 
-.blog .card {
-  box-shadow: 0px 5px 90px 0px rgba(110, 123, 131, 0.1);
-}
-
 .pricing h3 {
   font-weight: 300;
   margin-bottom: 15px;
@@ -1514,6 +1510,240 @@ section {
     max-width: 100%;
     margin: 0 auto 30px auto;
   }
+}
+
+/* CSS untuk halaman artikel */
+.blog {
+  font-family: 'Helvetica Neue', sans-serif;
+  line-height: 1.6;
+  color: #333;
+}
+
+.blog a {
+  color: #000000;
+  text-decoration: none;
+}
+
+.blog a:hover {
+  color: #000000;
+  text-decoration: none;
+}
+
+.blog .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+.blog .card {
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.blog .card:hover {
+  /* transform: translateY(-10px); */
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+}
+
+.blog .card-img-top {
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  max-height: 200px;
+  object-fit: cover;
+}
+
+.blog .card-body {
+  padding: 20px;
+}
+
+.blog .card-title {
+  font-size: 20px;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.blog .card-footer {
+  background-color: #fff;
+  border-top: none;
+  padding: 15px;
+}
+
+.blog .btn-primary {
+  background-color: #007bff;
+  border-color: #007bff;
+}
+
+.blog .btn-primary:hover {
+  background-color: #0056b3;
+  border-color: #0056b3;
+}
+
+.blog .meta-top ul {
+  padding: 0;
+  list-style: none;
+  display: flex;
+  gap: 10px;
+}
+
+.blog .meta-top ul li {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  color: #777;
+}
+
+.blog .meta-top ul li i {
+  margin-right: 5px;
+}
+
+.blog .sidebar .card {
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.blog .sidebar .card-body {
+  padding: 20px;
+}
+
+.blog .sidebar .card-title {
+  font-size: 18px;
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
+.blog .sidebar .input-group .form-control {
+  border-radius: 50px 0 0 50px;
+}
+
+.blog .sidebar .input-group .btn-primary {
+  border-radius: 0 50px 50px 0;
+}
+
+.blog .sidebar .list-group-item {
+  border: none;
+  padding: 10px 0;
+}
+
+.blog .sidebar .list-group-item a {
+  color: #333;
+}
+
+.blog .sidebar .list-group-item a:hover {
+  color: #007bff;
+}
+
+.blog .sidebar .list-inline-item {
+  margin-right: 10px;
+}
+
+.blog .sidebar .list-inline-item .badge {
+  padding: 5px 10px;
+  border-radius: 50px;
+  font-size: 14px;
+}
+
+@media (max-width: 768px) {
+  .blog .section-title h2 {
+      font-size: 28px;
+  }
+
+  .blog .card-title {
+      font-size: 18px;
+  }
+
+  .blog .meta-top ul {
+      flex-direction: column;
+      gap: 5px;
+  }
+}
+
+/* Custom CSS */
+.blog-details .card {
+  border: none;
+  border-radius: 10px;
+  padding: 20px; 
+}
+
+.blog-details .post-img img {
+  width: 100%;
+  border-radius: 10px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.blog-details .title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-top:20px;
+  margin-bottom: 20px; 
+  margin-left: 20px;
+  margin-right: 20px;
+  text-align: left; 
+}
+
+.blog-details .meta-top {
+  margin-bottom: 20px;
+  margin-left: 20px;
+}
+
+.blog-details .meta-top ul,
+.blog-details .meta-bottom ul {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.blog-details .meta-top ul li,
+.blog-details .meta-bottom ul li {
+  margin-right: 15px;
+}
+
+.blog-details .meta-top ul li i,
+.blog-details .meta-bottom ul li i {
+  margin-right: 5px;
+}
+
+.blog-details .meta-bottom .category,
+.blog-details .meta-bottom .tags {
+  margin-bottom: 10px;
+  margin-left: 20px;
+}
+
+.blog-details .content {
+  margin-bottom: 20px; /* Tambahkan margin bawah */
+  text-align: justify; /* Rata kanan kiri untuk konten */
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.post-author {
+  background: #f9f9f9;
+  padding: 20px;
+  border-radius: 10px;
+  margin-top: 40px;
+}
+
+.post-author img {
+  width: 60px;
+  height: 60px;
+}
+
+.post-author .social-links a {
+  margin-right: 10px;
+  color: #495057;
+}
+
+.post-author .social-links a:hover {
+  color: #007bff;
+}
+
+.comments {
+  margin-top: 40px;
 }
 
 /*--------------------------------------------------------------

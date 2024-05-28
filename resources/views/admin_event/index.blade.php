@@ -71,8 +71,8 @@
                                         <tr class="align-middle">
                                             <td>{{ $loop->iteration }}</td>
                                             <td>{{ $value->tempat }}</td>
-                                            <td>{{ $value->tanggal }}</td>
-                                            <td>{{ $value->waktu }}</td>
+                                            <td>{{ \Carbon\Carbon::parse($value->tanggal)->format('d-m-Y') }}</td>
+                                            <td>{{ \Carbon\Carbon::parse($value->waktu)->format('H:i') }}</td>
                                             <td>
                                                 <div class="d-flex align-items-center">
                                                     <form action="" class="m-0" method="post">

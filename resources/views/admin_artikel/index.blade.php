@@ -83,7 +83,7 @@
                                             <td>{{ $data->judul }} </td>
                                             <td>{{ $data->deskripsi }} </td>
                                             <td>{{ $data->kategori->nama }} </td>
-                                            <td>{{ $data->konten }} </td>
+                                            <td><a href="{{ route('artikel-kami.show', $data->id)}}"> Lihat Artikel </a> </td>
                                             <td>{{ $data->tags }} </td>
                                             {{-- <td> </td>
                                             <td> </td>
