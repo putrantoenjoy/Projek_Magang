@@ -67,9 +67,9 @@
                                             <th>Kategori</th>
                                             <th>Konten</th>
                                             <th>Tag</th>
-                                            <th>Facebook</th>
+                                            {{-- <th>Facebook</th>
                                             <th>Intagram</th>
-                                            <th>Youtube</th>
+                                            <th>Youtube</th> --}}
                                             <th>Tanggal Posting</th>
                                             <th>Aksi</th>
                                         </tr>
@@ -85,25 +85,22 @@
                                             <td>{{ $data->kategori->nama }} </td>
                                             <td>{{ $data->konten }} </td>
                                             <td>{{ $data->tags }} </td>
+                                            {{-- <td> </td>
                                             <td> </td>
-                                            <td> </td>
-                                            <td> </td>
+                                            <td> </td> --}}
                                             <td>{{ $data->created_at }} </td>
                                             <td>
                                                 <div class="d-flex">
                                                     {{-- @if($data->deleted_at == null) --}}
-                                                    <form action="" method="post">
+                                                    <form action="" method="post" class="gap-1 d-flex justify-content-start">
                                                         @csrf
-                                                        @method('delete')    
-                                                        <button class="btn btn-secondary" type="submit"><i class="bi bi-info-lg fs-5"></i></button>   
+                                                        @method('delete')
                                                         <button class="btn btn-primary" type="button" id="btn-edit" data-data='' data-bs-toggle="modal" data-bs-target="#ModalEdit"><i class="bi bi-pencil fs-5"></i></button>
                                                         <button class="btn btn-danger" type="submit"><i class="bi bi-trash fs-5"></i></button>
                                                     </form>
                                                     {{-- @else --}}
-                                                    <form action="" method="post">
-                                                        @csrf
                                                         {{-- <button class="btn btn-danger disabled" type="button">Deleted</button> --}}
-                                                    </form>
+                                                    
                                                     {{-- @endif --}}
                                                 </div>
                                             </td>

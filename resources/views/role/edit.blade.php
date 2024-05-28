@@ -1,5 +1,5 @@
 <div class="modal fade" id="EditstaticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-    <div class="modal-dialog">
+    <div class="modal-dialog modal-l">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="EditstaticBackdropLabel">Mengubah Permission</h5>
@@ -8,16 +8,25 @@
             <form action="{{ route('role-create') }}" method="post" id="editrole">
                 @csrf
                 <div class="modal-body">
-                    <label for="_dm-inputLname" class="form-label">User</label>
-                    <div class="col-12 row p-2">
-                        @foreach ($permissions as $permission)
-                        <div class="form-check col-6">
-                            <input class="form-check-input permission" type="checkbox" name="permission[]" value="{{ $permission->id }}" id="permission{{ $permission->id }}">
-                            <label class="form-check-label" for="permission{{ $permission->id }}">
-                                {{ $permission->name }}
-                            </label>
-                        </div>
-                        @endforeach
+                    <div class="col-12 g-3 row px-5 py-3">
+                        {{-- @foreach ($allnavigasi as $navigasi) --}}
+                            @foreach ($allnavigasi as $navigasi)
+                            <div class="col-6">
+                                <h4 class="my-1">{{ $navigasi->view }}</h4>
+                                @foreach ($permissions as $permission)
+                                    @if ($permission->navigation_id == $navigasi->id)
+                                        <div class="d-flex">
+                                            <input class="form-check-input permission" type="checkbox" name="permission[]" value="{{ $permission->id }}" id="permission{{ $permission->id }}">&nbsp;{{ $permission->name }}
+                                            {{-- <label class="form-check-label" for="permission{{ $permission->id }}">
+                                                {{ $permission->name }}
+                                            </label> --}}
+                                            <br>
+                                        </div>
+                                    @endif
+                                @endforeach
+                            </div>
+                            @endforeach
+                        {{-- @endforeach --}}
                     </div>
                 </div>
             </form>

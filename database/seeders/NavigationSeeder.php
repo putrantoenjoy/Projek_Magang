@@ -18,14 +18,13 @@ class NavigationSeeder extends Seeder
     {
         //
         $data = [
-            'user', 'artikel', 'event', 'galeri', 'role permission', 'tim kerja'
+            'user', 'artikel', 'event', 'galeri', 'role', 'tim'
         ];
         for($i = 0; $i < count($data); $i++){
-            
-        }
-    }
-}
-$navigation = [
+            $navigation = [
                 'view' => $data[$i],
             ];
             Navigation::create($navigation);
+        }
+    }
+}

@@ -12,7 +12,7 @@
         </li>
         @else --}}
         <li class="nav-item">
-            <a href="{{route('dashboard')}}" class="mininav-toggle nav-link {{ Route::is('dashboard') ? 'active' : ''  }}" id="menuDashboard"><i class="demo-pli-home fs-5 me-2"></i>
+            <a href="{{route('dashboard')}}" class="mininav-toggle nav-link {{ Route::is('dashboard') ? 'active' : ''  }}" id="menuHome"><i class="demo-pli-home fs-5 me-2"></i>
                 <span class="nav-label ms-1">Dashboard</span>
             </a>
         </li>

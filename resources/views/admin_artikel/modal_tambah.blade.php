@@ -28,7 +28,9 @@
                                         <div class="mb-3">
                                             <label for="kategori" class="form-label">Kategori</label>
                                             <select name="kategori" id="kategori" class="form-control">
-                                                <option value="1">kategori a</option>
+                                                @foreach ($kategori as $data)
+                                                <option value="{{ $data->id }}">{{ $data->nama }}</option>
+                                                @endforeach
                                             </select>
                                         </div>
                                         <div class="mb-3">
@@ -39,7 +41,7 @@
                                             <label for="tags" class="form-label">Tags</label>
                                             <input type="text" class="form-control" name="tags" id="tags">
                                         </div>
-                                        <div class="mb-3">
+                                        {{-- <div class="mb-3">
                                             <label for="facebook" class="form-label">Link Facebook (opsional)</label>
                                             <div class="input-group flex-nowrap">
                                                 <span class="input-group-text" id="facebook-span">@</span>
@@ -56,7 +58,7 @@
                                         <div class="mb-3">
                                             <label for="youtube" class="form-label">Channel Youtube (opsional)</label>
                                             <input type="text" class="form-control" id="youtube" name="youtube" placeholder="......">
-                                        </div>
+                                        </div> --}}
                                         <div class="d-flex justify-content-end gap-3">
                                             <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
                                             <button type="submit" class="btn btn-primary">Simpan</button>
