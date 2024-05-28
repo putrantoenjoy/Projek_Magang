@@ -2,11 +2,12 @@
 
 namespace Database\Seeders;
 
-use App\Models\Kategori;
+use App\Models\Navigation;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
-class KategoriSeeder extends Seeder
+class NavigationSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -17,13 +18,14 @@ class KategoriSeeder extends Seeder
     {
         //
         $data = [
-            'ekonomi', 'olahraga', 'event', 'teknologi', 'otomotif', 'politik'
+            'user', 'artikel', 'event', 'galeri', 'role permission', 'tim kerja'
         ];
         for($i = 0; $i < count($data); $i++){
-            $kategori = [
-                'nama' => $data[$i],
-            ];
-            Kategori::create($kategori);
+            
         }
     }
 }
+$navigation = [
+                'view' => $data[$i],
+            ];
+            Navigation::create($navigation);

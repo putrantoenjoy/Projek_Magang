@@ -20,10 +20,10 @@ class RoleController extends Controller
     }
     public function create(Request $request)
     {
-        $data = [
-            'name' => $request->nama
-        ];
-        DB::table('roles')->insert($data);
+        $data = new Role();
+        $data->name = $request->nama;
+        $data->save();
+
         return back();
     }
     public function update(Request $request, $id)

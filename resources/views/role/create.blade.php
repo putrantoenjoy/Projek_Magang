@@ -19,13 +19,11 @@
                         <input type="text" id="namarole" name="nama" id="" class="form-control">
                     </div>
                 </div>
-            </form>
-            <div class="p-3 d-flex justify-content-end">
-                <form action="{{ route('role-create') }}" method="post">
+                <div class="p-3 d-flex justify-content-end gap-1">
                     <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
                     <button type="submit" class="btn btn-primary">Simpan</button>
-                </form>
-            </div>
+                </div>
+            </form>
         </div>
     </div>
 </div>

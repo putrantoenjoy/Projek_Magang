@@ -16,8 +16,7 @@ class PermissionControler extends Controller
             'view' => $request->addpermission,
             'name' => $request->addpermission
         ];
-
-        DB::table('permissions')->insert($data);
-        return back();
+        Permission::create($data);
+        return redirect()->back();
     }
 }

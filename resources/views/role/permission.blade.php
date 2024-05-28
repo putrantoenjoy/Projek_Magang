@@ -19,17 +19,14 @@
                     </div>
                     <div class="d-flex flex-column">
                         <label for="namarole">Nama Permission</label>
-                        <input type="text" id="addpermission" name="addpermission" class="form-control">
+                        <input type="text" id="addpermission" name="addpermission" class="form-control" required>
                     </div>
                 </div>
-            </form>
-            <div class="p-3 d-flex justify-content-end">
-                <form action="{{ route('permission-create') }}" method="post">
-                    @csrf
+                <div class="p-3 d-flex justify-content-end gap-1">
                     <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
                     <button type="submit" class="btn btn-primary">Simpan</button>
-                </form>
-            </div>
+                </div>
+            </form>
         </div>
     </div>
 </div>
