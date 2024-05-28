@@ -75,20 +75,20 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        {{-- @foreach ($allData as $row => $data) --}}
+                                        @foreach ($allData as $row => $data)
                                         <tr>
+                                            <td>{{ $data->id }} </td>
+                                            <td>{{ $data->user_id }} </td>
+                                            <td>{{ $data->user->name }} </td>
+                                            <td>{{ $data->judul }} </td>
+                                            <td>{{ $data->deskripsi }} </td>
+                                            <td>{{ $data->kategori->nama }} </td>
+                                            <td>{{ $data->konten }} </td>
+                                            <td>{{ $data->tags }} </td>
                                             <td> </td>
                                             <td> </td>
                                             <td> </td>
-                                            <td> </td>
-                                            <td> </td>
-                                            <td> </td>
-                                            <td> </td>
-                                            <td> </td>
-                                            <td> </td>
-                                            <td> </td>
-                                            <td> </td>
-                                            <td> </td>
+                                            <td>{{ $data->created_at }} </td>
                                             <td>
                                                 <div class="d-flex">
                                                     {{-- @if($data->deleted_at == null) --}}
@@ -108,7 +108,7 @@
                                                 </div>
                                             </td>
                                         </tr>
-                                        {{-- @endforeach --}}
+                                        @endforeach
                                     </tbody>
                                 </table>
                             </div>

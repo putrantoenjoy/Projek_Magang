@@ -11,7 +11,8 @@ class ArtikelController extends Controller
 {
     public function index()
     {
-        return view('admin_artikel.index');
+        $allData = Blog::get();
+        return view('admin_artikel.index', compact('allData'));
     }
     public function create(Request $request)
     {
