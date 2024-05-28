@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Spatie\Permission\Models\Role;
 use App\Models\User;
+use App\Models\Blog;
 use App\Models\Galeri;
 
 class DashboardController extends Controller
@@ -17,9 +18,10 @@ class DashboardController extends Controller
     public function index()
     {
         $alldata = User::count();
+        $artikel = Blog::count();
         $galeri = Galeri::count();
 
-        return view('dashboard', compact('alldata','galeri'));
+        return view('dashboard', compact('alldata', 'artikel', 'galeri'));
     }
 
     public function verify()

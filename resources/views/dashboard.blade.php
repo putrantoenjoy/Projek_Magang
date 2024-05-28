@@ -29,7 +29,7 @@
                                 <i class="bi bi-newspaper" style="font-size: 4rem;"></i>
                                 <div class="ms-3"> 
                                     <p class="mar-no">Total Artikel</p>
-                                    <p class="text-2x mar-no text-semibold">241</p>
+                                    <p class="text-2x mar-no text-semibold">{{ $artikel }}</p>
                                 </div>
                             </div>
                         </div>
