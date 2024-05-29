@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Role_Has_Permission;
 use Illuminate\Http\Request;
 use Spatie\Permission\Models\Role;
 use Hash;
@@ -36,11 +37,17 @@ class UserController extends Controller
         $data=[
             'name'=> $request->nama,
             'email'=> $request->email,
-            // 'role'=> $request->role,
             'password'=> Hash::make($request->password),
         ];
-        User::insert($data);
-        return back();
+        $user = User::create($data);
+        // $role=[
+        //     'role_id'=> $request->role,
+        //     'user_id'=> $user->id,
+        // ];
+        // Role_Has_Permission::create($role);
+        $user->assignRole($request->role);
+
+        return redirect()->back();
     }
 
     public function update()

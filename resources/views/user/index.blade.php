@@ -74,9 +74,11 @@
                                                         <td>{{ $data->name }}</td>
                                                         <td>
                                                             @foreach ($allrole as $role)
+                                                            <label class="badge text-white fw-normal align-items-center bg-secondary">
                                                                 @if ($data->id == $role->id)
-                                                                {{ $role->name }}
+                                                                    {{ $role->name }}
                                                                 @endif
+                                                            </label>
                                                             @endforeach
                                                         </td>
                                                         <td>{{ $data->email }}</td>

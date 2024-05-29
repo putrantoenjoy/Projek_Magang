@@ -21,7 +21,7 @@
                         <select name="role" id="role" class="form-control">
                             <option value="" hidden selected disabled>Pilih</option>
                             @foreach ($allrole as $role)
-                                <option value="">{{ $role->name }}</option>
+                                <option value="{{ $role->name }}">{{ $role->name }}</option>
                             @endforeach
                         </select>
                     </div>
@@ -34,7 +34,7 @@
                         <input type="password" name="confirmation_password" id="" class="form-control">
                     </div>
                 </div>
-                <div class="p-3 d-flex justify-content-end">
+                <div class="p-3 d-flex justify-content-end gap-1">
                     <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
                     <button type="submit" class="btn btn-primary">Simpan</button>
                 </div>
