@@ -100,12 +100,9 @@
     @include('role.permission')
     @include('role.edit')
     <script>
-        $('#table').on('click', 'tr #edit', function() {
-            let data = $(this).data('data');
-            console.log(data);
-
-            // $('#nama_edit').val(data.nama);
-            // $('#jabatan_edit').val(data.jabatan);
-        })  
+        // $('#table').on('click', 'tr #edit', function() {
+        //     let data = $(this).data('data');
+        //     console.log(data);
+        // })  
     </script>
 @endsection

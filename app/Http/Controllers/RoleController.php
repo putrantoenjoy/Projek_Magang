@@ -13,7 +13,7 @@ class RoleController extends Controller
     //
     public function index()
     {
-        $alldata = Role::get();
+        $alldata = Role::with('permissions')->get();
         $permissions = Permission::get();
         $allnavigasi = Navigation::get();
         return view('role.index', compact('alldata', 'permissions', 'allnavigasi'));
@@ -28,9 +28,28 @@ class RoleController extends Controller
     }
     public function update(Request $request, $id)
     {
-        $data = DB::table('role_has_permissions')->where('role_id', $id)->get();
+        // DB::table('role_has_permissions')->where('role_id', $request->role_id)->delete();
+        // for ($i=0; $i < count($request->permission_id); $i++) { 
+        //     $data = [
+        //         "role_id" => $request->role_id,
+        //         "permission_id" => $request->permission_id[$i],
+        //     ];
+        //     DB::table('role_has_permissions')->insert($data);
+        // }
+        // return back();
+
+        $role = Role::findOrFail($id);
         
-        return back();
+        // Validasi input
+        // $validated = $request->validate([
+        //     'permission_id' => 'array',
+        //     'permission_id.*' => 'exists:permissions,id',
+        // ]);
+
+        // Sinkronisasi permission dengan role
+        $role->permissions()->sync($request->permission_id);
+
+        return response()->json(['message' => 'Permissions updated successfully!']);
     }
     public function delete($id)
     {
