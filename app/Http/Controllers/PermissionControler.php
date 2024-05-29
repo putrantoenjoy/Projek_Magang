@@ -11,6 +11,11 @@ class PermissionControler extends Controller
     //
     public function create(Request $request)
     {
+        // Validator::make([
+        //     'addnavigasi' => ['required', 'number'],
+        //     'addpermission' => ['required', 'string', 'unique:permissions'],
+        // ]);
+
         $data = [
             'navigation_id' => $request->addnavigasi,
             'view' => $request->addpermission,

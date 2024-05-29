@@ -76,7 +76,7 @@
                                         <tr>
                                             <td>{{ $data->id }}</td>
                                             <td>{{ $data->name }}</td>
-                                            <td><button class="btn btn-primary">Permission</button></td>
+                                            <td><button class="btn btn-primary">Lihat Permission</button></td>
                                             <td>
                                                 <form action="{{ route('role-delete', $data->id) }}" method="POST">
                                                     @csrf
