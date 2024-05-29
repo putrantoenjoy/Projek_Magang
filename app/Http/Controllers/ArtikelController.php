@@ -6,6 +6,7 @@ use App\Models\Blog;
 use App\Models\Kategori;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use PDF;
 
 
 class ArtikelController extends Controller
@@ -46,5 +47,12 @@ class ArtikelController extends Controller
         // Blog::insert($data);
 
         return redirect()->back();
+    }
+    public function export()
+    {
+        $data = Blog::get();
+
+        $pdf = PDF::loadView('admin_artikel.pdf', compact('data'))->setPaper('a4', 'potrait');
+        return $pdf->stream();
     }
 }

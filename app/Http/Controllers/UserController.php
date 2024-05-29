@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Spatie\Permission\Models\Role;
 use Hash;
 use App\Models\User;
+use PDF;
 
 class UserController extends Controller
 {
@@ -51,5 +52,12 @@ class UserController extends Controller
     public function delete()
     {
         return view('user.index');
+    }
+    public function export()
+    {
+        $data = User::get();
+
+        $pdf = PDF::loadView('user.pdf', compact('data'))->setPaper('a4', 'potrait');
+        return $pdf->stream();
     }
 }

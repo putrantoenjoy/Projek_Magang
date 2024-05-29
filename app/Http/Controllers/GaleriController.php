@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Galeri;
+use PDF;
 
 class GaleriController extends Controller
 {
@@ -81,5 +82,12 @@ class GaleriController extends Controller
         Galeri::where('id', $id)->update($data);
 
         return back()->with('delete', 'Galeri berhasil dihapus!');
+    }
+    public function export()
+    {
+        $data = Galeri::where('soft_delete', 0)->get();
+
+        $pdf = PDF::loadView('admin_galeri.pdf', compact('data'))->setPaper('a4', 'potrait');
+        return $pdf->stream();
     }
 }

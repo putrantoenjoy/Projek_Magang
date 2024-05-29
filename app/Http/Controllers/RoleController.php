@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use DB;
 use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
+use PDF;
 
 class RoleController extends Controller
 {
@@ -40,5 +41,12 @@ class RoleController extends Controller
         Role::find($id)->delete();
         
         return back()->with('delete', 'Role berhasil dihapus!');
+    }
+    public function export()
+    {
+        $data = Role::get();
+
+        $pdf = PDF::loadView('role.pdf', compact('data'))->setPaper('a4', 'potrait');
+        return $pdf->stream();
     }
 }
