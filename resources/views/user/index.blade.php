@@ -72,7 +72,13 @@
                                                     <tr>
                                                         <td>{{ $data->id }}</td>
                                                         <td>{{ $data->name }}</td>
-                                                        <td>{{ '$data->role' }}</td>
+                                                        <td>
+                                                            @foreach ($allrole as $role)
+                                                                @if ($data->id == $role->id)
+                                                                {{ $role->name }}
+                                                                @endif
+                                                            @endforeach
+                                                        </td>
                                                         <td>{{ $data->email }}</td>
                                                         <td>{{ '$data->foto' }}</td>
                                                         <td>

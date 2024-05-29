@@ -127,5 +127,10 @@
         ]
  
      });
- </script>
+</script>
+<script src="https://cdn.jsdelivr.net/npm/@yaireo/tagify"></script>
+<script>
+    var input = document.querySelector('input[name=tags]');
+    new Tagify(input)
+</script>
 @endsection

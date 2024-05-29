@@ -17,30 +17,7 @@ class PermissionSeeder extends Seeder
      */
     public function run()
     {
-        // permission
-        // $data = [
-        //     'user', 'artikel', 'event', 'galeri', 'role permission', 'tim kerja'
-        // ];
-        // $view = [
-        //     'index', 'create', 'update', 'delete'
-        // ];
-        // Permission::create($data);
-        // for($i = 0; $i < count($data); $i++){
-        //     for($j = 0; $j < count($view); $j++){
-        //         $permission = [
-        //             'navigation_id' =>$data[$i],
-        //             'name' => $view[$j],
-        //             'view' => $view[$j],
-        //         ];
-        //         Permission::create($permission);
-        //     }
-        // }
-
-        // $data = [
-        //     1, 2, 3, 4, 4, 6
-        // ];
         $data = Navigation::get();
-        // echo $Navigation[0]->view;
         $view = [
             'index', 'create', 'update', 'delete'
         ];

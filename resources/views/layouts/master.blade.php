@@ -46,6 +46,24 @@
     
     <script type='text/javascript' src='https://cdn.jsdelivr.net/npm/froala-editor@latest/js/froala_editor.pkgd.min.js'></script>
     <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/@yaireo/tagify/dist/tagify.css" rel="stylesheet">
+    <style>
+        .tags-input-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            border: 1px solid #ddd;
+            padding: 5px;
+            border-radius: 5px;
+            max-width: 600px;
+        }
+
+        .tags-input-wrapper input {
+            border: none;
+            outline: none;
+            flex: 1;
+            padding: 5px;
+        }
+    </style>
     <style>
        .mainnav__menu.nav.flex-column .nav-link.active {
             background-color: #0C58CA;

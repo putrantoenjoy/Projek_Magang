@@ -15,7 +15,7 @@ class KategoriSeeder extends Seeder
      */
     public function run()
     {
-        //
+        // create kategori
         $data = [
             'ekonomi', 'olahraga', 'event', 'teknologi', 'otomotif', 'politik'
         ];

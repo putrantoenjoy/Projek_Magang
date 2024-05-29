@@ -16,7 +16,7 @@ class NavigationSeeder extends Seeder
      */
     public function run()
     {
-        //
+        // create navigation
         $data = [
             'user', 'artikel', 'event', 'galeri', 'role', 'tim'
         ];
