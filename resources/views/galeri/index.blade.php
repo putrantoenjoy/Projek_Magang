@@ -23,7 +23,7 @@
       </div>
 
         <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
-            @foreach($galeri as $galeri)
+            @foreach($galeris as $galeri)
                 <div class="col-lg-4 col-md-6 portfolio-item filter-{{ $galeri->kategori }}">
                     <img src="{{ asset('storage/img/galeri/' . $galeri->gambar) }}" class="img-fluid" alt="{{ $galeri->judul }}">
                     <div class="portfolio-info">
@@ -33,6 +33,9 @@
                     </div>
                 </div>
             @endforeach
+        </div>
+        <div class="d-flex justify-content-center mt-4">
+            {{ $galeris->links() }}
         </div>
     </div>
 </section>

@@ -10,7 +10,8 @@ class UserGaleriController extends Controller
     public function index()
     {
         $galeri = Galeri::all();
+        $galeris = Galeri::paginate(9);
         // dd($galeri); 
-        return view('galeri.index', compact('galeri'));
+        return view('galeri.index', compact('galeri', 'galeris'));
     }
 }

@@ -47,7 +47,7 @@ class GaleriController extends Controller
         // dd($request->all());
         Galeri::create($data);
 
-        return back();
+        return back()->with('status', 'Galeri berhasil dibuat!');
     }
 
     public function update(Request $request, $id)
@@ -67,7 +67,7 @@ class GaleriController extends Controller
 
         Galeri::where('id', $id)->update($data);
 
-        return back();
+        return back()->with('status', 'Galeri berhasil diperbarui!');
     }
 
     public function hapus($id)
@@ -80,6 +80,6 @@ class GaleriController extends Controller
 
         Galeri::where('id', $id)->update($data);
 
-        return back();
+        return back()->with('delete', 'Galeri berhasil dihapus!');
     }
 }

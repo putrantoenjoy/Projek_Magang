@@ -55,41 +55,24 @@
                             </div>
                             <div class="card-body">
                                 <div class="row">
-                                    <div class="col-sm-4 mb-4">
-                                        <div class="card">
-                                            <div class="card-header">
-                                                <h4 class="card-title mb-0">Artikel Terbaru 1</h4>
-                                            </div>
-                                            <div class="card-body">
-                                                <p>Lorem ipsum dolor sit amet.</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-4 mb-4">
-                                        <div class="card">
-                                            <div class="card-header">
-                                                <h4 class="card-title mb-0">Artikel Terbaru 2</h4>
-                                            </div>
-                                            <div class="card-body">
-                                                <p>Lorem ipsum dolor sit amet.</p>
+                                    @foreach ($artikelTerbaru as $artikelTerbaru)
+                                        <div class="col-sm-4 mb-4">
+                                            <div class="card">
+                                                <div class="card-header">
+                                                    <h4 class="card-title mb-0">{{ $artikelTerbaru->judul }}</h4>
+                                                    <p class="text-muted mb-0">{{ $artikelTerbaru->created_at->format('d M Y') }}</p>
+                                                </div>
+                                                <div class="card-body">
+                                                    <p>{{($artikelTerbaru->deskripsi) }}</p>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="col-sm-4 mb-4">
-                                        <div class="card">
-                                            <div class="card-header">
-                                                <h4 class="card-title mb-0">Artikel Terbaru 3</h4>
-                                            </div>
-                                            <div class="card-body">
-                                                <p>Lorem ipsum dolor sit amet.</p>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    @endforeach
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>        
+                </div>       
             </div>
         </div>
     </div>

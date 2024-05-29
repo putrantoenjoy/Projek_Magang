@@ -21,7 +21,9 @@ class DashboardController extends Controller
         $artikel = Blog::count();
         $galeri = Galeri::count();
 
-        return view('dashboard', compact('alldata', 'artikel', 'galeri'));
+        $artikelTerbaru = Blog::latest()->take(3)->get();
+        
+        return view('dashboard', compact('alldata', 'artikel', 'galeri', 'artikelTerbaru'));
     }
 
     public function verify()

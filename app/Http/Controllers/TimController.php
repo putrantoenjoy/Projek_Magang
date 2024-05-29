@@ -45,7 +45,7 @@ class TimController extends Controller
 
         TimKerja::create($data);
 
-        return back();
+        return back()->with('status', 'Tim Kerja berhasil dibuat!');
     }
 
     public function update(Request $request, $id)
@@ -65,7 +65,7 @@ class TimController extends Controller
 
         TimKerja::where('id', $id)->update($data);
 
-        return back();
+        return back()->with('status', 'Tim Kerja berhasil diperbarui!');
     }
 
     public function hapus($id)
@@ -78,6 +78,6 @@ class TimController extends Controller
 
         TimKerja::where('id', $id)->update($data);
 
-        return back();
+        return back()->with('delete', 'Tim Kerja berhasil dihapus!');
     }
 }

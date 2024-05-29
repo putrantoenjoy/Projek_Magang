@@ -10,6 +10,7 @@ class UserEventController extends Controller
     public function index()
     {
         $event = Event::all();
-        return view('event.index', compact('event'));
+        $events = Event::paginate(20);
+        return view('event.index', compact('event', 'events'));
     }
 }

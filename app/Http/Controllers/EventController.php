@@ -37,7 +37,7 @@ class EventController extends Controller
 
         Event::create($data);
 
-        return back();
+        return back()->with('status', 'Event berhasil dibuat!');
     }
 
     public function update(Request $request, $id)
@@ -51,7 +51,7 @@ class EventController extends Controller
 
         Event::where('id', $id)->update($data);
 
-        return back();
+        return back()->with('status', 'Event berhasil diperbarui!');
     }
 
     public function hapus($id)
@@ -64,6 +64,6 @@ class EventController extends Controller
 
         Event::where('id', $id)->update($data);
 
-        return back();
+        return back()->with('delete', 'Event berhasil dihapus!');
     }
 }
