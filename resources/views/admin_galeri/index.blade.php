@@ -36,7 +36,7 @@
                                         <span class="vr"></span>
                                         Tambah Galeri
                                     </button>
-                                    <a href="" class="btn btn-success mx-3 hstack gap-2 align-self-center">
+                                    <a href="{{ route('galeri-export') }}" class="btn btn-success mx-3 hstack gap-2 align-self-center">
                                         <i class="bi bi-download border-white text-white fs-6"></i>
                                         <span class="vr"></span>
                                         Export PDF

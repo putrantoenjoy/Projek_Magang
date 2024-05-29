@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Event;
+use PDF;
 
 class EventController extends Controller
 {
@@ -37,7 +38,7 @@ class EventController extends Controller
 
         Event::create($data);
 
-        return back();
+        return back()->with('status', 'Event berhasil dibuat!');
     }
 
     public function update(Request $request, $id)
@@ -51,7 +52,7 @@ class EventController extends Controller
 
         Event::where('id', $id)->update($data);
 
-        return back();
+        return back()->with('status', 'Event berhasil diperbarui!');
     }
 
     public function hapus($id)
@@ -64,6 +65,13 @@ class EventController extends Controller
 
         Event::where('id', $id)->update($data);
 
-        return back();
+        return back()->with('delete', 'Event berhasil dihapus!');
+    }
+    public function export()
+    {
+        $data = Event::where('soft_delete', 0)->get();
+
+        $pdf = PDF::loadView('admin_event.pdf', compact('data'))->setPaper('a4', 'potrait');
+        return $pdf->stream();
     }
 }

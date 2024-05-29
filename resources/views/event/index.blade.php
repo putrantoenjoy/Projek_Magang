@@ -18,7 +18,7 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach ($event as $event)
+                @foreach ($events as $event)
                     <tr>
                         <td>{{ $loop->iteration }}</td>
                         <td> 
@@ -36,7 +36,9 @@
                 @endforeach
             </tbody>
         </table>
-        
+        <div class="d-flex justify-content-center mt-4">
+            {{ $events->links() }}
+        </div>
     </div>
     </div>
 </section>

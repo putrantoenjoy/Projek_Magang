@@ -29,28 +29,33 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
     // user
     Route::get('/user', [App\Http\Controllers\UserController::class, 'index'])->name('user-index');
     Route::post('/user', [App\Http\Controllers\UserController::class, 'create'])->name('user-create');
+    Route::get('/user/export', [App\Http\Controllers\UserController::class, 'export'])->name('user-export');
 
     // artikel
     Route::get('/artikel', [App\Http\Controllers\ArtikelController::class, 'index'])->name('artikel');
     Route::post('/artikel', [App\Http\Controllers\ArtikelController::class, 'create'])->name('artikel-create');
+    Route::get('/artikel/export', [App\Http\Controllers\ArtikelController::class, 'export'])->name('artikel-export');
 
     //event
     Route::get('/event', [App\Http\Controllers\EventController::class, 'index'])->name('event');
     Route::post('/event', [App\Http\Controllers\EventController::class, 'simpan'])->name('event.simpan');
     Route::put('/event/{id}', [App\Http\Controllers\EventController::class, 'update'])->name('event.update');
     Route::delete('/event/{id}', [App\Http\Controllers\EventController::class, 'hapus'])->name('event.hapus');
+    Route::get('/event/export', [App\Http\Controllers\EventController::class, 'export'])->name('event-export');
 
     //galeri
     Route::get('/galeri', [App\Http\Controllers\GaleriController::class, 'index'])->name('galeri');
     Route::post('/galeri', [App\Http\Controllers\GaleriController::class, 'simpan'])->name('galeri.simpan');
     Route::put('/galeri/{id}', [App\Http\Controllers\GaleriController::class, 'update'])->name('galeri.update');
     Route::delete('/galeri/{id}', [App\Http\Controllers\GaleriController::class, 'hapus'])->name('galeri.hapus');
+    Route::get('/galeri/export', [App\Http\Controllers\GaleriController::class, 'export'])->name('galeri-export');
     
     //tim kerja
     Route::get('/tim', [App\Http\Controllers\TimController::class, 'index'])->name('tim');
     Route::post('/tim', [App\Http\Controllers\TimController::class, 'simpan'])->name('tim.simpan');
     Route::put('/tim/{id}', [App\Http\Controllers\TimController::class, 'update'])->name('tim.update');
     Route::delete('/tim/{id}', [App\Http\Controllers\TimController::class, 'hapus'])->name('tim.hapus');
+    Route::get('/tim/export', [App\Http\Controllers\TimController::class, 'export'])->name('tim-export');
 
     // permission
     Route::post('/permission', [App\Http\Controllers\PermissionControler::class, 'create'])->name('permission-create');
@@ -60,6 +65,7 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
     Route::post('/role', [App\Http\Controllers\RoleController::class, 'create'])->name('role-create');
     Route::patch('/role/update/{id}', [App\Http\Controllers\RoleController::class, 'update'])->name('role-update');
     Route::delete('/role/delete/{id}', [App\Http\Controllers\RoleController::class, 'delete'])->name('role-delete');
+    Route::get('/role/export', [App\Http\Controllers\RoleController::class, 'export'])->name('role-export');
 });
 
 //layanan
