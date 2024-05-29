@@ -7,14 +7,13 @@ use Illuminate\Http\Request;
 use DB;
 use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
-use PDF;
 
 class RoleController extends Controller
 {
     //
     public function index()
     {
-        $alldata = Role::get();
+        $alldata = Role::with('permissions')->get();
         $permissions = Permission::get();
         $allnavigasi = Navigation::get();
         return view('role.index', compact('alldata', 'permissions', 'allnavigasi'));
@@ -25,29 +24,36 @@ class RoleController extends Controller
         $data->name = $request->nama;
         $data->save();
 
-        return back()->with('status', 'Role berhasil dibuat!');
+        return back();
     }
-
     public function update(Request $request, $id)
     {
+        // DB::table('role_has_permissions')->where('role_id', $request->role_id)->delete();
+        // for ($i=0; $i < count($request->permission_id); $i++) { 
+        //     $data = [
+        //         "role_id" => $request->role_id,
+        //         "permission_id" => $request->permission_id[$i],
+        //     ];
+        //     DB::table('role_has_permissions')->insert($data);
+        // }
+        // return back();
+
         $role = Role::findOrFail($id);
         
+        // Validasi input
+        // $validated = $request->validate([
+        //     'permission_id' => 'array',
+        //     'permission_id.*' => 'exists:permissions,id',
+        // ]);
+
+        // Sinkronisasi permission dengan role
         $role->permissions()->sync($request->permission_id);
 
-        return back()->with('status', 'Role berhasil diperbarui!');
+        return response()->json(['message' => 'Permissions updated successfully!']);
     }
-
     public function delete($id)
     {
         Role::find($id)->delete();
-        
-        return back()->with('delete', 'Role berhasil dihapus!');
-    }
-    public function export()
-    {
-        $data = Role::get();
-
-        $pdf = PDF::loadView('role.pdf', compact('data'))->setPaper('a4', 'potrait');
-        return $pdf->stream();
+        return back();
     }
 }
