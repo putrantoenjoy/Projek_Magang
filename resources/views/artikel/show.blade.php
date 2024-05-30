@@ -28,11 +28,6 @@
                             <li><a href="#">Business</a></li>
                         </ul>
                         
-                        <ul class="tags">
-                            <li><a href="#">Creative</a></li>
-                            <li><a href="#">Tips</a></li>
-                            <li><a href="#">Marketing</a></li>
-                        </ul>
                     </div><!-- End meta bottom -->
 
                 </article><!-- End blog post -->
@@ -72,16 +67,6 @@
                                         <a href="{{ route('artikel-kami', ['kategori' => $kategori->id]) }}" class="list-group-item list-group-item-action">{{ $kategori->nama }}</a>
                                     </div>
                                 @endforeach
-                            </div>
-                            <h5 class="card-title">Tag</h5>
-                            <div class="mb-3">
-                                <ul class="list-inline">
-                                    {{-- @foreach($tags as $tag) --}}
-                                        <li class="list-inline-item">
-                                            {{-- <a href="{{ route('artikel-kami', ['tag' => $tag->id]) }}" class="badge bg-primary text-wrap">{{ $tag->nama }}</a> --}}
-                                        </li>
-                                    {{-- @endforeach --}}
-                                </ul>
                             </div>
                             <h5 class="card-title">Artikel Terbaru</h5>
                             <ul class="list-group list-group-flush">

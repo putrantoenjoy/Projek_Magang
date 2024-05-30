@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\TimKerja;
-use PDF;
 
 class TimController extends Controller
 {
@@ -80,12 +79,5 @@ class TimController extends Controller
         TimKerja::where('id', $id)->update($data);
 
         return back()->with('delete', 'Tim Kerja berhasil dihapus!');
-    }
-    public function export()
-    {
-        $data = TimKerja::where('soft_delete', 0)->get();
-
-        $pdf = PDF::loadView('admin_tim.pdf', compact('data'))->setPaper('a4', 'potrait');
-        return $pdf->stream();
     }
 }

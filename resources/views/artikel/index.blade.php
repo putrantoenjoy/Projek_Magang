@@ -69,16 +69,6 @@
                                 </div>
                             @endforeach
                         </div>
-                        <h5 class="card-title">Tag</h5>
-                        <div class="mb-3">
-                            <ul class="list-inline">
-                                {{-- @foreach($tags as $tag) --}}
-                                    <li class="list-inline-item">
-                                        {{-- <a href="{{ route('artikel-kami', ['tag' => $tag->id]) }}" class="badge bg-primary text-wrap">{{ $tag->nama }}</a> --}}
-                                    </li>
-                                {{-- @endforeach --}}
-                            </ul>
-                        </div>
                         <h5 class="card-title">Artikel Terbaru</h5>
                         <ul class="list-group list-group-flush">
                             @foreach ($artikelTerbaru as $artikelTerbaru)

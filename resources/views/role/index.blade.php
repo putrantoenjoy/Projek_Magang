@@ -41,11 +41,6 @@
                                         <span class="vr"></span>
                                         Tambah Permission
                                     </button>
-                                    <a href="{{ route('role-export') }}" class="btn btn-success d-flex align-items-center gap-2">
-                                        <i class="bi bi-download border-white text-white fs-6"></i>
-                                        <span class="vr"></span>
-                                        Export PDF
-                                    </a>
                                 </div>
                                 
                                 <div class="col-md-6 d-flex gap-1 align-items-center justify-content-md-end mb-3">

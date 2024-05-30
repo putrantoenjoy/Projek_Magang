@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('gambar')->nullable();
             $table->string('judul')->nullable();
             $table->string('kategori')->nullable();
+            $table->string('deskripsi')->nullable();
             $table->integer('created_by')->nullable();
             $table->integer('updated_by')->nullable();
             $table->integer('deleted_by')->nullable();

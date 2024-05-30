@@ -36,11 +36,6 @@
                                         <span class="vr"></span>
                                         Tambah Galeri
                                     </button>
-                                    <a href="{{ route('galeri-export') }}" class="btn btn-success mx-3 hstack gap-2 align-self-center">
-                                        <i class="bi bi-download border-white text-white fs-6"></i>
-                                        <span class="vr"></span>
-                                        Export PDF
-                                    </a>
                                 </div>
                                 <div class="col-md-6 d-flex gap-1 align-items-center justify-content-md-end mb-3">
                                     <form action="" method="get" class="d-flex gap-2">
@@ -63,6 +58,7 @@
                                             <th>Gambar</th>
                                             <th>Judul</th>
                                             <th>Kategori</th>
+                                            <th>Deskripsi</th>
                                             <th>Tanggal Post</th>
                                             <th>Aksi</th>
                                         </tr>
@@ -74,6 +70,7 @@
                                             <td><img src="{{ url('storage/img/galeri/'. $value->gambar) }}" alt="gambar" width="50px" height="50px" style="object-fit: cover"></td>
                                             <td>{{ $value->judul }}</td>
                                             <td>{{ $value->kategori }}</td>
+                                            <td>{{ $value->deskripsi }}</td>
                                             <td>{{ date('d-m-Y', strtotime($value->created_at)) }}</td>
                                             <td>
                                                 <div class="d-flex align-items-center">
@@ -110,6 +107,7 @@
         // $('#post_edit').val(data.post_id);
         $('#judul_edit').val(data.judul);
         $('#kategori_edit').val(data.kategori);
+        $('#deskripsi_edit').val(data.kategori);
         // $('#tanggal_edit').val(data.tanggal);
     })  
 </script>

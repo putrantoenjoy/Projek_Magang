@@ -152,7 +152,7 @@
                            </div>
                     <!-- End - Content Header - Left Side -->
                     <!-- Content Header - Right Side: -->
-                    <div class="header__content-end">
+                    {{-- <div class="header__content-end">
                          <!-- User dropdown -->
                         <div class="dropdown">
                             <!-- Toggler -->
@@ -175,7 +175,7 @@
                         <!-- End - User dropdown -->
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
                 </div>
             </div>
         </header>

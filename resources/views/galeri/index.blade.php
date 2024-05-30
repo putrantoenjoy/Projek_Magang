@@ -28,8 +28,9 @@
                     <img src="{{ asset('storage/img/galeri/' . $galeri->gambar) }}" class="img-fluid" alt="{{ $galeri->judul }}">
                     <div class="portfolio-info">
                         <h4>{{ $galeri->judul }}</h4>
+                        <p>{{ $galeri->deskripsi }}</p>
                         <p>{{ $galeri->kategori }}</p>
-                        <a href="{{ asset('storage/img/galeri/' . $galeri->gambar) }}" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="{{ $galeri->judul }}"><i class="bx bx-plus"></i></a>
+                        <a href="{{ asset('storage/img/galeri/' . $galeri->gambar) }}" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="{{ $galeri->judul }}"><i class="bi bi-zoom-in"></i></a>
                     </div>
                 </div>
             @endforeach

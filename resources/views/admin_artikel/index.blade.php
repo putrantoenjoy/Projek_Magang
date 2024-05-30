@@ -36,11 +36,6 @@
                                         <span class="vr"></span>
                                         Tambah Artikel
                                     </button>
-                                    <a href="{{ route('artikel-export') }}" class="btn btn-success mx-3 hstack gap-2 align-self-center">
-                                        <i class="bi bi-download border-white text-white fs-6"></i>
-                                        <span class="vr"></span>
-                                        Export PDF
-                                    </a>
                                 </div>
                                 <div class="col-md-6 d-flex gap-1 align-items-center justify-content-md-end mb-3">
                                     <form action="" method="get" class="d-flex gap-2">

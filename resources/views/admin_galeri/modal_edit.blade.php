@@ -40,6 +40,10 @@
                                                 </select>
                                             </div>
                                             <div class="col-12">
+                                                <label for="deskripsi_edit" class="form-label">Deskripsi</label>
+                                                <input id="deskripsi_edit" type="text" name="deskripsi" required placeholder="Deskripsi" class="form-control">
+                                            </div>
+                                            <div class="col-12">
                                                 <label for="tanggal_edit" class="form-label">Tanggal Post</label>
                                                 <input id="tanggal_edit" type="date" name="tanggal_post" required class="form-control">
                                             </div>
