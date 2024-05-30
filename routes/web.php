@@ -29,8 +29,10 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
     // user
     Route::get('/user', [App\Http\Controllers\UserController::class, 'index'])->name('user-index');
     Route::post('/user', [App\Http\Controllers\UserController::class, 'create'])->name('user-create');
+    Route::patch('/user/update/{id}', [App\Http\Controllers\UserController::class, 'update'])->name('user-update');
+    Route::delete('/user/delete/{id}', [App\Http\Controllers\UserController::class, 'delete'])->name('user-delete');
     Route::get('/user/export', [App\Http\Controllers\UserController::class, 'export'])->name('user-export');
-
+    
     // artikel
     Route::get('/artikel', [App\Http\Controllers\ArtikelController::class, 'index'])->name('artikel');
     Route::post('/artikel', [App\Http\Controllers\ArtikelController::class, 'create'])->name('artikel-create');

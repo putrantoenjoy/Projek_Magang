@@ -73,19 +73,19 @@
                                                         <td>{{ $data->id }}</td>
                                                         <td>{{ $data->name }}</td>
                                                         <td>
-                                                            @foreach ($allrole as $role)
-                                                                @if ($data->id == $role->id)
-                                                                    <label class="badge text-white fw-normal align-items-center bg-secondary">
-                                                                        {{ $role->name }}
-                                                                    </label>
-                                                                @endif
-                                                            @endforeach
+                                                            <label class="badge text-white fw-normal align-items-center bg-secondary">
+                                                                {{ $data->roles->first()->name }}
+                                                            </label>
                                                         </td>
                                                         <td>{{ $data->email }}</td>
-                                                        <td>{{ '$data->foto' }}</td>
+                                                        <td>{{ '$data->fotos' }}</td>
                                                         <td>
-                                                            <a href="" class="btn btn-primary">Ubah</a>
-                                                            <a href="" class="btn btn-danger">Hapus</a>
+                                                            <form action="{{ route('user-delete', $data->id) }}" method="post">
+                                                                @csrf
+                                                                @method('delete')
+                                                                <button type="button" id="ubahUser" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#EditstaticBackdrop">Ubah</button>
+                                                                <button type="submit" class="btn btn-danger">Hapus</button>
+                                                            </form>
                                                         </td>
                                                     </tr>
                                                 @endforeach
@@ -99,5 +99,6 @@
                 </div>
             </div>
         @include('user.create')
+        @include('user.edit')
         {{-- @include('user.edit') --}}
     @endsection

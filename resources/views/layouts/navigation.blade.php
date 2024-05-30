@@ -16,16 +16,21 @@
                 <span class="nav-label ms-1">Dashboard</span>
             </a>
         </li>
+        @role('admin')
         <li class="nav-item">
             <a href="{{route('user-index')}}" class="mininav-toggle nav-link {{ Route::is('user-index') ? 'active' : ''  }}" id="menuUser"><i class="bi bi-people-fill fs-5 me-2"></i>
                 <span class="nav-label ms-1">User</span>
             </a>
         </li>
+        @endrole
+        @hasanyrole('admin|editor|user')
         <li class="nav-item">
             <a href="{{route('artikel')}}" class="mininav-toggle nav-link {{ Route::is('artikel') ? 'active' : ''  }}" id="menuArtikel"><i class="bi bi-newspaper fs-5 me-2"></i>
                 <span class="nav-label ms-1">Artikel</span>
             </a>
         </li>
+        @endhasanyrole
+        @hasanyrole('admin|editor')
         <li class="nav-item">
             <a href="{{route('event')}}" class="mininav-toggle nav-link {{ Route::is('event') ? 'active' : ''  }}" id="menuEvent"><i class="bi bi-calendar-event fs-5 me-2"></i>
                 <span class="nav-label ms-1">Event</span>
@@ -46,6 +51,7 @@
                 <span class="nav-label ms-1">Tim Kerja</span>
             </a>
         </li>
+        @endhasanyrole
         {{-- @endif --}}
     </ul>
 </div>

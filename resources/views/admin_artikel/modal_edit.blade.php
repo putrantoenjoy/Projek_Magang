@@ -25,18 +25,10 @@
                                             <label for="_dm-inputKategori" class="form-label">Kategori</label>
                                             <select id="_dm-inputKategori" name="kategori" class="form-select" required>
                                                 <option value="" selected disabled>Pilih Kategori</option>
-                                                {{-- <?php foreach ($kategori as $kat) { ?>
-                                                    <option value="<?php echo $kat; ?>"><?php echo $kat; ?></option>
-                                                <?php } ?> --}}
                                             </select>
                                         </div>
                                         <div class="col-12">
                                             <label for="_dm-inputtags" class="form-label">Tags</label>
-                                            <select id="_dm-inputtags" name="tags[]" required class="form-control" multiple>
-                                                {{-- <?php foreach ($tags as $tag) { ?>
-                                                    <option value="<?php echo $tag; ?>"><?php echo $tag; ?></option>
-                                                <?php } ?> --}}
-                                            </select>
                                         </div>
                                         <div class="col-12">
                                             <label for="_dm-inputpenulis" class="form-label">Penulis</label>
