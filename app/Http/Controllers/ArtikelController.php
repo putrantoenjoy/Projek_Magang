@@ -89,11 +89,7 @@ class ArtikelController extends Controller
     }
     public function delete($id)
     {
-      $blog = Blog::findOrFail($id);
-        if ($blog->gambar) {
-            Storage::disk('public')->delete('img/artikel/' . $blog->gambar);
-        }
-        $blog->delete();
+        Blog::find($id)->delete();
         return redirect()->back()->with('delete', 'Artikel berhasil dihapus!');
     }
 }
