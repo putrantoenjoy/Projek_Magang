@@ -6,6 +6,7 @@ use App\Models\Blog;
 use App\Models\Kategori;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class ArtikelController extends Controller
 {
@@ -25,10 +26,6 @@ class ArtikelController extends Controller
             'judul' => $request->judul,
             'deskripsi' => $request->deskripsi,
             'konten' => $request->konten,
-            // 'tags' => $request->tags,
-            // 'facebook' => $request->facebook,
-            // 'instagram' => $request->instagram,
-            // 'youtube' => $request->youtube,
         ];
         $data = new Blog();
         $data->user_id = Auth::user()->id;
@@ -37,13 +34,6 @@ class ArtikelController extends Controller
         $data->judul = $request->judul;
         $data->deskripsi = $request->deskripsi;
         $data->konten = $request->konten;
-        // $data->tags = $request->tags;
-        // $data->facebook = $request->facebook;
-        // $data->instagram = $request->instagram;
-        // $data->youtube = $request->youtube;
-        
-        // dd($data);
-        // Blog::insert($data);
 
         $gambar = $request->file('file');
         if (!empty($gambar)) {
@@ -54,7 +44,7 @@ class ArtikelController extends Controller
 
         $data->save();
 
-        return redirect()->back()->with('success', 'Artikel berhasil dibuat!');
+        return redirect()->back()->with('status', 'Artikel berhasil dibuat!');
     }
 
     public function update(Request $request, $id)
@@ -85,11 +75,40 @@ class ArtikelController extends Controller
 
         $data->save();
 
-        return redirect()->back()->with('success', 'Artikel berhasil diperbarui!');
+        return redirect()->back()->with('status', 'Artikel berhasil diperbarui!');
     }
     public function delete($id)
     {
         Blog::find($id)->delete();
         return redirect()->back()->with('delete', 'Artikel berhasil dihapus!');
+    }
+    public function uploadImg(Request $request)
+    {
+        // $request->validate([
+        //     'file' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        // ]);
+
+        // $image = $request->file('file');
+        // $imageName = time().'.'.$image->extension();
+        // $image->storeAs('img/froala', $imageName);
+
+        // return redirect()->back();
+
+        $request->validate([
+            'file' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ]);
+
+        // Menyimpan file gambar yang diunggah
+        $gambar = $request->file('file');
+        if ($gambar) {
+            $file_name = $gambar->hashName();
+            $gambar->storeAs('public/img/galeri', $file_name); // Simpan di direktori public/img/galeri
+            $url = Storage::url('img/galeri/' . $file_name); // Dapatkan URL publik
+
+            // Mengembalikan URL gambar dalam respons JSON
+            return response()->json(['link' => $url]);
+        }
+
+        return response()->json(['error' => 'Gagal mengunggah gambar'], 500);
     }
 }

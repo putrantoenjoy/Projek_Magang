@@ -21,7 +21,7 @@ return new class extends Migration
             $table->date('tanggal_akhir')->nullable();
             $table->time('waktu_mulai')->nullable();
             $table->time('waktu_akhir')->nullable();
-            $table->string('status')->nullable();
+            $table->unsignedMediumInteger('status_id')->nullable();
             $table->integer('created_by')->nullable();
             $table->integer('updated_by')->nullable();
             $table->integer('deleted_by')->nullable();

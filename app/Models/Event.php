@@ -20,6 +20,10 @@ class Event extends Model
         'tanggal_akhir',
         'waktu_mulai',
         'waktu_akhir',
-        'status',
+        'status_id',
     ];
+    public function eventstatus()
+    {
+        return $this->belongsTo('App\Models\EventStatus', 'id');
+    }
 }

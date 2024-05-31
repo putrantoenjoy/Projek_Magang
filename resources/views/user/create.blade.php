@@ -10,11 +10,11 @@
                 <div class="modal-body">
                     <div class="d-flex flex-column">
                         <label for="nama">Nama</label>
-                        <input type="text" name="nama" id="nama" class="form-control">
+                        <input type="text" name="nama" id="nama" class="form-control" required>
                     </div>
                     <div class="d-flex flex-column">
                         <label for="email">Email</label>
-                        <input type="email" name="email" id="email" class="form-control">
+                        <input type="email" name="email" id="email" class="form-control" required>
                     </div>
                     <div class="d-flex flex-column">
                         <label for="role">Role</label>
@@ -27,11 +27,11 @@
                     </div>
                     <div class="d-flex flex-column">
                         <label for="namarole">Password</label>
-                        <input type="password" name="password" id="" class="form-control">
+                        <input type="password" name="password" id="" class="form-control" required>
                     </div>
                     <div class="d-flex flex-column">
                         <label for="namarole">Konfirmasi Password</label>
-                        <input type="password" name="confirmation_password" id="" class="form-control">
+                        <input type="password" name="confirmation_password" id="" class="form-control" required>
                     </div>
                 </div>
                 <div class="p-3 d-flex justify-content-end gap-1">

@@ -77,4 +77,29 @@
         </div>
     </div>
 </div>
+{{-- sc baru --}}
+<script>
+    $(document).ready(function() {
+        // $('#konten').froalaEditor({
+        //     // Setel URL unggah gambar.
+        //     imageUploadURL: '{{ route('upload-img-artikel') }}',
+        //         imageUploadParams: {
+        //             _token: '{{ csrf_token() }}' // Tambahkan token CSRF
+        //         }
+        //     });
+        // });
+        $(document).ready(function() {
+            $('#konten').froalaEditor({
+                // Setel URL unggah gambar.
+                imageUploadURL: '{{ route('upload-img-artikel') }}',
+                imageUploadParams: {
+                    _token: '{{ csrf_token() }}' // Tambahkan token CSRF
+                },
+                imageUploadMethod: 'POST',
+                imageAllowedTypes: ['jpeg', 'jpg', 'png', 'gif'],
+                imageMaxSize: 2048 * 1024, // 2MB
+            });
+        });
+</script>
+{{-- sc baru --}}
 

@@ -1,5 +1,5 @@
 <div class="modal fade" id="ModalEdit" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
+    <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <form method="post" id="form-edit" enctype="multipart/form-data">
                 <div class="modal-header">
@@ -30,6 +30,9 @@
                                             <div class="mb-3">
                                                 <label for="kategori-edit" class="form-label">Kategori</label>
                                                 <select name="kategori" id="edit-kategori" class="form-control">
+                                                    @foreach ($kategori as $data)
+                                                        <option value="{{ $data->id }}">{{ $data->nama }}</option>
+                                                    @endforeach
                                                 </select>
                                             </div>
                                             <div class="mb-3">
@@ -38,7 +41,7 @@
                                             </div>
                                             <div class="mb-3">
                                                 <label for="konten-edit" class="form-label">Konten</label>
-                                                <textarea class="form-control" id="edit-konten" name="konten" rows="5"></textarea>
+                                                <textarea class="form-control" id="edit-konten" name="edit-konten" rows="5"></textarea>
                                             </div>
                                             <div class="d-flex justify-content-end gap-3">
                                                 <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
@@ -56,5 +59,12 @@
     </div>
 </div>
 <script>
-    
+    $("#table").on("click", "#btn-edit", function (){
+        let data = $(this).data("data");
+        console.log(data);
+        $("#edit-name").val(data.penulis);
+        $("#edit-judul").val(data.judul);
+        $("#edit-deskripsi").val(data.deskripsi);
+        $("#edit-konten").val(data.konten);
+    });
 </script>

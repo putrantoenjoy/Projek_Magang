@@ -58,7 +58,6 @@
                                                     <th>Nama</th>
                                                     <th>Role</th>
                                                     <th>Email</th>
-                                                    <th>Foto</th>
                                                     <th>Aksi</th>
                                                 </tr>
                                             </thead>
@@ -73,7 +72,6 @@
                                                             </label>
                                                         </td>
                                                         <td>{{ $data->email }}</td>
-                                                        <td>{{ '$data->fotos' }}</td>
                                                         <td>
                                                             <form action="{{ route('user-delete', $data->id) }}" method="post">
                                                                 @csrf

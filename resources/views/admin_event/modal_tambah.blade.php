@@ -40,9 +40,9 @@
                                         <div class="col-md-12">
                                             <label for="status" class="form-label">Status</label>
                                             <select class="form-control" id="status" name="status" required>
-                                                @foreach (['akan_datang', 'sedang_berlangsung', 'selesai'] as $status)
-                                                    <option value="{{ $status }}" {{ old('status') == $status ? 'selected' : '' }}>
-                                                        {{ ucwords(str_replace('_', ' ', $status)) }}
+                                                @foreach ($statuses as $status)
+                                                    <option value="{{ $status->id }}" {{ old('status') == $status->id ? 'selected' : '' }}>
+                                                        {{ $status->status }}
                                                     </option>
                                                 @endforeach
                                             </select>
