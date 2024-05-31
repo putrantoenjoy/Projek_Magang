@@ -59,7 +59,7 @@
                                         <div class="col-sm-4 mb-4">
                                             <div class="card">
                                                 <div class="card-header">
-                                                    <h4 class="card-title mb-0">{{ $artikelTerbaru->judul }}</h4>
+                                                    <h4 class="card-title mb-0"><a href="{{ route('artikel-kami.show', $artikelTerbaru->id)}}" style="color: black; text-decoration: none;">{{ $artikelTerbaru->judul }}</a></h4>
                                                     <p class="text-muted mb-0">{{ $artikelTerbaru->created_at->format('d M Y') }}</p>
                                                 </div>
                                                 <div class="card-body">

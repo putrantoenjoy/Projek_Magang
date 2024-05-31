@@ -60,9 +60,10 @@
                                             <th>Judul</th>
                                             <th>Deskripsi</th>
                                             <th>Kategori</th>
+                                            <th>Gambar</th>
                                             <th>Konten</th>
-                                            <th>Tag</th>
-                                            {{-- <th>Facebook</th>
+                                            {{-- <th>Tag</th>
+                                            <th>Facebook</th>
                                             <th>Intagram</th>
                                             <th>Youtube</th> --}}
                                             <th>Tanggal Posting</th>
@@ -78,27 +79,22 @@
                                             <td>{{ $data->judul }} </td>
                                             <td>{{ $data->deskripsi }} </td>
                                             <td>{{ $data->kategori->nama }} </td>
+                                            <td><img src="{{ url('storage/img/artikel/'. $data->gambar) }}" alt="gambar" width="50px" height="50px" style="object-fit: cover"></td>
                                             <td><a href="{{ route('artikel-kami.show', $data->id)}}"> Lihat Artikel </a> </td>
-                                            <td>{{ $data->tags }} </td>
-                                            {{-- <td> </td>
+                                            {{-- <td>{{ $data->tags }} </td>
+                                            <td> </td>
                                             <td> </td>
                                             <td> </td> --}}
                                             <td>{{ $data->created_at }} </td>
                                             <td>
-                                                <div class="d-flex">
-                                                    {{-- @if($data->deleted_at == null) --}}
-                                                    <form action="" method="post" class="gap-1 d-flex justify-content-start">
-                                                        @csrf
-                                                        @method('delete')
-                                                        <button class="btn btn-primary" type="button" id="btn-edit" data-data='' data-bs-toggle="modal" data-bs-target="#ModalEdit"><i class="bi bi-pencil fs-5"></i></button>
-                                                        <button class="btn btn-danger" type="submit"><i class="bi bi-trash fs-5"></i></button>
-                                                    </form>
-                                                    {{-- @else --}}
-                                                        {{-- <button class="btn btn-danger disabled" type="button">Deleted</button> --}}
-                                                    
-                                                    {{-- @endif --}}
-                                                </div>
+                                                <form action="{{ route('artikel-delete', $data->id) }}" method="post">
+                                                @csrf
+                                                @method('delete')
+                                                    <button class="btn btn-primary" type="button" id="btn-edit" data-data='' data-bs-toggle="modal" data-bs-target="#ModalEdit"><i class="bi bi-pencil fs-5"></i></button>
+                                                    <button class="btn btn-danger" type="submit"><i class="bi bi-trash fs-5"></i></button>
+                                                </form>
                                             </td>
+                                            
                                         </tr>
                                         @endforeach
                                     </tbody>
@@ -124,6 +120,17 @@
      });
 </script>
 <script src="https://cdn.jsdelivr.net/npm/@yaireo/tagify"></script>
+<script>
+    $('#table').on('click', 'tr #btn-edit', function() {
+        let data = $(this).data('data');
+        $('#form-edit').attr('action', "{{ url('artikel') }}" + '/' + data.id)
+        $('#nama_edit').val(data.nama);
+        $('#judul_edit').val(data.judul);
+        $('#deskripsi-edit').val(data.deskripsi);
+        $('#kategori-edit').val(data.kategori);
+        $('#konten-edit').val(data.konten);
+    })  
+</script>
 <script>
     var input = document.querySelector('input[name=tags]');
     new Tagify(input)

@@ -44,7 +44,7 @@ class UserController extends Controller
         $user = User::create($data);
         $user->assignRole($request->role);
 
-        return redirect()->back();
+        return redirect()->back()->with('success', 'User berhasil dibuat!');
     }
 
     public function update(Request $request, $id)
@@ -64,12 +64,12 @@ class UserController extends Controller
         // $user->password = Hash::make($request->editpassword);
         $user->update();
 
-        return redirect()->back();
+        return redirect()->back()->with('success', 'User berhasil diperbarui!');
     }
 
     public function delete($id)
     {
         User::find($id)->delete();
-        return redirect()->back();
+        return redirect()->back()->with('delete', 'User berhasil dihapus!');
     }
 }

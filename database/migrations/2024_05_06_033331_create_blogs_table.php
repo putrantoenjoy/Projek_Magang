@@ -17,14 +17,15 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('kategori_id');
-            $table->string('penulis');
-            $table->string('judul');
-            $table->string('deskripsi');
-            $table->string('konten');
-            $table->string('tags');
-            $table->string('facebook')->nullable();
-            $table->string('instagram')->nullable();
-            $table->string('youtube')->nullable();
+            $table->string('penulis')->nullable();
+            $table->string('judul')->nullable();
+            $table->string('deskripsi')->nullable();
+            $table->longText('konten')->nullable();
+            $table->string('gambar')->nullable();
+            // $table->string('tags')->nullable();
+            // $table->string('facebook')->nullable();
+            // $table->string('instagram')->nullable();
+            // $table->string('youtube')->nullable();
             $table->timestamps();
         });
     }

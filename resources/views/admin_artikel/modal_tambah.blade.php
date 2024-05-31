@@ -11,7 +11,7 @@
                         <div class="col-md-12 mb-3">
                             <div class="h-100">
                                 <div class="card-body">
-                                    <form method="POST" action="{{ route('artikel-create') }}"> 
+                                    <form class="row g-3 justify-content-center" id="event-tambah" method="post" action="{{ route('artikel-create') }}" enctype="multipart/form-data">
                                         @csrf
                                         <div class="mb-3">
                                             <label for="name" class="form-label">Penulis</label>
@@ -34,13 +34,17 @@
                                             </select>
                                         </div>
                                         <div class="mb-3">
+                                            <label for="file" class="form-label">Pilih Gambar</label>
+                                            <input type="file" class="form-control" id="file" name="file">
+                                        </div>
+                                        <div class="mb-3">
                                             <label for="konten" class="form-label">Konten</label>
                                             <textarea class="form-control" id="konten" name="konten" rows="5"></textarea>
                                         </div>
-                                        <div class="mb-3">
+                                        {{-- <div class="mb-3">
                                             <label for="tags" class="form-label">Tags</label>
                                             <input type="text" class="form-control" name="tags" id="tags">
-                                        </div>
+                                        </div> --}}
                                         {{-- <div class="mb-3">
                                             <label for="facebook" class="form-label">Link Facebook (opsional)</label>
                                             <div class="input-group flex-nowrap">

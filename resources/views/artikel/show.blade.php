@@ -25,28 +25,11 @@
 
                     <div class="meta-bottom">
                         <ul class="category">
-                            <li><a href="#">Business</a></li>
+                            <li><td>Kategori : {{ $artikel->kategori->nama }} </td></li>
                         </ul>
-                        
                     </div><!-- End meta bottom -->
 
                 </article><!-- End blog post -->
-
-                <div class="post-author d-flex align-items-center">
-                    {{-- <img src="{{ asset('storage/img/artikel/' . $artikel->penulis_image) }}" class="rounded-circle flex-shrink-0" alt="{{ $artikel->penulis }}"> --}}
-                    <div>
-                        <h4>{{ $artikel->penulis }}</h4>
-                        <div class="social-links">
-                            <a href="https://twitter.com/{{ $artikel->penulis_twitter }}"><i class="bi bi-twitter"></i></a>
-                            <a href="https://facebook.com/{{ $artikel->penulis_facebook }}"><i class="bi bi-facebook"></i></a>
-                            <a href="https://instagram.com/{{ $artikel->penulis_instagram }}"><i class="bi bi-instagram"></i></a>
-                        </div>
-                        <p>
-                            {{ $artikel->penulis_bio }}
-                        </p>
-                    </div>
-                </div><!-- End post author -->
-
             </div>
 
             <div class="col-lg-4">
@@ -82,7 +65,6 @@
                                     </li>
                                 @endforeach
                             </ul>
-                            
                         </div>
                     </div>
                 </div>
