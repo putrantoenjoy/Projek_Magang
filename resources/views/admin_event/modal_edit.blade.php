@@ -16,16 +16,38 @@
                                             @csrf
                                             @method('PUT')
                                             <div class="col-md-12">
-                                                <label for="tempat_edit" class="form-label">Tempat</label>
-                                                <input id="tempat_edit" type="text" name="tempat" required placeholder="Tempat" class="form-control">
+                                                <label for="nama_edit" class="form-label">Nama Event</label>
+                                                <input type="text" class="form-control" id="nama_edit" name="nama" required placeholder="Nama">
                                             </div>
                                             <div class="col-md-12">
-                                                <label for="tanggal_edit" class="form-label">Tanggal</label>
-                                                <input id="tanggal_edit" type="date" name="tanggal" required placeholder="Tanggal" class="form-control">
+                                                <label for="tempat_edit" class="form-label">Tempat</label>
+                                                <input type="text" class="form-control" id="tempat_edit" name="tempat" required placeholder="Tempat">
                                             </div>
-                                            <div class="mb-3">
-                                                <label for="waktu_edit" class="form-label">Waktu</label>
-                                                <input id="waktu_edit" type="time" name="waktu" required placeholder="Waktu" class="form-control">
+                                            <div class="col-md-12">
+                                                <label for="tanggal_mulai_edit" class="form-label">Tanggal Mulai</label>
+                                                <input type="date" class="form-control" id="tanggal_mulai_edit" name="tanggal_mulai" required>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <label for="tanggal_akhir_edit" class="form-label">Tanggal Akhir</label>
+                                                <input type="date" class="form-control" id="tanggal_akhir_edit" name="tanggal_akhir" required>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <label for="waktu_mulai_edit" class="form-label">Waktu Mulai</label>
+                                                <input type="time" class="form-control" id="waktu_mulai_edit" name="waktu_mulai" required>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <label for="waktu_akhir_edit" class="form-label">Waktu Akhir</label>
+                                                <input type="time" class="form-control" id="waktu_akhir_edit" name="waktu_akhir" required>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <label for="status" class="form-label">Status</label>
+                                                <select class="form-control" id="status" name="status" required>
+                                                    @foreach (['akan_datang', 'sedang_berlangsung', 'selesai'] as $status)
+                                                        <option value="{{ $status }}" {{ old('status') == $status ? 'selected' : '' }}>
+                                                            {{ ucwords(str_replace('_', ' ', $status)) }}
+                                                        </option>
+                                                    @endforeach
+                                                </select>
                                             </div>
                                         </div>
                                     </div>
@@ -45,13 +67,11 @@
     </div>
 </div>
 <script>
-    document.getElementById('tanggal_edit').valueAsDate = new Date();
-
     function resetForm() {
-        document.getElementById("event-tambah").reset();
+        document.getElementById("form-edit").reset();
     }
 
     function submitForm() {
-        document.getElementById("event-tambah").submit();
+        document.getElementById("form-edit").submit();
     }
 </script>

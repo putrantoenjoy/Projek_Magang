@@ -27,14 +27,12 @@
                                         </div>
                                         <div class="col-12">
                                             <label for="kategori" class="form-label">Kategori</label>
-                                            <select id="kategori" name="kategori" class="form-control" required placeholder="Pilih Kategori">
-                                                <option value="proyek" {{ old('kategori') == 'proyek' ? 'selected' : '' }}>Proyek</option>
-                                                <option value="acara" {{ old('kategori') == 'acara' ? 'selected' : '' }}>Acara</option>
-                                                <option value="produk" {{ old('kategori') == 'produk' ? 'selected' : '' }}>Produk</option>
-                                                <option value="sertifikat" {{ old('kategori') == 'sertifikat' ? 'selected' : '' }}>Sertifikat</option>
-                                                <option value="fasilitas" {{ old('kategori') == 'fasilitas' ? 'selected' : '' }}>Fasilitas</option>
-                                                <option value="klien" {{ old('kategori') == 'klien' ? 'selected' : '' }}>Klien</option>
-                                                <option value="kegiatan_sosial" {{ old('kategori') == 'kegiatan_sosial' ? 'selected' : '' }}>Kegiatan Sosial</option>
+                                            <select id="Kategori_edit" name="kategori" class="form-select">
+                                                @foreach (['proyek', 'acara', 'produk', 'sertifikat', 'fasilitas', 'klien', 'kegiatan_sosial'] as $kategori)
+                                                    <option value="{{ $kategori }}" {{ old('kategori') == $kategori ? 'selected' : '' }}>
+                                                        {{ ucwords(str_replace('_', ' ', $kategori)) }}
+                                                    </option>
+                                                @endforeach
                                             </select>
                                         </div>
                                         <div class="col-12">

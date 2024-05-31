@@ -69,7 +69,7 @@
                                             <td>{{ $loop->iteration }}</td>
                                             <td><img src="{{ url('storage/img/galeri/'. $value->gambar) }}" alt="gambar" width="50px" height="50px" style="object-fit: cover"></td>
                                             <td>{{ $value->judul }}</td>
-                                            <td>{{ $value->kategori }}</td>
+                                            <td>{{ ucwords(str_replace('_', ' ', $value->kategori)) }}</td>
                                             <td>{{ $value->deskripsi }}</td>
                                             <td>{{ date('d-m-Y', strtotime($value->created_at)) }}</td>
                                             <td>
@@ -106,9 +106,9 @@
         $('#form-edit').attr('action', "{{ url('galeri') }}" + '/' + data.id)
         // $('#post_edit').val(data.post_id);
         $('#judul_edit').val(data.judul);
-        $('#kategori_edit').val(data.kategori);
-        $('#deskripsi_edit').val(data.kategori);
-        // $('#tanggal_edit').val(data.tanggal);
+        $('#Kategori_edit').val(data.kategori);
+        $('#deskripsi_edit').val(data.deskripsi);
+        $('#tanggal_edit').val(data.tanggal_post);
     })  
 </script>
 @endsection

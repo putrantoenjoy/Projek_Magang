@@ -35,12 +35,7 @@
                                         <i class="demo-psi-add fs-5"></i>
                                         <span class="vr"></span>
                                         Tambah Event
-                                    </button>
-                                    <a href="{{ route('event-export') }}" class="btn btn-success mx-3 hstack gap-2 align-self-center">
-                                        <i class="bi bi-download border-white text-white fs-6"></i>
-                                        <span class="vr"></span>
-                                        Export PDF
-                                    </a>                                    
+                                    </button>                                  
                                 </div>
                                 <div class="col-md-6 d-flex gap-1 align-items-center justify-content-md-end mb-3">
                                     <form action="" method="get" class="d-flex gap-2">
@@ -60,9 +55,12 @@
                                     <thead>
                                         <tr>
                                             <th>No</th>
+                                            <th>Nama Event</th>
                                             <th>Tempat Event</th>
-                                            <th>Tanggal Event</th>
-                                            <th>Waktu Event</th>
+                                            <th>Tanggal Mulai</th>
+                                            <th>Tanggal Akhir</th>
+                                            <th>Waktu</th>
+                                            <th>Status</th>
                                             <th>Aksi</th>
                                         </tr>
                                     </thead>
@@ -70,14 +68,17 @@
                                         @foreach ($data as $row => $value)
                                         <tr class="align-middle">
                                             <td>{{ $loop->iteration }}</td>
+                                            <td>{{ $value->nama }}</td>
                                             <td>{{ $value->tempat }}</td>
-                                            <td>{{ \Carbon\Carbon::parse($value->tanggal)->format('d-m-Y') }}</td>
-                                            <td>{{ \Carbon\Carbon::parse($value->waktu)->format('H:i') }}</td>
+                                            <td>{{ \Carbon\Carbon::parse($value->tanggal_mulai)->format('d-m-Y') }}</td>
+                                            <td>{{ \Carbon\Carbon::parse($value->tanggal_akhir)->format('d-m-Y') }}</td>
+                                            <td>{{ \Carbon\Carbon::parse($value->waktu_mulai)->format('H:i') }} - {{ \Carbon\Carbon::parse($value->waktu_akhir)->format('H:i') }}</td>
+                                            <td>{{ ucwords(str_replace('_', ' ', $value->status)) }}</td>
                                             <td>
                                                 <div class="d-flex align-items-center">
-                                                    <form action="" class="m-0" method="post">
+                                                    <form action="{{ route('event.hapus', $value->id) }}" method="post" class="m-0">
                                                         @csrf
-                                                        @method('delete')      
+                                                        @method('delete')
                                                         <button class="btn btn-primary" type="button" id="btn-edit" data-data='{{ json_encode($value) }}' data-bs-toggle="modal" data-bs-target="#ModalEdit">Ubah</button>
                                                         <button class="btn btn-danger" type="submit">Hapus</button>
                                                     </form>
@@ -102,10 +103,14 @@
 <script>
     $('#table').on('click', 'tr #btn-edit', function() {
         let data = $(this).data('data');
-        $('#form-edit').attr('action', "{{ url('event') }}" + '/' + data.id)
+        $('#form-edit').attr('action', "{{ url('event') }}" + '/' + data.id);
+        $('#nama_edit').val(data.nama);
         $('#tempat_edit').val(data.tempat);
-        $('#tanggal_edit').val(data.tanggal);
-        $('#waktu_edit').val(data.waktu);
+        $('#tanggal_mulai_edit').val(data.tanggal_mulai);
+        $('#tanggal_akhir_edit').val(data.tanggal_akhir);
+        $('#waktu_mulai_edit').val(data.waktu_mulai);
+        $('#waktu_akhir_edit').val(data.waktu_akhir);
+        $('#status_edit').val(data.status);
     })  
 </script>
 @endsection

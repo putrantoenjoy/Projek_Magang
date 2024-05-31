@@ -15,9 +15,13 @@ return new class extends Migration
     {
         Schema::create('event', function (Blueprint $table) {
             $table->id();
+            $table->string('nama')->nullable();
             $table->string('tempat')->nullable();
-            $table->date('tanggal')->nullable();
-            $table->time('waktu')->nullable();
+            $table->date('tanggal_mulai')->nullable();
+            $table->date('tanggal_akhir')->nullable();
+            $table->time('waktu_mulai')->nullable();
+            $table->time('waktu_akhir')->nullable();
+            $table->string('status')->nullable();
             $table->integer('created_by')->nullable();
             $table->integer('updated_by')->nullable();
             $table->integer('deleted_by')->nullable();

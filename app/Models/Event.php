@@ -12,4 +12,14 @@ class Event extends Model
     protected $table = 'event';
 
     protected $guarded = ['id'];
+
+    protected $fillable = [
+        'nama',
+        'tempat',
+        'tanggal_mulai',
+        'tanggal_akhir',
+        'waktu_mulai',
+        'waktu_akhir',
+        'status',
+    ];
 }

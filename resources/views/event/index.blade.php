@@ -12,15 +12,19 @@
             <thead>
                 <tr>
                     <th>No.</th>
+                    <th>Nama Event</th>
                     <th>Tempat Event</th>
-                    <th>Tanggal Event</th>
+                    <th>Tanggal Mulai Event</th>
+                    <th>Tanggal Akhir Event</th>
                     <th>Waktu Event</th>
+                    <th>Status Event</th>
                 </tr>
             </thead>
             <tbody>
                 @foreach ($events as $event)
                     <tr>
                         <td>{{ $loop->iteration }}</td>
+                        <td>{{ $event->nama }}</td>
                         <td> 
                             @if($event['tempat'] === 'Online Zoom')
                                 {{ $event['tempat'] }}
@@ -30,8 +34,10 @@
                                 <a href="https://www.google.com/maps/search/?api=1&query={{ $event['tempat'] }}" target="_blank">{{ $event['tempat'] }}</a>
                             @endif
                         </td>
-                        <td>{{ \Carbon\Carbon::parse($event['tanggal'])->format('d-m-Y') }}</td>
-                        <td>{{ \Carbon\Carbon::parse($event['waktu'])->format('H:i') }}</td>
+                        <td>{{ \Carbon\Carbon::parse($event['tanggal_mulai'])->format('d-m-Y') }}</td>
+                        <td>{{ \Carbon\Carbon::parse($event['tanggal_akhir'])->format('d-m-Y') }}</td>
+                        <td>{{ \Carbon\Carbon::parse($event->waktu_mulai)->format('H:i') }} - {{ \Carbon\Carbon::parse($event->waktu_akhir)->format('H:i') }}</td>
+                        <td>{{ ucwords(str_replace('_', ' ', $event->status)) }}</td>
                     </tr>
                 @endforeach
             </tbody>
