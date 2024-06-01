@@ -16,7 +16,9 @@ class ArtikelController extends Controller
 
         if ($cari) {
             $allData = Blog::where('judul', 'like', "%$cari%")
-                            ->orWhere('kategori_id', 'like', "%$cari%")
+                            ->orWhereHas('kategori', function($query) use ($cari) {
+                                $query->where('nama', 'like', "%$cari%");
+                            })
                             ->get();
         } else {
             $allData = Blog::get();
