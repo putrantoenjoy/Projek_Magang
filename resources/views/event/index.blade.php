@@ -37,7 +37,7 @@
                         <td>{{ \Carbon\Carbon::parse($event['tanggal_mulai'])->format('d-m-Y') }}</td>
                         <td>{{ \Carbon\Carbon::parse($event['tanggal_akhir'])->format('d-m-Y') }}</td>
                         <td>{{ \Carbon\Carbon::parse($event->waktu_mulai)->format('H:i') }} - {{ \Carbon\Carbon::parse($event->waktu_akhir)->format('H:i') }}</td>
-                        <td>{{ ucwords(str_replace('_', ' ', $event->status)) }}</td>
+                        <td>{{ $event->eventstatus->status }}</td>
                     </tr>
                 @endforeach
             </tbody>

@@ -46,7 +46,7 @@
                                 <div class="col-md-6 d-flex gap-1 align-items-center justify-content-md-end mb-3">
                                     <form action="" method="get" class="d-flex gap-2">
                                         <div class="form-group">
-                                            <input type="text" placeholder="Cari..." name="cari" class="form-control" autocomplete="off" value="">
+                                            <input type="text" placeholder="Cari..." name="cari" class="form-control" autocomplete="off" value="{{ $cari }}">
                                         </div>
                                         <div class="btn-group">
                                             <button class="btn btn-primary">Cari</button>

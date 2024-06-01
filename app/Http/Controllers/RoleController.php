@@ -11,12 +11,21 @@ use Spatie\Permission\Models\Role;
 class RoleController extends Controller
 {
     //
-    public function index()
+    public function index(Request $request)
     {
-        $alldata = Role::with('permissions')->get();
+        $cari = $request->get('cari');
+
+        $query = Role::with('permissions');
+
+        if ($cari) {
+            $query->where('name', 'like', "%$cari%");
+        }
+
+        $alldata = $query->get();
         $permissions = Permission::get();
         $allnavigasi = Navigation::get();
-        return view('role.index', compact('alldata', 'permissions', 'allnavigasi'));
+
+        return view('role.index', compact('alldata', 'permissions', 'allnavigasi', 'cari'));
     }
     public function create(Request $request)
     {

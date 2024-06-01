@@ -57,7 +57,7 @@
                                 <div class="row">
                                     @foreach ($artikelTerbaru as $artikelTerbaru)
                                         <div class="col-sm-4 mb-4">
-                                            <div class="card">
+                                            <div class="card" style="box-shadow: 0 4px 8px rgba(0,0,0,0.2); border-radius: 10px;">
                                                 <div class="card-header">
                                                     <h4 class="card-title mb-0"><a href="{{ route('artikel-kami.show', $artikelTerbaru->id)}}" style="color: black; text-decoration: none;">{{ $artikelTerbaru->judul }}</a></h4>
                                                     <p class="text-muted mb-0">{{ $artikelTerbaru->created_at->format('d M Y') }}</p>

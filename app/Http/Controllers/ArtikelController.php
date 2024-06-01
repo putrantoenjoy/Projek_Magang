@@ -10,11 +10,20 @@ use Illuminate\Support\Facades\Storage;
 
 class ArtikelController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $allData = Blog::get();
+        $cari = $request->get('cari');  
+
+        if ($cari) {
+            $allData = Blog::where('judul', 'like', "%$cari%")
+                            ->orWhere('kategori_id', 'like', "%$cari%")
+                            ->get();
+        } else {
+            $allData = Blog::get();
+        }
+
         $kategori = Kategori::get();
-        return view('admin_artikel.index', compact('allData', 'kategori'));
+        return view('admin_artikel.index', compact('allData', 'kategori', 'cari'));
     }
 
     public function create(Request $request)
