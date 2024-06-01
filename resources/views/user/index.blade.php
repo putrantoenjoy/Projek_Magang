@@ -73,12 +73,12 @@
                                                         </td>
                                                         <td>{{ $data->email }}</td>
                                                         <td>
-                                                            <form action="{{ route('user-delete', $data->id) }}" method="post">
+                                                            {{-- <form action="{{ route('user-delete', $data->id) }}" id="delete-user" method="post">
                                                                 @csrf
-                                                                @method('delete')
+                                                                @method('delete') --}}
                                                                 <button type="button" id="ubahUser" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#EditstaticBackdrop">Ubah</button>
-                                                                <button type="submit" class="btn btn-danger">Hapus</button>
-                                                            </form>
+                                                                <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#DeleteUserstaticBackdrop">Delete</button>
+                                                            {{-- </form> --}}
                                                         </td>
                                                     </tr>
                                                 @endforeach
@@ -93,5 +93,6 @@
             </div>
         @include('user.create')
         @include('user.edit')
+        @include('user.delete')
         {{-- @include('user.edit') --}}
     @endsection

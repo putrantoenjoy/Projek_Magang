@@ -71,7 +71,7 @@
                                         <tr>
                                             <td>{{ $data->id }}</td>
                                             <td>{{ $data->name }}</td>
-                                            <td><button class="btn btn-primary">Lihat Permission</button></td>
+                                            <td><button class="btn btn-primary" type="button" id="show" data-data='{{ json_encode($data) }}' data-bs-toggle="modal" data-bs-target="#ShowstaticBackdrop">Lihat Permission</button></td>
                                             <td>
                                                 <form action="{{ route('role-delete', $data->id) }}" method="POST">
                                                     @csrf
@@ -94,6 +94,7 @@
     @include('role.create')
     @include('role.permission')
     @include('role.edit')
+    @include('role.show')
     <script>
         // $('#table').on('click', 'tr #edit', function() {
         //     let data = $(this).data('data');

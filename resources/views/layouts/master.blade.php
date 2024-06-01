@@ -220,7 +220,7 @@
                             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                 @csrf
                             </form>
-                            <a href="{{ route('login') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="nav-link mininav-toggle collapsed" aria-expanded="false">
+                            <a href="{{ route('login') }}"  data-bs-toggle="modal" data-bs-target="#LogOutstaticBackdrop" class="nav-link mininav-toggle collapsed" aria-expanded="false">
                                 <i class="demo-pli-unlock fs-5 me-2"></i>
                                 <span class="nav-label ms-1">Logout</span>
                             </a>
@@ -233,6 +233,7 @@
         <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
         <!-- END - MAIN NAVIGATION -->
     </div>
+    @include('modal_logout')
     <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
     <!-- END - PAGE CONTAINER -->
     <!-- SCROLL TO TOP BUTTON -->
