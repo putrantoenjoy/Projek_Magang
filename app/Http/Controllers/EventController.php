@@ -8,6 +8,9 @@ use App\Models\Event;
 
 class EventController extends Controller
 {
+    function __construct(){
+        $this->middleware(['permission:event-index|event-update|event-create|event-delete']);
+    }
     public function index(Request $request)
     {
         $statuses = EventStatus::get();
@@ -60,7 +63,7 @@ class EventController extends Controller
             'created_by' => auth()->user()->id
         ];
 
-        Event::where('id', $id)->update($data);
+        Event::find($id)->update($data);
 
         return back()->with('status', 'Event berhasil diperbarui!');
     }

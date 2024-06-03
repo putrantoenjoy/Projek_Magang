@@ -133,7 +133,7 @@
                 <div class="header__brand" style="background-color: #1e78ff">
                     <div class="brand-wrap">
                         <!-- Brand logo -->
-                        <a href="index.html" class="brand-img stretched-link">
+                        <a href="{{ route('dashboard') }}" class="brand-img stretched-link">
                             <img src="{{ asset('logo/logo.png') }}" alt="logo" class="logo" width="40" height="40">
                         </a>
                         <!-- Brand title -->

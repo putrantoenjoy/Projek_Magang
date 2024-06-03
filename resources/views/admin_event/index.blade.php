@@ -31,11 +31,13 @@
                             <h5 class="card-title mb-3">Tabel Event</h5>
                             <div class="row">
                                 <div class="col-md-6 d-flex gap-1 align-items-center mb-3">
-                                    <button type="button" class="btn btn-primary hstack gap-2 align-self-center" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                        <i class="demo-psi-add fs-5"></i>
-                                        <span class="vr"></span>
-                                        Tambah Event
-                                    </button>                                  
+                                    @can('event-create')
+                                        <button type="button" class="btn btn-primary hstack gap-2 align-self-center" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                            <i class="demo-psi-add fs-5"></i>
+                                            <span class="vr"></span>
+                                            Tambah Event
+                                        </button>                                  
+                                    @endcan
                                 </div>
                                 <div class="col-md-6 d-flex gap-1 align-items-center justify-content-md-end mb-3">
                                     <form action="" method="get" class="d-flex gap-2">
@@ -73,14 +75,24 @@
                                             <td>{{ \Carbon\Carbon::parse($value->tanggal_mulai)->format('d-m-Y') }}</td>
                                             <td>{{ \Carbon\Carbon::parse($value->tanggal_akhir)->format('d-m-Y') }}</td>
                                             <td>{{ \Carbon\Carbon::parse($value->waktu_mulai)->format('H:i') }} - {{ \Carbon\Carbon::parse($value->waktu_akhir)->format('H:i') }}</td>
-                                            <td>{{ $value->eventstatus->status }}</td>
+                                            <td>
+                                                @foreach($statuses as $status)
+                                                    @if ($status->id == $value->status_id)
+                                                        {{ $status->status }}
+                                                    @endif
+                                                @endforeach
+                                            </td>
                                             <td>
                                                 <div class="d-flex align-items-center">
                                                     <form action="{{ route('event.hapus', $value->id) }}" method="post" class="m-0">
                                                         @csrf
                                                         @method('delete')
-                                                        <button class="btn btn-primary" type="button" id="btn-edit" data-data='{{ json_encode($value) }}' data-bs-toggle="modal" data-bs-target="#ModalEdit">Ubah</button>
-                                                        <button class="btn btn-danger" type="submit">Hapus</button>
+                                                        @can('event-update')
+                                                            <button class="btn btn-primary" type="button" id="btn-edit" data-data='{{ json_encode($value) }}' data-bs-toggle="modal" data-bs-target="#ModalEdit">Ubah</button>
+                                                        @endcan
+                                                        @can('event-delete')
+                                                            <button class="btn btn-danger" type="submit">Hapus</button>
+                                                        @endcan
                                                     </form>
                                                 </div>
                                             </td>

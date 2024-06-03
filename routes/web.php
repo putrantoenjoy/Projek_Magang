@@ -64,6 +64,7 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
     Route::get('/role', [App\Http\Controllers\RoleController::class, 'index'])->name('role-index');
     Route::post('/role', [App\Http\Controllers\RoleController::class, 'create'])->name('role-create');
     Route::patch('/role/update/{id}', [App\Http\Controllers\RoleController::class, 'update'])->name('role-update');
+    // Route::patch('/role-update/{id}', [RoleController::class, 'update'])->name('role-update');
     Route::delete('/role/delete/{id}', [App\Http\Controllers\RoleController::class, 'delete'])->name('role-delete');
 });
 

@@ -46,19 +46,17 @@
 
         $.ajax({
             url: '{{ route('role-update', ['id' => ':id']) }}'.replace(':id', id_permission),
-            type: 'PATCH',
+            type: 'POST', // Gunakan metode POST
             data: { 
                 permission_id: permission_id,
+                _method: 'PATCH', // Spoofing method
                 _token: "{{ csrf_token() }}" 
             },
             success: function(response) {
-                console.log(response);
                 location.reload();
-                // Menghandle kesuksesan
             },
             error: function(xhr, status, error) {
                 console.error(error);
-                // Menghandle error
             }
         });
     });

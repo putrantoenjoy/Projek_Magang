@@ -31,11 +31,13 @@
                             <h5 class="card-title mb-3">Tabel Artikel</h5>
                             <div class="row">
                                 <div class="col-md-6 d-flex gap-1 align-items-center mb-3">
-                                    <button type="button" class="btn btn-primary hstack gap-2 align-self-center" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                        <i class="demo-psi-add fs-5"></i>
-                                        <span class="vr"></span>
-                                        Tambah Artikel
-                                    </button>
+                                    @can('artikel-create')
+                                        <button type="button" class="btn btn-primary hstack gap-2 align-self-center" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                            <i class="demo-psi-add fs-5"></i>
+                                            <span class="vr"></span>
+                                            Tambah Artikel
+                                        </button>
+                                    @endcan
                                 </div>
                                 <div class="col-md-6 d-flex gap-1 align-items-center justify-content-md-end mb-3">
                                     <form action="" method="get" class="d-flex gap-2">
@@ -83,8 +85,12 @@
                                                 @csrf
                                                 @method('delete')
                                                     <div class="d-flex gap-1">
-                                                        <button class="btn btn-primary" type="button" id="btn-edit" data-data='{{ json_encode($data) }}' data-bs-toggle="modal" data-bs-target="#ModalEdit">Ubah</button>
-                                                        <button class="btn btn-danger" type="submit">Hapus</button>
+                                                        @can('artikel-update')
+                                                            <button class="btn btn-primary" type="button" id="btn-edit" data-data='{{ json_encode($data) }}' data-bs-toggle="modal" data-bs-target="#ModalEdit">Ubah</button>
+                                                        @endcan
+                                                        @can('artikel-delete')
+                                                            <button class="btn btn-danger" type="submit">Hapus</button>
+                                                        @endcan
                                                     </div>
                                                 </form>
                                             </td>

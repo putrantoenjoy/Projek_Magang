@@ -13,6 +13,9 @@ use App\Models\User;
 class UserController extends Controller
 {
     //
+    function __construct(){
+        $this->middleware(['permission:user-index|user-update|user-create|user-delete']);
+    }
     public function index(Request $request)
     {
         $allrole = Role::get();

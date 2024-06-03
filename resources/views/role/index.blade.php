@@ -31,11 +31,13 @@
                             <h5 class="card-title mb-3">Tabel Role</h5>
                             <div class="row">
                                 <div class="col-md-6 d-flex gap-2 align-items-center mb-3">
-                                    <button type="button" class="btn btn-primary d-flex align-items-center gap-2" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                                        <i class="demo-psi-add fs-5"></i>
-                                        <span class="vr"></span>
-                                        Tambah Role
-                                    </button>
+                                    @can('role-create')
+                                        <button type="button" class="btn btn-primary d-flex align-items-center gap-2" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                                            <i class="demo-psi-add fs-5"></i>
+                                            <span class="vr"></span>
+                                            Tambah Role
+                                        </button>
+                                    @endcan
                                     <button type="button" class="btn btn-primary d-flex align-items-center gap-2" data-bs-toggle="modal" data-bs-target="#addPermissionStaticBackdrop">
                                         <i class="demo-psi-add fs-5"></i>
                                         <span class="vr"></span>
@@ -75,9 +77,13 @@
                                             <td>
                                                 <form action="{{ route('role-delete', $data->id) }}" method="POST">
                                                     @csrf
-                                                    @method('delete')      
-                                                    <button class="btn btn-primary" type="button" id="edit" data-data='{{ json_encode($data) }}' data-bs-toggle="modal" data-bs-target="#EditstaticBackdrop">Ubah</button>
-                                                    <button class="btn btn-danger" type="submit">Hapus</button>
+                                                    @method('delete')
+                                                    @can('role-update')
+                                                        <button class="btn btn-primary" type="button" id="edit" data-data='{{ json_encode($data) }}' data-bs-toggle="modal" data-bs-target="#EditstaticBackdrop">Ubah</button>
+                                                    @endcan
+                                                    @can('role-delete')
+                                                        <button class="btn btn-danger" type="submit">Hapus</button>
+                                                    @endcan
                                                 </form>
                                             </td>
                                         </tr>

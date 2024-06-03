@@ -10,6 +10,9 @@ use Illuminate\Support\Facades\Storage;
 
 class ArtikelController extends Controller
 {
+    function __construct(){
+        $this->middleware(['permission:artikel-index|artikel-update|artikel-create|artikel-delete']);
+    }
     public function index(Request $request)
     {
         $cari = $request->get('cari');  

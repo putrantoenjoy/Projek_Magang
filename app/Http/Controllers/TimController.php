@@ -7,6 +7,9 @@ use App\Models\TimKerja;
 
 class TimController extends Controller
 {
+    function __construct(){
+        $this->middleware(['permission:tim-index|tim-update|tim-create|tim-delete']);
+    }
     public function index(Request $request)
     {
         $query = TimKerja::where('soft_delete', 0);

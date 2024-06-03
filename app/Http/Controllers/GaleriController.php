@@ -7,6 +7,9 @@ use App\Models\Galeri;
 
 class GaleriController extends Controller
 {
+    function __construct(){
+        $this->middleware(['permission:galeri-index|galeri-update|galeri-create|galeri-delete']);
+    }
     public function index(Request $request)
     {   
         $query = Galeri::where('soft_delete', 0);
