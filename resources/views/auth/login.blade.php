@@ -37,9 +37,23 @@
                     @csrf
                     <div class="my-3">
                         <label for="email">Email</label>
-                        <input type="email" id="emai" name="email" class="form-control" required>
+                        <input type="email" id="emai" name="email" class="form-control @error('email') is-invalid @enderror" required>
+                        @if($errors->has('email'))
+                            <div class="alert-danger">
+                                <small class="text-danger">
+                                    {{ $errors->first('email') }}
+                                </small>
+                            </div>
+                        @endif
                         <label for="password">Passwod</label>
-                        <input type="password" id="password" name="password" class="form-control" required>
+                        <input type="password" id="password" name="password" class="form-control @error('password') is-invalid @enderror" required>
+                        @if($errors->has('password'))
+                            <div class="alert-danger">
+                                <small class="text-danger">
+                                    {{ $errors->first('password') }}
+                                </small>
+                            </div>
+                        @endif
                         <div class="my-3">
                             <div class="d-flex justify-content-between">
                                 <a href="{{ route('register') }}" class="text-decoration-none">Belum punya akun?</a>

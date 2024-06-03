@@ -65,7 +65,9 @@
                                             <th>Role Id</th>
                                             <th>Role</th>
                                             <th>Permission</th>
-                                            <th>Aksi</th>
+                                            @canany(['role-update', 'role-delete'])
+                                                <th>Aksi</th>
+                                            @endcanany
                                         </tr>
                                     </thead>
                                     <tbody>

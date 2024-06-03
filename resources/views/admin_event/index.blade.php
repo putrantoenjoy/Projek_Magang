@@ -63,7 +63,9 @@
                                             <th>Tanggal Akhir</th>
                                             <th>Waktu</th>
                                             <th>Status</th>
-                                            <th>Aksi</th>
+                                            @canany(['event-update', 'event-delete'])
+                                                <th>Aksi</th>
+                                            @endcanany
                                         </tr>
                                     </thead>
                                     <tbody>

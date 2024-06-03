@@ -62,7 +62,9 @@
                                             <th>Kategori</th>
                                             <th>Deskripsi</th>
                                             <th>Tanggal Post</th>
-                                            <th>Aksi</th>
+                                            @canany(['galeri-update', 'galeri-delete'])
+                                                <th>Aksi</th>
+                                            @endcanany
                                         </tr>
                                     </thead>
                                     <tbody>

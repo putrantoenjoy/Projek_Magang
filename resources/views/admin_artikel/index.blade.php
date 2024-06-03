@@ -56,8 +56,9 @@
                                 <table id="table" class="table table-striped">
                                     <thead>
                                         <tr>
-                                            <th>Post id</th>
-                                            <th>User Id</th>
+                                            <th>No</th>
+                                            {{-- <th>Post id</th>
+                                            <th>User Id</th> --}}
                                             <th>Penulis</th>
                                             <th>Judul</th>
                                             <th>Deskripsi</th>
@@ -65,14 +66,17 @@
                                             <th>Gambar</th>
                                             <th>Konten</th>
                                             <th>Tanggal Posting</th>
-                                            <th>Aksi</th>
+                                            @canany(['artikel-update', 'artikel-delete'])
+                                                <th>Aksi</th>
+                                            @endcanany
                                         </tr>
                                     </thead>
                                     <tbody>
                                         @foreach ($allData as $row => $data)
                                         <tr>
-                                            <td>{{ $data->id }} </td>
-                                            <td>{{ $data->user_id }} </td>
+                                            <td>{{ ++$row }} </td>
+                                            {{-- <td>{{ $data->id }} </td>
+                                            <td>{{ $data->user_id }} </td> --}}
                                             <td>{{ $data->user->name }} </td>
                                             <td>{{ $data->judul }} </td>
                                             <td>{{ $data->deskripsi }} </td>

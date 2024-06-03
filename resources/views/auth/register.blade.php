@@ -37,15 +37,41 @@
                     @csrf
                     <div class="my-3">
                         <label for="nama">Nama</label>
-                        <input type="text" id="nama" name="name" class="form-control" required>
-                        <label for="username">Username</label>
-                        <input type="username" id="username" name="username" class="form-control">
+                        <input type="text" id="nama" name="name" value="{{ old('name') }}" class="form-control" required>
+                        @if($errors->has('name'))
+                            <div class="alert-danger">
+                                <small class="text-danger">
+                                    {{ $errors->first('name') }}
+                                </small>
+                            </div>
+                        @endif
                         <label for="email">Email</label>
-                        <input type="email" id="emai" name="email" class="form-control" required>
+                        <input type="email" id="emai" name="email" value="{{ old('email') }}" class="form-control" required>
+                        @if($errors->has('email'))
+                            <div class="alert-danger">
+                                <small class="text-danger">
+                                    {{ $errors->first('email') }}
+                                </small>
+                            </div>
+                        @endif
                         <label for="password">Passwod</label>
                         <input type="password" id="password" name="password" class="form-control" required>
-                        <label for="confirm_password">Konfirmasi Password</label>
-                        <input type="password" id="confirm_password" name="confirm_password" class="form-control" required>
+                        @if($errors->has('password'))
+                            <div class="alert-danger">
+                                <small class="text-danger">
+                                    {{ $errors->first('password') }}
+                                </small>
+                            </div>
+                        @endif
+                        <label for="password-confirm">Konfirmasi Password</label>
+                        <input type="password" id="password-confirm" name="password_confirmation" class="form-control" required>
+                        @if($errors->has('password'))
+                            <div class="alert-danger">
+                                <small class="text-danger">
+                                    {{ $errors->first('password') }}
+                                </small>
+                            </div>
+                        @endif
                         <div class="my-3">
                             <a href="{{ route('login') }}" class="text-decoration-none">Sudah memiliki akun?</a>
                         </div>

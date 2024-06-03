@@ -60,7 +60,9 @@
                                             <th>Nama</th>
                                             <th>Jabatan</th>
                                             <th>Foto Profil</th>
-                                            <th>Aksi</th>
+                                            @canany(['tim-update', 'tim-delete'])
+                                                <th>Aksi</th>
+                                            @endcanany
                                         </tr>
                                     </thead>
                                     <tbody>

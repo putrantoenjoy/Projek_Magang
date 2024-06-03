@@ -4,6 +4,9 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Http\Request;
+use Illuminate\Validation\ValidationException;
+use Illuminate\Support\Facades\Validator;
 
 class LoginController extends Controller
 {
@@ -25,6 +28,17 @@ class LoginController extends Controller
      *
      * @var string
      */
+
+    protected function credentials(Request $request){
+        $validator = Validator::make($request->all(),[
+            $this->username()=>'required|string|email',
+            'password'=>'required|string',
+        ]);
+        if($validator->fails()){
+            throw ValidationException::withMessages([$this->username()=>['Please enter a valid email']]);
+        }
+        return $request->only($this->username(), 'password');
+    }
     protected $redirectTo = '/dashboard';
 
     /**

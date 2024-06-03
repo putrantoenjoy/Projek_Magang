@@ -60,7 +60,9 @@
                                                     <th>Nama</th>
                                                     <th>Role</th>
                                                     <th>Email</th>
-                                                    <th>Aksi</th>
+                                                    @canany(['user-update', 'user-delete'])
+                                                        <th>Aksi</th>
+                                                    @endcanany
                                                 </tr>
                                             </thead>
                                             <tbody>
