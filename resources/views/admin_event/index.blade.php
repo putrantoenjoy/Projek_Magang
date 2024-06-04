@@ -89,12 +89,14 @@
                                                     {{-- <form action="{{ route('event.hapus', $value->id) }}" method="post" class="m-0">
                                                         @csrf
                                                         @method('delete') --}}
-                                                        @can('event-update')
+                                                        <div class="d-flex gap-1">
+                                                            @can('event-update')
                                                             <button class="btn btn-primary" type="button" id="btn-edit" data-data='{{ json_encode($value) }}' data-bs-toggle="modal" data-bs-target="#ModalEdit">Ubah</button>
-                                                        @endcan
-                                                        @can('event-delete')
+                                                            @endcan
+                                                            @can('event-delete')
                                                             <button class="btn btn-danger" type="button" data-bs-toggle="modal" data-bs-target="#DeleteEventstaticBackdrop">Hapus</button>
-                                                        @endcan
+                                                            @endcan
+                                                        </div>
                                                     {{-- </form> --}}
                                                 </div>
                                             </td>
