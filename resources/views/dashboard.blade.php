@@ -14,7 +14,7 @@
                 <div class="row">
                     <div class="col-md-4 mb-4">
                         <div class="card">
-                            <div class="card-body d-flex align-items-center">
+                            <div class="card-body d-flex align-items-center gap-3">
                                 <i class="bi bi-people-fill" style="font-size: 4rem;"></i>
                                 <div class="ms-3"> 
                                     <p class="mar-no">Total User</p>
@@ -25,7 +25,7 @@
                     </div>
                     <div class="col-md-4 mb-4">
                         <div class="card">
-                            <div class="card-body d-flex align-items-center">
+                            <div class="card-body d-flex align-items-center gap-3">
                                 <i class="bi bi-newspaper" style="font-size: 4rem;"></i>
                                 <div class="ms-3"> 
                                     <p class="mar-no">Total Artikel</p>
@@ -36,7 +36,7 @@
                     </div>
                     <div class="col-md-4 mb-4">
                         <div class="card">
-                            <div class="card-body d-flex align-items-center">
+                            <div class="card-body d-flex align-items-center gap-3">
                                 <i class="bi bi-images" style="font-size: 4rem;"></i>
                                 <div class="ms-3"> 
                                     <p class="mar-no">Galeri</p>
