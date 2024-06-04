@@ -1,5 +1,8 @@
 <?php
 
+use App\Models\Blog;
+use App\Models\Galeri;
+use App\Models\User;
 use Illuminate\Support\Facades\Route;
 use Laravel\Fortify\Fortify;
 
@@ -97,5 +100,8 @@ Fortify::registerView(function () {
 //     return view('auth.verify');
 // });
 Route::get('/email/verify', function () {
-    return view('auth.verify');
+    $user = User::get();
+    $artikel = Blog::get();
+    $galeri = Galeri::get();
+    return view('auth.verify', compact('user', 'artikel', 'galeri'));
 })->name('verification.notice');

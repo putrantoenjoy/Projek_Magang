@@ -34,7 +34,7 @@
                                 <i class="bi bi-people-fill" style="font-size: 4rem;"></i>
                                 <div class="ml-3">
                                     <p class="mar-no">Total User</p>
-                                    <p class="text-2x mar-no text-semibold">241</p>
+                                    <p class="text-2x mar-no text-semibold">{{ count($user) }}</p>
                                 </div>
                             </div>
                         </div>
@@ -45,7 +45,7 @@
                                 <i class="bi bi-newspaper" style="font-size: 4rem;"></i>
                                 <div class="ml-3">
                                     <p class="mar-no">Total Artikel</p>
-                                    <p class="text-2x mar-no text-semibold">241</p>
+                                    <p class="text-2x mar-no text-semibold">{{ count($artikel) }}</p>
                                 </div>
                             </div>
                         </div>
@@ -56,7 +56,7 @@
                                 <i class="bi bi-images" style="font-size: 4rem;"></i>
                                 <div class="ml-3">
                                     <p class="mar-no">Galeri</p>
-                                    <p class="text-2x mar-no text-semibold">241</p>
+                                    <p class="text-2x mar-no text-semibold">{{ count($galeri) }}</p>
                                 </div>
                             </div>
                         </div>
@@ -71,36 +71,28 @@
                             </div>
                             <div class="card-body">
                                 <div class="row">
-                                    <div class="col-sm-4 mb-4">
-                                        <div class="card">
-                                            <div class="card-header">
-                                                <h4 class="card-title mb-0">Artikel Terbaru 1</h4>
+                                    @if (!empty($artikel))
+                                        @foreach ($artikel as $value)
+                                            <div class="col-sm-4 mb-4">
+                                                <div class="card shadow">
+                                                    <div class="card-header">
+                                                        <h4 class="card-title mb-0">{{ $value->judul }}</h4>
+                                                    </div>
+                                                    <div class="card-body">
+                                                        <p>{{ $value->deskripsi }}</p>
+                                                    </div>
+                                                </div>
                                             </div>
-                                            <div class="card-body">
-                                                <p>Lorem ipsum dolor sit amet.</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-4 mb-4">
-                                        <div class="card">
-                                            <div class="card-header">
-                                                <h4 class="card-title mb-0">Artikel Terbaru 2</h4>
-                                            </div>
-                                            <div class="card-body">
-                                                <p>Lorem ipsum dolor sit amet.</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-4 mb-4">
-                                        <div class="card">
-                                            <div class="card-header">
-                                                <h4 class="card-title mb-0">Artikel Terbaru 3</h4>
-                                            </div>
-                                            <div class="card-body">
-                                                <p>Lorem ipsum dolor sit amet.</p>
+                                        @endforeach
+                                    @else
+                                        <div class="col-12">
+                                            <div class="card">
+                                                <div class="card-header">
+                                                    <h4 class="card-title mb-0">Belum ada artikel </h4>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
+                                    @endif
                                 </div>
                             </div>
                         </div>
