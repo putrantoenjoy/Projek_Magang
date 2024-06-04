@@ -1,11 +1,11 @@
-<div class="modal fade" id="DeleteUserstaticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+<div class="modal fade" id="DeleteGaleristaticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title fw-bold" id="DeleteUserstaticBackdrop">Pemberitahuan</h5>
+                <h5 class="modal-title fw-bold" id="DeleteGaleristaticBackdrop">Pemberitahuan</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form action="{{ route('user-delete', $data->id) }}" method="post" id="logout">
+            <form action="{{ route('galeri.hapus', $value->id) }}" method="post" id="logout">
                 @csrf
                 @method('delete')
                 <div class="modal-body">

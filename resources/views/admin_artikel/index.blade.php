@@ -85,18 +85,18 @@
                                             <td><a href="{{ route('artikel-kami.show', $data->id)}}"> Lihat Artikel </a> </td>
                                             <td>{{ $data->created_at }} </td>
                                             <td>
-                                                <form action="{{ route('artikel-delete', $data->id) }}" method="post">
+                                                {{-- <form action="{{ route('artikel-delete', $data->id) }}" method="post">
                                                 @csrf
-                                                @method('delete')
+                                                @method('delete') --}}
                                                     <div class="d-flex gap-1">
                                                         @can('artikel-update')
                                                             <button class="btn btn-primary" type="button" id="btn-edit" data-data='{{ json_encode($data) }}' data-bs-toggle="modal" data-bs-target="#ModalEdit">Ubah</button>
                                                         @endcan
                                                         @can('artikel-delete')
-                                                            <button class="btn btn-danger" type="submit">Hapus</button>
+                                                            <button class="btn btn-danger" type="button" data-bs-toggle="modal" data-bs-target="#DeleteArtikelstaticBackdrop">Hapus</button>
                                                         @endcan
                                                     </div>
-                                                </form>
+                                                {{-- </form> --}}
                                             </td>
                                             
                                         </tr>
@@ -110,6 +110,7 @@
             </div>
         @include('admin_artikel.modal_tambah')
         @include('admin_artikel.modal_edit')
+        @include('admin_artikel.delete')
         
     </div>
 </div>

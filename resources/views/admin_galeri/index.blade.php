@@ -78,16 +78,16 @@
                                             <td>{{ date('d-m-Y', strtotime($value->created_at)) }}</td>
                                             <td>
                                                 <div class="d-flex align-items-center">
-                                                    <form action="{{ url('galeri/'. $value->id) }}" method="post">
+                                                    {{-- <form action="{{ url('galeri/'. $value->id) }}" method="post">
                                                         @csrf
-                                                        @method('delete')
+                                                        @method('delete') --}}
                                                         @can('galeri-update')
                                                             <button class="btn btn-primary" type="button" id="btn-edit" data-data='{{ json_encode($value) }}' data-bs-toggle="modal" data-bs-target="#ModalEdit">Ubah</button>
                                                         @endcan
                                                         @can('galeri-delete')
-                                                            <button class="btn btn-danger" type="submit">Hapus</button>
+                                                            <button class="btn btn-danger" type="button" data-bs-toggle="modal" data-bs-target="#DeleteGaleristaticBackdrop">Hapus</button>
                                                         @endcan
-                                                    </form>
+                                                    {{-- </form> --}}
                                                 </div>
                                             </td>
                                         </tr>
@@ -104,6 +104,7 @@
             </div>
         @include('admin_galeri.modal_tambah')
         @include('admin_galeri.modal_edit')
+        @include('admin_galeri.delete')
         
     </div>
 </div>
