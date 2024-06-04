@@ -77,16 +77,16 @@
                                             <td>{{ $data->name }}</td>
                                             <td><button class="btn btn-primary" type="button" id="show" data-data='{{ json_encode($data) }}' data-bs-toggle="modal" data-bs-target="#ShowstaticBackdrop">Lihat Permission</button></td>
                                             <td>
-                                                {{-- <form action="{{ route('role-delete', $data->id) }}" method="POST">
+                                                <form action="{{ route('role-delete', $data->id) }}" method="POST">
                                                     @csrf
-                                                    @method('delete') --}}
+                                                    @method('delete')
                                                     @can('role-update')
                                                         <button class="btn btn-primary" type="button" id="edit" data-data='{{ json_encode($data) }}' data-bs-toggle="modal" data-bs-target="#EditstaticBackdrop">Ubah</button>
                                                     @endcan
                                                     @can('role-delete')
-                                                        <button class="btn btn-danger" type="button" data-bs-toggle="modal" data-bs-target="#DeleteRoletaticBackdrop">Hapus</button>
+                                                        <button class="btn btn-danger" type="submit">Hapus</button>
                                                     @endcan
-                                                {{-- </form> --}}
+                                                </form>
                                             </td>
                                         </tr>
                                         @endforeach
@@ -102,7 +102,6 @@
     @include('role.create')
     @include('role.permission')
     @include('role.edit')
-    @include('role.delete')
     @include('role.show')
     <script>
         // $('#table').on('click', 'tr #edit', function() {

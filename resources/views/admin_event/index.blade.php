@@ -86,18 +86,18 @@
                                             </td>
                                             <td>
                                                 <div class="d-flex align-items-center">
-                                                    {{-- <form action="{{ route('event.hapus', $value->id) }}" method="post" class="m-0">
+                                                    <form action="{{ route('event.hapus', $value->id) }}" method="post" class="m-0">
                                                         @csrf
-                                                        @method('delete') --}}
+                                                        @method('delete')
                                                         <div class="d-flex gap-1">
                                                             @can('event-update')
                                                             <button class="btn btn-primary" type="button" id="btn-edit" data-data='{{ json_encode($value) }}' data-bs-toggle="modal" data-bs-target="#ModalEdit">Ubah</button>
                                                             @endcan
                                                             @can('event-delete')
-                                                            <button class="btn btn-danger" type="button" data-bs-toggle="modal" data-bs-target="#DeleteEventstaticBackdrop">Hapus</button>
+                                                            <button class="btn btn-danger" type="submit">Hapus</button>
                                                             @endcan
                                                         </div>
-                                                    {{-- </form> --}}
+                                                    </form>
                                                 </div>
                                             </td>
                                         </tr>
@@ -112,7 +112,6 @@
             </div>
         @include('admin_event.modal_tambah')
         @include('admin_event.modal_edit')
-        @include('admin_event.delete')
         
     </div>
 </div>

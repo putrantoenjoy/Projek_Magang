@@ -1,9 +1,9 @@
 @if (!empty($data))
-    <div class="modal fade" id="DeleteRoletaticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal fade" id="DeleteRole{{ $data->id }}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="DeleteRoleLabel{{ $data->id }}" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title fw-bold" id="DeleteRoletaticBackdrop">Pemberitahuan</h5>
+                    <h5 class="modal-title fw-bold" id="DeleteRoleLabel{{ $data->id }}">Konfirmasi Hapus</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <form action="{{ route('role-delete', $data->id) }}" method="post">

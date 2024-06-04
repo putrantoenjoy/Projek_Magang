@@ -71,22 +71,28 @@
                                                         <td>{{ $data->id }}</td>
                                                         <td>{{ $data->name }}</td>
                                                         <td>
+                                                            @if (!empty($data->roles->first()->name))
                                                             <label class="badge text-white fw-normal align-items-center bg-secondary">
                                                                 {{ $data->roles->first()->name }}
                                                             </label>
+                                                            @else
+                                                            <label class="badge text-white fw-normal align-items-center bg-danger">
+                                                                {{ 'tidak ada' }}
+                                                            </label>
+                                                            @endif
                                                         </td>
                                                         <td>{{ $data->email }}</td>
                                                         <td>
-                                                            {{-- <form action="{{ route('user-delete', $data->id) }}" id="delete-user" method="post">
+                                                            <form action="{{ route('user-delete', $data->id) }}" id="delete-user" method="post">
                                                                 @csrf
-                                                                @method('delete') --}}
+                                                                @method('delete')
                                                                 @can('user-update')
                                                                     <button type="button" id="ubahUser" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#EditstaticBackdrop">Ubah</button>
                                                                 @endcan
                                                                 @can('user-delete')
-                                                                    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#DeleteUserstaticBackdrop">Delete</button>
+                                                                    <button type="submit" class="btn btn-danger">Delete</button>
                                                                 @endcan
-                                                            {{-- </form> --}}
+                                                            </form>
                                                         </td>
                                                     </tr>
                                                 @endforeach
@@ -101,6 +107,5 @@
             </div>
         @include('user.create')
         @include('user.edit')
-        @include('user.delete')
         {{-- @include('user.edit') --}}
     @endsection

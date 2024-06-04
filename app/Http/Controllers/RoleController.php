@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Model_Has_Role;
 use App\Models\Navigation;
+use App\Models\Role_Has_Permission;
 use Illuminate\Http\Request;
 use DB;
 use Illuminate\Support\Facades\Artisan;
@@ -49,7 +51,10 @@ class RoleController extends Controller
     }
     public function delete($id)
     {
+        Model_Has_Role::where('role_id', $id)->delete();
+        Role_Has_Permission::where('role_id', $id)->delete();
         Role::find($id)->delete();
-        return back();
+
+        return redirect()->back()->with('delete', 'Role berhasil dihapus!');
     }
 }
