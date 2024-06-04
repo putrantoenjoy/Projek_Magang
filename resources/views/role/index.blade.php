@@ -102,6 +102,7 @@
     @include('role.create')
     @include('role.permission')
     @include('role.edit')
+    @include('role.delete')
     @include('role.show')
     <script>
         // $('#table').on('click', 'tr #edit', function() {
