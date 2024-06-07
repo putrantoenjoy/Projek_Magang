@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Role_Has_Permission;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\DB;
 use Spatie\Permission\Models\Role;
 use Hash;
@@ -53,8 +54,10 @@ class UserController extends Controller
     public function update(Request $request, $id)
     {
         $role = User::find($id);
-        $name = $role->roles->first()->name;
-        $role->removeRole($name);
+        
+        if(!empty($role->roles->first()->name)){
+            $role->removeRole($role->roles->first()->name);
+        }
         $role->assignRole($request->editrole);
 
         $user = User::find($id);
@@ -74,5 +77,22 @@ class UserController extends Controller
     {
         User::find($id)->delete();
         return redirect()->back()->with('delete', 'User berhasil dihapus!');
+    }
+    public function export()
+    {
+        $databaseName = env('DB_DATABASE');
+        $username = env('DB_USERNAME');
+        $password = env('DB_PASSWORD');
+        $outputFile = storage_path('app/export_data.sql');
+
+        exec("mysqldump --user={$username} --password={$password} {$databaseName} > {$outputFile}");
+
+        // Memeriksa apakah file ada sebelum mengirimkan respons
+        if (file_exists($outputFile)) {
+            // Mengirimkan file SQL sebagai respons
+            return response()->download($outputFile);
+        } else {
+            return redirect()->back()->with('delete', 'Failed to export data.');
+        }
     }
 }

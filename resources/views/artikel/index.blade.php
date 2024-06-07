@@ -65,7 +65,7 @@
                         <div class="row mb-3">
                             @foreach($kategori as $kategori)
                                 <div class="col-6">
-                                    <a href="{{ route('artikel-kami', ['kategori' => $kategori->id]) }}" class="list-group-item list-group-item-action">{{ $kategori->nama }}</a>
+                                    <a href="{{ route('artikel-kami', ['kategori' => $kategori->id]) }}" class="list-group-item list-group-item-action text-dark">{{ $kategori->nama }}</a>
                                 </div>
                             @endforeach
                         </div>
@@ -74,7 +74,7 @@
                             @foreach ($artikelTerbaru as $artikelTerbaru)
                                 <li class="list-group-item">
                                     <div class="d-flex align-items-center">
-                                        <img src="{{ asset('storage/img/artikel/' . $artikelTerbaru->gambar) }}" alt="{{ $artikelTerbaru->judul }}" class="me-3" style="max-width: 100px;">
+                                        <img src="{{ asset('storage/img/artikel/' . $artikelTerbaru->gambar) }}" alt="{{ $artikelTerbaru->judul }}" class="me-3" style="width: 100px; height: 100px;">
                                         <div>
                                             <a href="{{ route('artikel-kami.show', $artikelTerbaru->id) }}">{{ $artikelTerbaru->judul }}</a>
                                             <p class="text-muted mb-0">{{ $artikelTerbaru->created_at->format('d M Y') }}</p>

@@ -62,20 +62,19 @@
                                 <table id="table" class="table table-striped">
                                     <thead>
                                         <tr>
-                                            <th>Role Id</th>
+                                            <th>No</th>
                                             <th>Role</th>
-                                            <th>Permission</th>
                                             @canany(['role-update', 'role-delete'])
                                                 <th>Aksi</th>
                                             @endcanany
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach ($alldata as $data)
+                                        @foreach ($alldata as $row => $data)
                                         <tr>
-                                            <td>{{ $data->id }}</td>
+                                            <td>{{ ++$row }}</td>
                                             <td>{{ $data->name }}</td>
-                                            <td><button class="btn btn-primary" type="button" id="show" data-data='{{ json_encode($data) }}' data-bs-toggle="modal" data-bs-target="#ShowstaticBackdrop">Lihat Permission</button></td>
+                                            {{-- <td><button class="btn btn-primary" type="button" id="show" data-data='{{ json_encode($data) }}' data-bs-toggle="modal" data-bs-target="#ShowstaticBackdrop">Lihat Permission</button></td> --}}
                                             <td>
                                                 <form action="{{ route('role-delete', $data->id) }}" method="POST">
                                                     @csrf

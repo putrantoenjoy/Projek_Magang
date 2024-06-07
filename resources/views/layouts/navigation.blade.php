@@ -58,6 +58,18 @@
             </a>
         </li>
         @endcan
+        @role('admin')
+        <li class="nav-item">
+            {{-- <a href="{{ route('export-sql') }}" class="mininav-toggle nav-link {{ Route::is('export-sql') ? 'active' : ''  }}" id="exportSql"><i class="bi bi-arrow-down-square fs-5 me-2"></i>
+                <span class="nav-label ms-1">Export Sql</span>
+            </a> --}}
+            {{-- <a href="{{ route('backup.download') }}" class="btn btn-primary">Download Backup Database</a> --}}
+            {{-- <form action="{{ route('backup.download') }}" method="post">
+                @csrf
+                <button type="submit" class="mininav-toggle nav-link">Export Database</button>
+            </form>             --}}
+        </li>
+        @endrole
         {{-- @endif --}}
     </ul>
 </div>

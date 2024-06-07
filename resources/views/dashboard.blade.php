@@ -8,6 +8,9 @@
             <h2 class="text-white">Dashboard</h2>
             <h3 class="text-white"><span id="greeting"></span> {{ Auth::user()->name }}</h3>
             <h5 class="text-white"><span id="date"></span></h5>
+            @if(session('success'))
+                <div class="text-white">{{ session('success') }}</div>
+            @endif
         </div>
         <div class="content__boxed">
             <div class="content__wrap p-0">

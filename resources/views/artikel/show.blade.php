@@ -6,8 +6,10 @@
         <div class="row g-5">
             <div class="col-lg-8">
                 <article class="blog-details card">
-                    <div class="post-img">
-                        <img src="{{ asset('storage/img/artikel/' . $artikel->gambar) }}" alt="{{ $artikel->judul }}" class="img-fluid">
+                    <div class="d-flex justify-content-center">
+                        <div class="post-img d-flex justify-content-center my-3" style="width: 300px; height: 300px; overflow: hidden;">
+                            <img src="{{ asset('storage/img/artikel/' . $artikel->gambar) }}" alt="{{ $artikel->judul }}" class="d-flex" style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
                     </div>
 
                     <h2 class="title">{{ $artikel->judul }}</h2>
@@ -56,7 +58,7 @@
                                 @foreach ($artikelTerbaru as $artikelTerbaru)
                                     <li class="list-group-item">
                                         <div class="d-flex align-items-center">
-                                            <img src="{{ asset('storage/img/artikel/' . $artikelTerbaru->gambar) }}" alt="{{ $artikelTerbaru->judul }}" class="me-3" style="max-width: 100px;">
+                                            <img src="{{ asset('storage/img/artikel/' . $artikelTerbaru->gambar) }}" alt="{{ $artikelTerbaru->judul }}" class="me-3" style="width: 100px; height: 100px;">
                                             <div>
                                                 <a href="{{ route('artikel-kami.show', $artikelTerbaru->id) }}">{{ $artikelTerbaru->judul }}</a>
                                                 <p class="text-muted mb-0">{{ $artikelTerbaru->created_at->format('d M Y') }}</p>

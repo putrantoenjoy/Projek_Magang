@@ -5,6 +5,10 @@ use App\Models\Galeri;
 use App\Models\User;
 use Illuminate\Support\Facades\Route;
 use Laravel\Fortify\Fortify;
+use Spatie\Backup\Tasks\Backup\BackupJob;
+use Illuminate\Support\Facades\Artisan;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Http\Response;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,6 +38,7 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
     Route::post('/user', [App\Http\Controllers\UserController::class, 'create'])->name('user-create');
     Route::patch('/user/update/{id}', [App\Http\Controllers\UserController::class, 'update'])->name('user-update');
     Route::delete('/user/delete/{id}', [App\Http\Controllers\UserController::class, 'delete'])->name('user-delete');
+    
     
     // artikel
     Route::get('/artikel', [App\Http\Controllers\ArtikelController::class, 'index'])->name('artikel');
@@ -69,6 +74,21 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
     Route::patch('/role/update/{id}', [App\Http\Controllers\RoleController::class, 'update'])->name('role-update');
     // Route::patch('/role-update/{id}', [RoleController::class, 'update'])->name('role-update');
     Route::delete('/role/delete/{id}', [App\Http\Controllers\RoleController::class, 'delete'])->name('role-delete');
+
+    // export sql
+    Route::get('/export/export-sql', [App\Http\Controllers\UserController::class, 'export'])->name('export-sql');
+    // Route::get('/backup/download', function () {
+    //     // Run the backup command to create a backup
+    //     Artisan::call('backup:run', ['--only-db' => true]);
+    
+    //     // Get the path to the latest backup file
+    //     $backupFiles = Storage::disk('backup')->files();
+    //     $latestBackup = end($backupFiles);
+    //     $backupPath = Storage::disk('backup')->path($latestBackup);
+    
+    //     // Return the backup file as a download response
+    //     return response()->download($backupPath, 'database_backup.sql');
+    // })->name('backup.download');
 });
 
 //layanan
