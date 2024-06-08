@@ -8,6 +8,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\DB;
 use Spatie\Permission\Models\Role;
+use Illuminate\Support\Facades\Storage;
+use Symfony\Component\HttpFoundation\StreamedResponse;
 use Hash;
 use App\Models\User;
 
@@ -80,19 +82,39 @@ class UserController extends Controller
     }
     public function export()
     {
-        $databaseName = env('DB_DATABASE');
-        $username = env('DB_USERNAME');
-        $password = env('DB_PASSWORD');
-        $outputFile = storage_path('app/export_data.sql');
+        $filename = 'backup-' . date('Y-m-d_H-i-s') . '.sql';
+        
+        $tables = DB::select('SHOW TABLES');
+        $database = env('DB_DATABASE');
 
-        exec("mysqldump --user={$username} --password={$password} {$databaseName} > {$outputFile}");
+        $sqlScript = "";
+        foreach ($tables as $table) {
+            $tableName = array_values((array)$table)[0];
 
-        // Memeriksa apakah file ada sebelum mengirimkan respons
-        if (file_exists($outputFile)) {
-            // Mengirimkan file SQL sebagai respons
-            return response()->download($outputFile);
-        } else {
-            return redirect()->back()->with('delete', 'Failed to export data.');
+            // Add table creation statement
+            $createTableResult = DB::select("SHOW CREATE TABLE `$tableName`");
+            $createTableStatement = $createTableResult[0]->{'Create Table'};
+            $sqlScript .= "\n\n" . $createTableStatement . ";\n\n";
+
+            // Add table data
+            $tableData = DB::table($tableName)->get();
+            foreach ($tableData as $row) {
+                $sqlScript .= "INSERT INTO `$tableName` VALUES(";
+                foreach ($row as $value) {
+                    $value = addslashes($value);
+                    $value = str_replace("\n", "\\n", $value);
+                    $sqlScript .= "'$value', ";
+                }
+                $sqlScript = rtrim($sqlScript, ", ");
+                $sqlScript .= ");\n";
+            }
+            $sqlScript .= "\n\n\n";
         }
+
+        // Store the SQL script temporarily
+        Storage::disk('local')->put($filename, $sqlScript);
+
+        // Return the file as a download response
+        return response()->download(storage_path("app/{$filename}"))->deleteFileAfterSend(true);
     }
 }
