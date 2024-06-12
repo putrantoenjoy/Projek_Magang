@@ -8,15 +8,15 @@
             <form action="{{ route('user-create') }}" method="post" id="addrole">
                 @csrf
                 <div class="modal-body">
-                    <div class="d-flex flex-column">
+                    <div class="d-flex flex-column mb-3">
                         <label for="nama">Nama</label>
                         <input type="text" name="nama" id="nama" class="form-control" required>
                     </div>
-                    <div class="d-flex flex-column">
+                    <div class="d-flex flex-column mb-3">
                         <label for="email">Email</label>
                         <input type="email" name="email" id="email" class="form-control" required>
                     </div>
-                    <div class="d-flex flex-column">
+                    <div class="d-flex flex-column mb-3">
                         <label for="role">Role</label>
                         <select name="role" id="role" class="form-control">
                             <option value="" hidden selected disabled>Pilih</option>
@@ -25,11 +25,11 @@
                             @endforeach
                         </select>
                     </div>
-                    <div class="d-flex flex-column">
+                    <div class="d-flex flex-column mb-3">
                         <label for="namarole">Password</label>
                         <input type="password" name="password" id="" class="form-control" required>
                     </div>
-                    <div class="d-flex flex-column">
+                    <div class="d-flex flex-column mb-3">
                         <label for="namarole">Konfirmasi Password</label>
                         <input type="password" name="confirmation_password" id="" class="form-control" required>
                     </div>
