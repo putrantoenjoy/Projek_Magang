@@ -42,13 +42,21 @@
                                             <div class="col-md-12">
                                                 <label for="status" class="form-label">Status</label>
                                                 <select class="form-control" id="status" name="status" required>
-                                                    @foreach ($statuses as $status)
-                                                        @if ($status->id == $value->status_id)
+                                                    @if (!empty($value))
+                                                        @foreach ($statuses as $status)
+                                                        {{-- @if ($status->id == $value->status_id) --}}
                                                             <option value="{{ $status->id }}" {{ old('status') == $status->id ? 'selected' : '' }}>
                                                                 {{ $status->status }}
                                                             </option>
-                                                        @endif
-                                                    @endforeach
+                                                        {{-- @endif --}}
+                                                        @endforeach
+                                                    @else 
+                                                        <option selected>
+                                                            Pilih
+                                                        </option>
+                                                    @endif
+                                                    
+                                                    
                                                 </select>
                                             </div>
                                         </div>
