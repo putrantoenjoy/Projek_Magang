@@ -9,15 +9,15 @@
                 @csrf
                 @method('patch')
                 <div class="modal-body">
-                    <div class="d-flex flex-column">
+                    <div class="d-flex flex-column mb-3">
                         <label for="nama">Nama</label>
                         <input type="text" name="editnama" value="{{ $data->name }}" id="editnama" class="form-control">
                     </div>
-                    <div class="d-flex flex-column">
+                    <div class="d-flex flex-column mb-3">
                         <label for="email">Email</label>
                         <input type="email" name="editemail" value="{{ $data->email }}" id="editemail" class="form-control">
                     </div>
-                    <div class="d-flex flex-column">
+                    <div class="d-flex flex-column mb-3">
                         <label for="role">Role</label>
                         <select name="editrole" id="editrole" class="form-control">
                             @if(!empty($data->roles()->first()))

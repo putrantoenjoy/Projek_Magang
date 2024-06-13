@@ -14,7 +14,7 @@
             <form action="{{ route('role-create') }}" method="post" class="" id="addrole">
                 @csrf
                 <div class="modal-body">
-                    <div class="d-flex flex-column">
+                    <div class="d-flex flex-column mb-3">
                         <label for="namarole">Nama role</label>
                         <input type="text" id="namarole" name="nama" id="" class="form-control">
                     </div>

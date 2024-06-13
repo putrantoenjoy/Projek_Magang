@@ -8,7 +8,7 @@
             <form action="{{ route('permission-create') }}" method="post" class="" id="permission">
                 @csrf
                 <div class="modal-body">
-                    <div class="d-flex flex-column">
+                    <div class="d-flex flex-column mb-3">
                         <label for="namarole">Navigation</label>
                         <select name="addnavigasi" id="addnavigasi" class="form-control">
                             @foreach ($allnavigasi as $navigasi)
@@ -17,7 +17,7 @@
                         </select>
                         {{-- <input type="text" id="addnavigasi" name="addnavigasi" class="form-control"> --}}
                     </div>
-                    <div class="d-flex flex-column">
+                    <div class="d-flex flex-column mb-3">
                         <label for="namarole">Nama Permission</label>
                         <input type="text" id="addpermission" name="addpermission" class="form-control" required>
                     </div>

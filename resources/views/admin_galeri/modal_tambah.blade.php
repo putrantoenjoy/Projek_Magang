@@ -17,7 +17,7 @@
                                             <label for="_dm-inputname" class="form-label">Post id</label>
                                             <input id="_dm-inputname" type="text" value="" name="post_id" required class="form-control" disabled>
                                         </div> --}}
-                                        <div class="mb-3">
+                                        <div class="col-md-12">
                                             <label for="file" class="form-label">Pilih Gambar</label>
                                             <input type="file" class="form-control" id="file" name="file" required>
                                         </div>
