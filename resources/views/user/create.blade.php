@@ -11,10 +11,24 @@
                     <div class="d-flex flex-column">
                         <label for="nama">Nama</label>
                         <input type="text" name="nama" id="nama" class="form-control" required>
+                        @if($errors->has('nama'))
+                            <div class="alert-danger">
+                                <small class="text-danger">
+                                    {{ $errors->first('nama') }}
+                                </small>
+                            </div>
+                        @endif
                     </div>
                     <div class="d-flex flex-column">
                         <label for="email">Email</label>
                         <input type="email" name="email" id="email" class="form-control" required>
+                        @if($errors->has('email'))
+                            <div class="alert-danger">
+                                <small class="text-danger">
+                                    {{ $errors->first('email') }}
+                                </small>
+                            </div>
+                        @endif
                     </div>
                     <div class="d-flex flex-column">
                         <label for="role">Role</label>
@@ -24,10 +38,24 @@
                                 <option value="{{ $role->name }}">{{ $role->name }}</option>
                             @endforeach
                         </select>
+                        @if($errors->has('role'))
+                            <div class="alert-danger">
+                                <small class="text-danger">
+                                    {{ $errors->first('role') }}
+                                </small>
+                            </div>
+                        @endif
                     </div>
                     <div class="d-flex flex-column">
                         <label for="namarole">Password</label>
                         <input type="password" name="password" id="" class="form-control" required>
+                        @if($errors->has('password'))
+                            <div class="alert-danger">
+                                <small class="text-danger">
+                                    {{ $errors->first('password') }}
+                                </small>
+                            </div>
+                        @endif
                     </div>
                     <div class="d-flex flex-column">
                         <label for="namarole">Konfirmasi Password</label>

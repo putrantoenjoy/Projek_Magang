@@ -9,6 +9,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="staticBackdropLabel">Verifikasi Email</h5>
+                    <button type="button" onclick="closeModalButton()" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                     Email anda sudah dikirim. Jika anda belum menerima email, silahkan klik <a href="{{ route('verification.send') }}" class="text-decoration-none">disini</a>
@@ -130,4 +131,14 @@
 
     // Memanggil fungsi update setiap detik
     setInterval(updateGreetingAndDate, 1000);
+
+    // document.getElementById("closeModal").addEventListener('click', function () {
+    //     console.log("tes");
+    // });
+    function closeModalButton() {
+        $('#staticBackdrop').removeClass('show').attr('aria-hidden', 'true').css('display', 'none');
+        $('.modal-backdrop').remove();
+        $('#body').removeClass();
+        $('#body').css('padding-right','');
+    }
 </script>

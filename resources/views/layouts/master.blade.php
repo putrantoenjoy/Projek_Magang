@@ -217,10 +217,14 @@
                 <div class="mainnav__bottom-content border-top pb-2">
                     <ul id="mainnav" class="mainnav__menu nav flex-column">
                         <li class="nav-item has-sub">
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            {{-- <form id="logout-form" action="{{ route('logout') }}" method="POST" >
                                 @csrf
-                            </form>
-                            <a href="{{ route('login') }}"  data-bs-toggle="modal" data-bs-target="#LogOutstaticBackdrop" class="nav-link mininav-toggle collapsed" aria-expanded="false">
+                                <button type="submit" role="button" class="nav-link mininav-toggle collapsed">
+                                    <i class="demo-pli-unlock fs-5 me-2"></i>
+                                    <span class="nav-label ms-1">Logout</span>
+                                </button>
+                                </form> --}}
+                            <a type="button" data-bs-toggle="modal" data-bs-target="#LogOutstaticBackdrop" class="nav-link mininav-toggle collapsed" aria-expanded="false">
                                 <i class="demo-pli-unlock fs-5 me-2"></i>
                                 <span class="nav-label ms-1">Logout</span>
                             </a>
