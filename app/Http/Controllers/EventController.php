@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\EventStatus;
 use Illuminate\Http\Request;
 use App\Models\Event;
+use Illuminate\Support\Facades\Auth;
+
 
 class EventController extends Controller
 {
@@ -34,18 +36,16 @@ class EventController extends Controller
 
     public function simpan(Request $request)
     {
-        $data = [
-            'nama' => $request->nama,
-            'tempat' => $request->tempat,
-            'tanggal_mulai' => $request->tanggal_mulai,
-            'tanggal_akhir' => $request->tanggal_akhir,
-            'waktu_mulai' => $request->waktu_mulai,
-            'waktu_akhir' => $request->waktu_akhir,
-            'status_id' => $request->status,
-            'created_by' => auth()->user()->id
-        ];
-
-        Event::create($data);
+        $data = new Event();
+        $data->nama = $request->nama;
+        $data->tempat = $request->tempat;
+        $data->tanggal_mulai = $request->tanggal_mulai;
+        $data->tanggal_akhir = $request->tanggal_akhir;
+        $data->waktu_mulai = $request->waktu_mulai;
+        $data->waktu_akhir = $request->waktu_akhir;
+        $data->status_id = $request->status;
+        $data->created_by = Auth::user()->id;
+        $data->save();
 
         return back()->with('status', 'Event berhasil dibuat!');
     }
