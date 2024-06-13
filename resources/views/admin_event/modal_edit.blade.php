@@ -44,11 +44,14 @@
                                                 <select class="form-control" id="status" name="status" required>
                                                     @if (!empty($value))
                                                         @foreach ($statuses as $status)
-                                                        {{-- @if ($status->id == $value->status_id) --}}
-                                                            <option value="{{ $status->id }}" {{ old('status') == $status->id ? 'selected' : '' }}>
+                                                        @if ($status->id == $value->status_id)
+                                                            <option value="{{ $status->id }}" {{ old('status') == $status->id ? 'selected' : '' }} selected hidden>
                                                                 {{ $status->status }}
                                                             </option>
-                                                        {{-- @endif --}}
+                                                        @endif
+                                                        <option value="{{ $status->id }}">
+                                                            {{ $status->status }}
+                                                        </option>
                                                         @endforeach
                                                     @else 
                                                         <option selected>
