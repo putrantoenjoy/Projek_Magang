@@ -27,7 +27,7 @@
                                         </div>
                                         <div class="col-md-12">
                                             <label for="tanggal_akhir" class="form-label">Tanggal Akhir</label>
-                                            <input type="date" class="form-control" id="tanggal_akhir" name="tanggal_akhir" required>
+                                            <input type="date" class="form-control" id="tanggal_akhir" name="tanggal_akhir" required disabled>
                                         </div>
                                         <div class="col-md-12">
                                             <label for="waktu_mulai" class="form-label">Waktu Mulai</label>
@@ -63,5 +63,34 @@
     </div>
 </div>
 <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var startDateInput = document.getElementById('tanggal_mulai');
+        var endDateInput = document.getElementById('tanggal_akhir');
 
+        // Mendapatkan tanggal hari ini
+        var today = new Date();
+        var dd = String(today.getDate()).padStart(2, '0');
+        var mm = String(today.getMonth() + 1).padStart(2, '0');
+        var yyyy = today.getFullYear();
+        var currentDate = yyyy + '-' + mm + '-' + dd;
+
+        // Membatasi input tanggal awal hanya untuk tanggal hari ini dan seterusnya
+        startDateInput.setAttribute('min', currentDate);
+
+        startDateInput.addEventListener('change', function() {
+            endDateInput.value = '';
+            endDateInput.disabled = true;
+            var startDate = new Date(this.value);
+            var endDate = new Date(startDate.getTime());
+            
+            // Tambahkan 1 hari ke tanggal awal untuk menjadi tanggal minimal di input tanggal akhir
+            endDate.setDate(endDate.getDate() + 1);
+            
+            // Format tanggal akhir menjadi string YYYY-MM-DD
+            var formattedEndDate = endDate.toISOString().split('T')[0];
+            
+            endDateInput.min = formattedEndDate;
+            endDateInput.disabled = false; // Aktifkan input tanggal akhir
+        });
+    });
 </script>

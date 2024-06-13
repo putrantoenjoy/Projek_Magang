@@ -127,6 +127,6 @@
         $('#waktu_mulai_edit').val(data.waktu_mulai);
         $('#waktu_akhir_edit').val(data.waktu_akhir);
         $('#status_edit').val(data.status);
-    })  
+    })
 </script>
 @endsection

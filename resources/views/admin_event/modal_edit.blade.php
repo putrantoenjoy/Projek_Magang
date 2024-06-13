@@ -88,3 +88,35 @@
         document.getElementById("form-edit").submit();
     }
 </script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var startDateInput = document.getElementById('tanggal_mulai_edit');
+        var endDateInput = document.getElementById('tanggal_akhir_edit');
+
+        // Mendapatkan tanggal hari ini
+        var today = new Date();
+        var dd = String(today.getDate()).padStart(2, '0');
+        var mm = String(today.getMonth() + 1).padStart(2, '0');
+        var yyyy = today.getFullYear();
+        var currentDate = yyyy + '-' + mm + '-' + dd;
+
+        // Membatasi input tanggal awal hanya untuk tanggal hari ini dan seterusnya
+        startDateInput.setAttribute('min', currentDate);
+
+        startDateInput.addEventListener('change', function() {
+            endDateInput.value = '';
+            endDateInput.disabled = true;
+            var startDate = new Date(this.value);
+            var endDate = new Date(startDate.getTime());
+            
+            // Tambahkan 1 hari ke tanggal awal untuk menjadi tanggal minimal di input tanggal akhir
+            endDate.setDate(endDate.getDate() + 1);
+            
+            // Format tanggal akhir menjadi string YYYY-MM-DD
+            var formattedEndDate = endDate.toISOString().split('T')[0];
+            
+            endDateInput.min = formattedEndDate;
+            endDateInput.disabled = false; // Aktifkan input tanggal akhir
+        });
+    });
+</script>
