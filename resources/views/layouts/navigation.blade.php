@@ -60,7 +60,9 @@
         @endcan
         @role('admin')
         <li class="nav-item my-1">
-            <a href="{{ route('export-sql') }}" class="btn btn-primary">Backup Database</a>
+            <a href="{{ route('export-sql') }}" class="mininav-toggle nav-link active" id="menuBackup"> <i class="bi bi-database-down fs-5 me-2"></i>
+                <span class="nav-label ms-1">Backup Database</span>
+            </a>
         </li>
         @endrole
         {{-- @endif --}}
