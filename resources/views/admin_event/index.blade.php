@@ -77,13 +77,7 @@
                                             <td>{{ \Carbon\Carbon::parse($value->tanggal_mulai)->format('d-m-Y') }}</td>
                                             <td>{{ \Carbon\Carbon::parse($value->tanggal_akhir)->format('d-m-Y') }}</td>
                                             <td>{{ \Carbon\Carbon::parse($value->waktu_mulai)->format('H:i') }} - {{ \Carbon\Carbon::parse($value->waktu_akhir)->format('H:i') }}</td>
-                                            <td>
-                                                @foreach($statuses as $status)
-                                                    @if ($status->id == $value->status_id)
-                                                        {{ $status->status }}
-                                                    @endif
-                                                @endforeach
-                                            </td>
+                                            <td>{{ $value->eventstatus->status }}</td>
                                             <td>
                                                 <div class="d-flex align-items-center">
                                                     <form action="{{ route('event.hapus', $value->id) }}" method="post" class="m-0">

@@ -9,8 +9,8 @@ class UserEventController extends Controller
 {
     public function index()
     {
-        $event = Event::with('eventstatus')->get();
-        $events = Event::with('eventstatus')->paginate(20);
+        $event = Event::with('eventstatus')->where('soft_delete', 0)->get();
+        $events = Event::with('eventstatus')->where('soft_delete', 0)->paginate(20);
         return view('event.index', compact('event', 'events'));
     }
 }
