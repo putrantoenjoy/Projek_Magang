@@ -62,6 +62,11 @@ class UserController extends Controller
 
     public function update(Request $request, $id)
     {
+        $request->validate([
+            'editnama' => ['required', 'string', 'max:255'],
+            'editemail' => ['required', 'string', 'email', 'max:255', 'unique:users,email,'.$id]
+        ]);
+        
         $role = User::find($id);
         
         if(!empty($role->roles->first()->name)){
