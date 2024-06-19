@@ -65,6 +65,8 @@
         $("#edit-name").val(data.penulis);
         $("#edit-judul").val(data.judul);
         $("#edit-deskripsi").val(data.deskripsi);
-        $("#edit-konten").val(data.konten);
+        $("#edit-kategori").val(data.kategori_id);
+        $(".fr-element.fr-view").html(data.konten);
+        $(".fr-placeholder").remove();
     });
 </script>

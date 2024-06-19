@@ -132,15 +132,7 @@
 </script>
 {{-- <script src="https://cdn.jsdelivr.net/npm/@yaireo/tagify"></script> --}}
 <script>
-    // $('#table').on('click', 'tr #btn-edit', function() {
-    //     let data = $(this).data('data');
-    //     $('#form-edit').attr('action', "{{ url('artikel') }}" + '/' + data.id)
-    //     $('#nama_edit').val(data.nama);
-    //     $('#judul_edit').val(data.judul);
-    //     $('#deskripsi-edit').val(data.deskripsi);
-    //     $('#kategori-edit').val(data.kategori);
-    //     $('#konten-edit').val(data.konten);
-    // })  
+    
 </script>
 <script>
     // var input = document.querySelector('input[name=tags]');
