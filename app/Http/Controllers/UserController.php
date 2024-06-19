@@ -43,17 +43,11 @@ class UserController extends Controller
 
     public function create(Request $request)
     {
-        $validator = Validator::make($request->all(), [
+        $request->validate([
             'name' => ['required', 'string', 'max:255'],
-            'username' => ['required', 'string', 'max:255', 'unique:users'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:6', 'confirmed'],
-            // 'role' => ['required', 'string'],
         ]);
-        if ($validator->fails()) {
-            return redirect()->back()->withErrors($validator)->withInput();
-        }
-
         $data=[
             'name'=> $request->nama,
             'email'=> $request->email,

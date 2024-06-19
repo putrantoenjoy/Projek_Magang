@@ -110,7 +110,7 @@
             var endDate = new Date(startDate.getTime());
             
             // Tambahkan 1 hari ke tanggal awal untuk menjadi tanggal minimal di input tanggal akhir
-            endDate.setDate(endDate.getDate() + 1);
+            endDate.setDate(endDate.getDate() + 0);
             
             // Format tanggal akhir menjadi string YYYY-MM-DD
             var formattedEndDate = endDate.toISOString().split('T')[0];

@@ -24,6 +24,6 @@ class Event extends Model
     ];
     public function eventstatus()
     {
-        return $this->belongsTo('App\Models\EventStatus', 'id');
+        return $this->belongsTo(EventStatus::class, 'status_id');
     }
 }
