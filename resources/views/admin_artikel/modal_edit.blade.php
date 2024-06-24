@@ -41,7 +41,7 @@
                                             </div>
                                             <div class="mb-3">
                                                 <label for="konten-edit" class="form-label">Konten</label>
-                                                <textarea class="form-control" id="edit-konten" name="edit-konten" rows="5"></textarea>
+                                                <textarea class="form-control" id="editkonten" name="editkonten" rows="5"></textarea>
                                             </div>
                                             <div class="d-flex justify-content-end gap-3">
                                                 <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
@@ -68,5 +68,8 @@
         $("#edit-kategori").val(data.kategori_id);
         $(".fr-element.fr-view").html(data.konten);
         $(".fr-placeholder").remove();
+
+        let actionUrl = `{{ route('artikel-update', ':id') }}`.replace(':id', data.id);
+        $("#form-edit").attr("action", actionUrl);
     });
 </script>

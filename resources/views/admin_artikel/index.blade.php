@@ -122,7 +122,7 @@
         ]
  
      });
-    new FroalaEditor("#edit-konten", {
+    new FroalaEditor("#editkonten", {
  
         toolbarButtons: [
              ['fontSize', 'bold', 'italic', 'underline', 'strikeThrough', 'alignLeft', 'alignCenter', 'alignRight', 'alignJustify','textColor', 'backgroundColor', 'formatOLSimple', 'formatUL', 'insertLink','insertImage','insertFile'],

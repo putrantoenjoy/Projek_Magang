@@ -63,22 +63,23 @@ class ArtikelController extends Controller
 
     public function update(Request $request, $id)
     {
-        $data = [
-            'user_id' => Auth::user()->id,
-            'kategori_id' => $request->kategori,
-            'penulis' => Auth::user()->name,
-            'judul' => $request->judul,
-            'deskripsi' => $request->deskripsi,
-            'konten' => $request->konten,
-        ];
+        // $data = [
+        //     'user_id' => Auth::user()->id,
+        //     'kategori_id' => $request->kategori,
+        //     'penulis' => Auth::user()->name,
+        //     'judul' => $request->judul,
+        //     'deskripsi' => $request->deskripsi,
+        //     'konten' => $request->konten,
+        // ];
+        // dd($request->all());
 
-        $data = new Blog();
+        $data = Blog::find($id);
         $data->user_id = Auth::user()->id;
         $data->kategori_id = $request->kategori;
         $data->penulis = Auth::user()->name;
         $data->judul = $request->judul;
         $data->deskripsi = $request->deskripsi;
-        $data->konten = $request->konten;
+        $data->konten = $request->editkonten;
 
         $gambar = $request->file('file');
         if (!empty($gambar)) {
@@ -87,7 +88,7 @@ class ArtikelController extends Controller
             $data['gambar'] = $file_name;
         }
 
-        $data->save();
+        $data->update();
 
         return redirect()->back()->with('status', 'Artikel berhasil diperbarui!');
     }

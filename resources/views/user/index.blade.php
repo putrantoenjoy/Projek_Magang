@@ -56,6 +56,7 @@
                                         <table id="table" class="table table-striped">
                                             <thead>
                                                 <tr>
+                                                    <th>No</th>
                                                     <th>User Id</th>
                                                     <th>Nama</th>
                                                     <th>Role</th>
@@ -66,8 +67,9 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                @foreach ($alldata as $data)
+                                                @foreach ($alldata as $row => $data)
                                                     <tr>
+                                                        <td>{{ ++$row }}</td>
                                                         <td>{{ $data->id }}</td>
                                                         <td>{{ $data->name }}</td>
                                                         <td>
