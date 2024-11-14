@@ -2,7 +2,7 @@
     <div class="modal-dialog modal-l">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="EditstaticBackdropLabel">Mengubah Permission</h5>
+                <h5 class="modal-title" id="EditstaticBackdropLabel">Mengubah Permission Role <span id="namamodalrole"></span></h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <form id="editrole">
@@ -68,6 +68,8 @@
         id_permission = data.id;
 
         $("#editrole").val(data.name);
+        $("#namamodalrole").text(data.name);
+        console.log(data.name);
         let permission = data.permissions;
         permission.forEach(element => {
             $("#permission" + element.id).attr('checked', true);

@@ -5,6 +5,18 @@
     <div id="heroCarousel" data-bs-interval="4000" class="carousel slide carousel-fade" data-bs-ride="carousel">
       <ol class="carousel-indicators" id="hero-carousel-indicators"></ol>
       <div class="carousel-inner" role="listbox">
+        {{-- slide --}}
+        {{-- @foreach ($collection as $item)
+          <div class="carousel-item active" style="background-image: url(multi/assets/img/slide/slide-1.jpg)">
+            <div class="carousel-container">
+              <div class="container">
+                <h2 class="animate__animated animate__fadeInDown">Network Service</h2>
+                <p class="animate__animated animate__fadeInUp">Tingkatkan konektivitas internet Anda dengan solusi terintegrasi dari Kami</p>
+                <a href="#about" class="btn-get-started animate__animated animate__fadeInUp scrollto">Selengkapnya</a>
+              </div>
+            </div>
+          </div>
+        @endforeach --}}
         <!-- Slide 1 -->
         <div class="carousel-item active" style="background-image: url(multi/assets/img/slide/slide-1.jpg)">
           <div class="carousel-container">

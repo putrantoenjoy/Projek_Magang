@@ -77,13 +77,10 @@ class GaleriController extends Controller
 
     public function hapus($id)
     {
-        $data = [
-            'soft_delete' => 1,
-            'deleted_at' => date('Y-m-d H:i:s'),
-            'deleted_by' => auth()->user()->id
-        ];
-
-        Galeri::where('id', $id)->update($data);
+        $news = Galeri::findOrFail($id);
+        $image_path = public_path('storage/img/galeri/' . $news->gambar);
+        unlink($image_path);
+        $news->forcedelete();
 
         return back()->with('delete', 'Galeri berhasil dihapus!');
     }

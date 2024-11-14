@@ -116,6 +116,10 @@ Fortify::loginView(function () {
 Fortify::registerView(function () {
     return view('auth.register');
 });
+Route::get('reset-password/{token}', function ($token) {
+    $email = request('email'); // Get the email from the query string
+    return view('auth.reset-password', ['token' => $token, 'email' => $email]);
+})->middleware(['guest'])->name('password.reset');
 // Fortify::verifyEmailView(function (){
 //     return view('auth.verify');
 // });
