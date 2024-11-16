@@ -110,6 +110,9 @@ Route::get('/artikel-kami/{id}', [App\Http\Controllers\UserArtikelController::cl
 //tim
 Route::get('/tim-kerja', [App\Http\Controllers\UserTimController::class, 'index'])->name('tim-kerja');
 
+//settings
+Route::get('/pengaturan', [App\Http\Controllers\PengaturanController::class, 'index'])->name('pengaturan');
+
 Fortify::loginView(function () {
     return view('auth.login');
 });

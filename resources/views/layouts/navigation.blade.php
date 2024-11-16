@@ -60,7 +60,12 @@
         @endcan
         @role('admin')
         <li class="nav-item my-1">
-            <a href="{{ route('export-sql') }}" class="mininav-toggle nav-link active" id="menuBackup"> <i class="bi bi-database-down fs-5 me-2"></i>
+            <a href="{{ route('pengaturan') }}" class="mininav-toggle nav-link {{ Route::is('pengaturan') ? 'active' : ''  }}" id="menuBackup"> <i class="bi bi-gear fs-5 me-2"></i>
+                <span class="nav-label ms-1">Pengaturan</span>
+            </a>
+        </li>
+        <li class="nav-item my-1">
+            <a href="{{ route('export-sql') }}" class="mininav-toggle nav-link active bg-secondary" id="menuBackup"> <i class="bi bi-database-down fs-5 me-2"></i>
                 <span class="nav-label ms-1">Backup Database</span>
             </a>
         </li>
