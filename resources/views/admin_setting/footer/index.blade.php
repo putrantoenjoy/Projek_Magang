@@ -32,21 +32,21 @@
                                     <div class="row">
                                         <div class="col-lg-6 col-md-6">
                                             <div class="footer-info text-white">
-                                                <h3 class="text-white">Nusa Data Prima</h3>
-                                                <p>Kediri <br><br>
-                                                    <strong>Phone:</strong> 085 730 726 752<br>
-                                                    <strong>Email:</strong> kurnia@mail<br>
+                                                <h3 class="text-white">{{ $footer->nama_website }}</h3>
+                                                <p>{{ $footer->alamat }} <br><br>
+                                                    <strong>Phone:</strong> {{ $footer->telepon }}<br>
+                                                    <strong>Email:</strong> {{ $footer->email }}<br>
                                                 </p>
                                                 <div class="social-links mt-3">
-                                                    <a href="#" class="facebook text-white" style="text-decoration: none;"><i class="bx bxl-facebook"></i></a>
-                                                    <a href="#" class="instagram text-white" style="text-decoration: none;"><i class="bx bxl-instagram"></i></a>
-                                                    <a href="https://www.youtube.com/@bagusktp" class="youtube text-white" style="text-decoration: none;"><i class="bx bxl-youtube"></i></a>
-                                                    <a href="#" class="whatsapp text-white" style="text-decoration: none;"><i class="bx bxl-whatsapp"></i></a>
+                                                    <a href="{{ $footer->facebook_link }}" class="facebook text-white" style="text-decoration: none;"><i class="bx bxl-facebook"></i></a>
+                                                    <a href="{{ $footer->instagram_link }}" class="instagram text-white" style="text-decoration: none;"><i class="bx bxl-instagram"></i></a>
+                                                    <a href="{{ $footer->youtube_link }}" class="youtube text-white" style="text-decoration: none;"><i class="bx bxl-youtube"></i></a>
+                                                    <a href="{{ $footer->whatsapp_link }}" class="whatsapp text-white" style="text-decoration: none;"><i class="bx bxl-whatsapp"></i></a>
                                                 </div>
                                             </div>
                                         </div>
                 
-                                        <div class="col-lg-3 col-md-6 footer-links text-white">
+                                        <div class="col-lg-3 col-md-6 footer-links text-white" style="list-style-type: none; padding-left: 0;">
                                             <h4 class="text-white">Menu</h4>
                                             <ul>
                                                 <li><i class="bx bx-chevron-right"></i> <a href="{{route('layanan')}}" class="text-white" style="text-decoration: none;">Layanan</a></li>
@@ -61,7 +61,7 @@
                                             </ul>
                                         </div>    
                 
-                                        <div class="col-lg-2 col-md-6 footer-links text-white">
+                                        <div class="col-lg-2 col-md-6 footer-links text-white" style="list-style-type: none; padding-left: 0;">
                                             <h4 class="text-white">Link Lainnya</h4>
                                             <ul>
                                                 <li><i class="bx bx-chevron-right"></i> <a href="#" class="text-white" style="text-decoration: none;">Media</a></li>

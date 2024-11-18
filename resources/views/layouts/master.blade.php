@@ -47,6 +47,15 @@
     <script type='text/javascript' src='https://cdn.jsdelivr.net/npm/froala-editor@latest/js/froala_editor.pkgd.min.js'></script>
     <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
     <link href="https://cdn.jsdelivr.net/npm/@yaireo/tagify/dist/tagify.css" rel="stylesheet">
+
+    {{-- css --}}
+    {{-- <link href="{{ url('multi/assets/vendor/animate.css/animate.min.css') }}" rel="stylesheet">
+    <link href="{{ url('multi/assets/vendor/aos/aos.css') }}" rel="stylesheet"> --}}
+    <link href="{{ url('multi/assets/vendor/boxicons/css/boxicons.min.css') }}" rel="stylesheet">
+    {{-- <link href="{{ url('multi/assets/vendor/glightbox/css/glightbox.min.css') }}" rel="stylesheet">
+    <link href="{{ url('multi/assets/vendor/remixicon/remixicon.css') }}" rel="stylesheet">
+    <link href="{{ url('multi/assets/vendor/swiper/swiper-bundle.min.css') }}" rel="stylesheet"> --}}
+
     <style>
         .tags-input-wrapper {
             display: flex;

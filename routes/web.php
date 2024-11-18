@@ -79,6 +79,8 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
 
     // export sql
     Route::get('/export/export-sql', [App\Http\Controllers\UserController::class, 'export'])->name('export-sql');
+    Route::get('/pengaturan', [App\Http\Controllers\PengaturanController::class, 'index'])->name('pengaturan');
+    Route::patch('/pengaturan/update/{id}', [App\Http\Controllers\PengaturanController::class, 'update'])->name('pengaturan-update');
     // Route::get('/backup/download', function () {
     //     // Run the backup command to create a backup
     //     Artisan::call('backup:run', ['--only-db' => true]);
@@ -113,7 +115,6 @@ Route::get('/artikel-kami/{id}', [App\Http\Controllers\UserArtikelController::cl
 Route::get('/tim-kerja', [App\Http\Controllers\UserTimController::class, 'index'])->name('tim-kerja');
 
 //settings
-Route::get('/pengaturan', [App\Http\Controllers\PengaturanController::class, 'index'])->name('pengaturan');
 
 Fortify::loginView(function () {
     return view('auth.login');

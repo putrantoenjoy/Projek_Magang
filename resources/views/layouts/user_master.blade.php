@@ -87,7 +87,7 @@
 
     <div class="container">
       <div class="copyright">
-        &copy; Copyright <strong><span>Nusa Data Prima</span></strong>. All Rights Reserved {{ date("Y") }}
+        &copy; Copyright <strong><span>{{ $footer->nama_website }}</span></strong>. All Rights Reserved {{ date("Y") }}
       </div>
     </div>
   </footer><!-- End Footer -->
