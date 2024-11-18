@@ -5,6 +5,7 @@ use App\Models\Galeri;
 use App\Models\User;
 use Illuminate\Support\Facades\Route;
 use Laravel\Fortify\Fortify;
+use App\Models\Footer;
 use Spatie\Backup\Tasks\Backup\BackupJob;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Storage;
@@ -22,7 +23,8 @@ use Illuminate\Http\Response;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    $footer = Footer::find(1);
+    return view('welcome', compact('footer'));
 })->name('beranda');
 
 // Auth::routes();

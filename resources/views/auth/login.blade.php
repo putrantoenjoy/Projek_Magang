@@ -31,7 +31,7 @@
         {{-- <div class="row justify-content-center"> --}}
             <div class="mx-5">
                 <div class="my-3">
-                    Silahkan Login dengan Email Kamu
+                    Silahkan Login dengan Email Anda
                 </div>
                 <form action="{{ route('login') }}" method="post">
                     @csrf
