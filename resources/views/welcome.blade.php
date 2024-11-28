@@ -22,7 +22,7 @@
           <div class="carousel-container">
             <div class="container">
               <h2 class="animate__animated animate__fadeInDown">Network Service</h2>
-              <p class="animate__animated animate__fadeInUp">Tingkatkan konektivitas internet Anda dengan solusi terintegrasi dari Kami</p>
+              <p class="animate__animated animate__fadeInUp text-justify">Tingkatkan konektivitas internet Anda dengan solusi terintegrasi dari Kami. Nikmati kecepatan tinggi, kestabilan jaringan, dan layanan pelanggan terbaik yang dirancang khusus untuk memenuhi kebutuhan Anda, baik untuk keperluan rumah tangga maupun bisnis. Solusi inovatif Kami memastikan Anda tetap terhubung kapan saja dan di mana saja.</p>
               <a href="#about" class="btn-get-started animate__animated animate__fadeInUp scrollto">Selengkapnya</a>
             </div>
           </div>
@@ -32,7 +32,7 @@
           <div class="carousel-container">
             <div class="container">
               <h2 class="animate__animated animate__fadeInDown">CCTV</h2>
-              <p class="animate__animated animate__fadeInUp">Tingkatkan keamanan rumah Anda dengan solusi terintegrasi dari Kami</p>
+              <p class="animate__animated animate__fadeInUp">Tingkatkan keamanan rumah Anda dengan solusi terintegrasi dari Kami. Nikmati sistem CCTV modern dengan kualitas gambar jernih, pemantauan real-time, dan fitur canggih yang dirancang untuk melindungi Anda dan keluarga. Solusi kami memberikan ketenangan pikiran, memastikan keamanan rumah Anda tetap terjaga kapan saja dan di mana saja.</p>
               <a href="#about" class="btn-get-started animate__animated animate__fadeInUp scrollto">Selengkapnya</a>
             </div>
           </div>
