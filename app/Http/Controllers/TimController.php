@@ -41,7 +41,7 @@ class TimController extends Controller
         
         $foto = $request->file('file');
         if (!empty($foto)) {
-            $file_name = time() . '_' . $foto->getClientOriginalName();
+            $file_name = time() . '.' . $foto->getClientOriginalExtension();
             $path = public_path('img/tim');
             if (!file_exists($path)) {
                 mkdir($path, 0777, true);
