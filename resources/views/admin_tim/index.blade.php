@@ -35,7 +35,7 @@
                                         <button type="button" class="btn btn-primary hstack gap-2 align-self-center" data-bs-toggle="modal" data-bs-target="#exampleModal">
                                             <i class="demo-psi-add fs-5"></i>
                                             <span class="vr"></span>
-                                            Menambah Tim Kerja
+                                            Menambah Tim  Kerja
                                         </button>
                                     @endcan
                                 </div>
