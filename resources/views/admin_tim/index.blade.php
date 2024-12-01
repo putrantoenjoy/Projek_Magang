@@ -71,8 +71,7 @@
                                             <td>{{ $loop->iteration }}</td>
                                             <td>{{ $value->nama }}</td>
                                             <td>{{ $value->jabatan }}</td>
-                                            {{-- <td><img src="{{ url('public/img/tim/'. $value->foto) }}" alt="foto" width="50px" height="50px" style="object-fit: cover"></td> --}}
-                                            <td><img src="{{ url('img/tim/'. $value->foto) }}" alt="foto" width="50px" height="50px" style="object-fit: cover"></td>
+                                            <td><img src="{{ url('storage/img/tim/'. $value->foto) }}" alt="foto" width="50px" height="50px" style="object-fit: cover"></td>
                                             <td>
                                                 <div class="d-flex align-items-center">
                                                     <form action="{{ url('tim/'. $value->id) }}" class="m-0" method="post">
