@@ -135,3 +135,13 @@ Route::get('/email/verify', function () {
     $galeri = Galeri::get();
     return view('auth.verify', compact('user', 'artikel', 'galeri'));
 })->name('verification.notice');
+
+Route::get('/storage', function () {
+    Artisan::call('storage:link');
+    return 'Storage link created successfully!';
+});
+
+Route::get('/clear', function () {
+    Artisan::call('optimize:clear');
+    return 'Application optimized successfully!';
+});
