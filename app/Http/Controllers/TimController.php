@@ -36,24 +36,19 @@ class TimController extends Controller
         $data = [
             'nama' => $request->nama,
             'jabatan' => $request->jabatan,
-            'created_by' => auth()->user()->id,
+            'created_by' => auth()->user()->id
         ];
-        
+
         $foto = $request->file('file');
         if (!empty($foto)) {
-            $file_name = time() . '.' . $foto->getClientOriginalExtension();
-            $path = public_path('img/tim');
-            if (!file_exists($path)) {
-                mkdir($path, 0777, true);
-            }
-            $foto->move($path, $file_name);
+            $file_name = $foto->hashName();
+            $foto->storeAs('img/tim', $file_name, 'public');
             $data['foto'] = $file_name;
         }
-        
+
         TimKerja::create($data);
-        
+
         return back()->with('status', 'Tim Kerja berhasil dibuat!');
-        
     }
 
     public function update(Request $request, $id)
