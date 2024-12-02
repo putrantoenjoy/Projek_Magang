@@ -7,7 +7,7 @@
       <div class="carousel-inner" role="listbox">
         {{-- slide --}}
         {{-- @foreach ($collection as $item)
-          <div class="carousel-item active" style="background-image: url(multi/assets/img/slide/slide-1.jpg)">
+          <div class="carousel-item active" style="background-image: url(multi/assets/img/slide/network.jpg)">
             <div class="carousel-container">
               <div class="container">
                 <h2 class="animate__animated animate__fadeInDown">Network Service</h2>
@@ -18,7 +18,7 @@
           </div>
         @endforeach --}}
         <!-- Slide 1 -->
-        <div class="carousel-item active" style="background-image: url(multi/assets/img/slide/slide-1.jpg)">
+        <div class="carousel-item active" style="background-image: url(multi/assets/img/slide/network.jpg)">
           <div class="carousel-container">
             <div class="container">
               <h2 class="animate__animated animate__fadeInDown">Network Service</h2>
@@ -28,7 +28,7 @@
           </div>
         </div>
         <!-- Slide 2 -->
-        <div class="carousel-item" style="background-image: url(multi/assets/img/slide/slide-2.jpg)">
+        <div class="carousel-item" style="background-image: url(multi/assets/img/slide/router.jpg)">
           <div class="carousel-container">
             <div class="container">
               <h2 class="animate__animated animate__fadeInDown">CCTV</h2>
