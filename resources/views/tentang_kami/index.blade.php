@@ -22,6 +22,8 @@
 
           <div class="content mb-3">
             <h3 class="mb-3"><strong>Mengapa Memilih NUSA DATA PRIMA?</strong></h3>
+            <h3 class="mb-3"><strong>Visi</strong></h3>
+            <h3 class="mb-3"><strong>Misi</strong></h3>
           </div>
 
           <div class="accordion-list">
