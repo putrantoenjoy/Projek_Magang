@@ -60,6 +60,11 @@
         @endcan
         @role('admin')
         <li class="nav-item my-1">
+            <a href="{{ route('layanan.index') }}" class="mininav-toggle nav-link {{ Route::is('layanan.index') ? 'active' : ''  }}" id="menuLayanan"> <i class="bi bi-reception-4 fs-5 me-2"></i>
+                <span class="nav-label ms-1">Layanan</span>
+            </a>
+        </li>
+        <li class="nav-item my-1">
             <a href="{{ route('pengaturan') }}" class="mininav-toggle nav-link {{ Route::is('pengaturan') ? 'active' : ''  }}" id="menuBackup"> <i class="bi bi-gear fs-5 me-2"></i>
                 <span class="nav-label ms-1">Pengaturan</span>
             </a>

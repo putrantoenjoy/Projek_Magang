@@ -54,6 +54,12 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
     Route::post('/event', [App\Http\Controllers\EventController::class, 'simpan'])->name('event.simpan');
     Route::put('/event/{id}', [App\Http\Controllers\EventController::class, 'update'])->name('event.update');
     Route::delete('/event/{id}', [App\Http\Controllers\EventController::class, 'hapus'])->name('event.hapus');
+    
+    //layanan internet
+    Route::get('/layanan-internet', [App\Http\Controllers\LayananInternetController::class, 'index'])->name('layanan.index');
+    Route::post('/layanan-internet', [App\Http\Controllers\LayananInternetController::class, 'simpan'])->name('layanan.simpan');
+    Route::put('/layanan-internet/{id}', [App\Http\Controllers\LayananInternetController::class, 'update'])->name('layanan.update');
+    Route::delete('/layanan-internet/{id}', [App\Http\Controllers\LayananInternetController::class, 'hapus'])->name('layanan.hapus');
 
     //galeri
     Route::get('/galeri', [App\Http\Controllers\GaleriController::class, 'index'])->name('galeri');

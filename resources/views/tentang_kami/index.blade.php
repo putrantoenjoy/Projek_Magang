@@ -19,11 +19,8 @@
               Layanan service 24 Jam nonstop untuk semua pengguna jaringan kami, dengan tenaga profesional yang selalu siap untuk membuat Anda nyaman menggunakan jaringan internet kami.
             </p>
           </div>
-
           <div class="content mb-3">
             <h3 class="mb-3"><strong>Mengapa Memilih NUSA DATA PRIMA?</strong></h3>
-            <h3 class="mb-3"><strong>Visi</strong></h3>
-            <h3 class="mb-3"><strong>Misi</strong></h3>
           </div>
 
           <div class="accordion-list">
@@ -64,9 +61,9 @@
 
 <!-- ======= Services Section ======= -->
 <section id="services" class="services">
-    <div class="container" data-aos="fade-up">
+    <div class="container my-3" data-aos="fade-up">
 
-        <div class="section-title">
+        <div class="section-title p-0">
         <h2>Sosial Media</h2>
         <p>Ikuti Sosial Media Kami</p>
         </div>
@@ -105,6 +102,90 @@
           </div>
         </div>
 
+    </div>
+    <div class="container my-3" data-aos="fade-up">
+
+        <div class="section-title p-0">
+          <h2>Visi dan Misi</h2>
+          <p>Visi</p>
+        </div>
+        <div style="text-align: justify;">
+          Menjadi penyedia layanan internet terdepan yang menghubungkan setiap individu dan bisnis di seluruh Indonesia dengan teknologi terbaik, layanan cepat, dan akses internet yang dapat diandalkan untuk mendukung kemajuan digital masyarakat.
+      </div>
+      <div class="section-title p-0">
+          <p>Misi</p>
+      </div>
+      <div style="text-align: justify;">
+          Misi ini merinci langkah-langkah konkret yang akan diambil oleh perusahaan untuk mencapai visi tersebut. Mulai dari menyediakan akses internet yang cepat dan stabil, layanan pelanggan yang responsif, hingga berinovasi dalam teknologi untuk mendukung pertumbuhan ekonomi dan pendidikan digital.
+      </div>
+      
+    </div>
+    <div class="container my-3" data-aos="fade-up">
+
+        <div class="section-title p-0">
+          <h2>Bantuan</h2>
+          <p>Akun</p>
+        </div>
+        <div class="accordion-list">
+          <ul>
+            <!-- Accordion Item 1 -->
+            <li>
+              <a data-bs-toggle="collapse" data-bs-target="#accordion-list-1" class="collapsed" style="display: block; text-decoration: none; padding: 10px; font-size: 16px;">
+                Bagaimana mengatasi lupa password?
+                <i class="bx bx-chevron-down icon-show" style="transition: transform 0.3s;"></i>
+                <i class="bx bx-chevron-up icon-close" style="display: none; transition: transform 0.3s;"></i>
+              </a>
+              <div id="accordion-list-1" class="collapse" data-bs-parent=".accordion-list" style="padding: 10px;">
+                <p style="margin: 0;">Untuk mengatasi lupa password, Anda bisa menggunakan fitur "Lupa Password" yang tersedia di halaman login, lalu mengikuti petunjuk untuk reset password Anda.</p>
+              </div>
+            </li>
+        
+            <!-- Accordion Item 2 -->
+            <li>
+              <a data-bs-toggle="collapse" data-bs-target="#accordion-list-2" class="collapsed" style="display: block; text-decoration: none; padding: 10px; font-size: 16px;">
+                Bagaimana mengatasi lupa email?
+                <i class="bx bx-chevron-down icon-show" style="transition: transform 0.3s;"></i>
+                <i class="bx bx-chevron-up icon-close" style="display: none; transition: transform 0.3s;"></i>
+              </a>
+              <div id="accordion-list-2" class="collapse" data-bs-parent=".accordion-list" style="padding: 10px;">
+                <p style="margin: 0;">Jika Anda lupa email yang digunakan untuk mendaftar, Anda bisa menghubungi layanan pelanggan kami untuk memverifikasi dan mendapatkan bantuan lebih lanjut.</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+        
+        <div class="section-title p-0">
+          <p>Pemesanan</p>
+        </div>
+        
+        <div class="accordion-list">
+          <ul>
+            <!-- Accordion Item 3 -->
+            <li>
+              <a data-bs-toggle="collapse" data-bs-target="#accordion-list-3" class="collapsed" style="display: block; text-decoration: none; padding: 10px; font-size: 16px;">
+                Berapa lama pemesanan?
+                <i class="bx bx-chevron-down icon-show" style="transition: transform 0.3s;"></i>
+                <i class="bx bx-chevron-up icon-close" style="display: none; transition: transform 0.3s;"></i>
+              </a>
+              <div id="accordion-list-3" class="collapse" data-bs-parent=".accordion-list" style="padding: 10px;">
+                <p style="margin: 0;">Proses pemesanan biasanya memakan waktu 1-3 hari kerja tergantung pada lokasi dan jenis layanan yang Anda pilih.</p>
+              </div>
+            </li>
+        
+            <!-- Accordion Item 4 -->
+            <li>
+              <a data-bs-toggle="collapse" data-bs-target="#accordion-list-4" class="collapsed" style="display: block; text-decoration: none; padding: 10px; font-size: 16px;">
+                Apakah gratis biaya pemasangan?
+                <i class="bx bx-chevron-down icon-show" style="transition: transform 0.3s;"></i>
+                <i class="bx bx-chevron-up icon-close" style="display: none; transition: transform 0.3s;"></i>
+              </a>
+              <div id="accordion-list-4" class="collapse" data-bs-parent=".accordion-list" style="padding: 10px;">
+                <p style="margin: 0;">Biaya pemasangan dapat berbeda-beda tergantung pada paket yang Anda pilih. Namun, kami sering menawarkan promo dengan biaya pemasangan gratis.</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+                
     </div>
 </section><!-- End Services Section -->
 @endsection

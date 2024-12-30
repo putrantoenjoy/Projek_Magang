@@ -9,68 +9,120 @@
         <p>Layanan Kami</p>
       </div>
 
+      {{-- tag selengkapnya --}}
+      <style>
+        /* Styling teks dengan batas baris */
+        .text-limit {
+          overflow: hidden;
+          text-overflow: ellipsis;
+          display: -webkit-box;
+          -webkit-line-clamp: 4; /* Batasi hingga 2 baris */
+          -webkit-box-orient: vertical;
+          transition: max-height 0.3s ease;
+          max-height: 7.2em; /* Tinggi sesuai jumlah baris (1 baris = font-size x line-height) */
+          line-height: 1.8em;
+        }
+    
+        /* Teks penuh (diaktifkan lewat JavaScript) */
+        .text-expand {
+          max-height: none;
+          -webkit-line-clamp: unset;
+        }
+    
+        .read-more-btn {
+          color: #1e78ff;
+          background-color: transparent;
+          border: none;
+          font-size: 14px;
+          cursor: pointer;
+          text-decoration: underline;
+        }
+      </style>
+
       <div class="row align-items-stretch">
-
-        <!-- Paket Pelajar -->
+        <!-- get Data -->
+        @foreach ($data_layanan as $value)
         <div class="col-lg-3">
-          <div class="box d-flex flex-column h-100" data-aos="zoom-in" data-aos-delay="100">
-            <h3>Pelajar</h3>
-            <h4>Rp 100.000<span> per Bulan</span></h4>
-            <ul>
-              <li>Paket Pelajar dirancang khusus untuk siswa dengan harga terjangkau, cocok untuk kebutuhan browsing, belajar online, dan akses materi edukasi.</li>
-            </ul>
-            <div class="mt-auto">
-              <a href="#" class="get-started-btn">Selengkapnya</a>
+          <div class="box d-flex p-0 flex-column" data-aos="zoom-in" data-aos-delay="100">
+            <div class="card" style="border: none; border-radius: 10px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+              @if ($value->kategori == 'normal')
+              @else
+              <div class="promo" style="background-color: #FFA500; color: white; font-weight: bold; padding: 5px 10px; border-radius: 5px; position: absolute; top: -10px; left: 15px;">{{ $value->kategori }}</div>
+              @endif
+              <div class="card-header text-center px-5" style="background-color: #1e78ff; color: white; border-top-left-radius: 10px; border-top-right-radius: 10px; padding: 15px;">
+                <h3 class="fw-bold py-3">{{ $value->nama_paket }}</h3>
+                <h5>Rp {{ number_format($value->harga, 0, ',', '.') }}</h5>
+                <h6 class="fw-bold border rounded-pill py-1 px-2 text-primary bg-white">{{ $value->kecepatan }} Mbps</h6>
+              </div>
+              <div class="card-body text-center" style="background-color: white; color: black;">
+                <ul>
+                  <li>
+                    <div class="d-flex">
+                      <p style="font-size: 14px" class="text-dark fw-bold text-decoration-underline">Benefit</p>
+                    </div>
+                    <div class="d-flex justify-content-between">
+                      <p style="font-size: 14px">Internet</p>
+                      <p style="font-size: 14px" class="text-dark fw-bold">Unlimited</p>
+                    </div>
+                    <div class="d-flex justify-content-between">
+                      <p style="font-size: 14px">Biaya pemasangan</p>
+                      <p style="font-size: 14px" class="text-dark fw-bold">Gratis</p>
+                    </div>
+                    <div class="d-flex justify-content-between">
+                      <p style="font-size: 14px">Include</p>
+                      <p style="font-size: 14px" class="text-dark fw-bold">ONT/Modem</p>
+                    </div>
+                  </li>
+                  <li id="textContent{{ $value->id }}" class="text-limit p-0">{{ $value->deskripsi }}</li>
+                  <button id="readMoreBtn{{ $value->id }}" class="read-more-btn text-decoration-none p-0">Selengkapnya</button>
+                </ul>
+                <div class="d-flex flex-column gap-2 mt-auto p-3">
+                  <!-- Tombol Beli -->
+                  <a href="#" class="btn" 
+                     style="background-color: #1e78ff; color: white; border-radius: 5px; text-decoration: none; padding: 8px 12px; font-size: 14px; transition: background-color 0.3s, transform 0.2s;" 
+                     onmouseover="this.style.backgroundColor='#0056b3'; this.style.transform='scale(1.05)';" 
+                     onmouseout="this.style.backgroundColor='#1e78ff'; this.style.transform='scale(1)';">
+                    Beli
+                  </a>
+                
+                  <!-- Tombol Chat Sales -->
+                  <a href="#" class="btn" 
+                     style="background-color: #ffffff; color: #1e78ff; border: 1px solid #1e78ff; border-radius: 5px; text-decoration: none; padding: 8px 12px; font-size: 14px; transition: background-color 0.3s, color 0.3s, transform 0.2s;" 
+                     onmouseover="this.style.backgroundColor='#1e78ff'; this.style.color='#ffffff'; this.style.transform='scale(1.05)';" 
+                     onmouseout="this.style.backgroundColor='#ffffff'; this.style.color='#1e78ff'; this.style.transform='scale(1)';">
+                    Chat Sales
+                  </a>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-      
-        <!-- Paket Rumah -->
-        <div class="col-lg-3">
-          <div class="box d-flex flex-column h-100" data-aos="zoom-in" data-aos-delay="200">
-            <h3>Rumah</h3>
-            <h4>Rp 200.000<span> per Bulan</span></h4>
-            <ul>
-              <li>Paket Rumah menawarkan koneksi internet yang stabil dan andal, ideal untuk aktivitas streaming, belanja online, dan kebutuhan internet sehari-hari bagi keluarga.</li>
-            </ul>
-            <div class="mt-auto">
-              <a href="#" class="get-started-btn">Selengkapnya</a>
-            </div>
-          </div>
-        </div>
-      
-        <!-- Paket Bisnis -->
-        <div class="col-lg-3">
-          <div class="box d-flex flex-column h-100" data-aos="zoom-in" data-aos-delay="300">
-            <h3>Bisnis</h3>
-            <h4>Rp 300.000<span> per Bulan</span></h4>
-            <ul>
-              <li>Paket Bisnis dirancang untuk mendukung produktivitas usaha kecil, kafe, atau kantor Anda, dengan kecepatan internet yang cukup untuk mendukung aktivitas online sehari-hari.</li>
-            </ul>
-            <div class="mt-auto">
-              <a href="#" class="get-started-btn">Selengkapnya</a>
-            </div>
-          </div>
-        </div>
-      
-        <!-- Paket Express -->
-        <div class="col-lg-3">
-          <div class="box d-flex flex-column h-100" data-aos="zoom-in" data-aos-delay="400">
-            <h3>Express</h3>
-            <h4>Rp 500.000<span> per Bulan</span></h4>
-            <ul>
-              <li>Paket Express menyediakan koneksi internet dengan kecepatan tinggi, ideal untuk kebutuhan bisnis besar, kantor profesional, atau penggunaan intensif seperti konferensi online dan pengelolaan data.</li>
-            </ul>
-            <div class="mt-auto">
-              <a href="#" class="get-started-btn">Selengkapnya</a>
-            </div>
-          </div>
-        </div>
-      
+        @endforeach
       </div>
-      
-
     </div>
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        // Menambahkan event listener untuk setiap tombol "Selengkapnya"
+        document.querySelectorAll('.read-more-btn').forEach(button => {
+            button.addEventListener('click', function () {
+                // Ambil ID dinamis dari tombol yang diklik
+                const id = this.id.replace('readMoreBtn', '');
+
+                // Ambil elemen terkait dengan ID yang sesuai
+                const textContent = document.getElementById('textContent' + id);
+
+                // Toggle antara mode terbatas dan diperluas
+                if (textContent.classList.contains('text-expand')) {
+                    textContent.classList.remove('text-expand');
+                    this.textContent = 'Selengkapnya';
+                } else {
+                    textContent.classList.add('text-expand');
+                    this.textContent = 'Tutup';
+                }
+            });
+        });
+      });
+    </script>
   </section>
   <!-- End Pricing Section -->
 @endsection
