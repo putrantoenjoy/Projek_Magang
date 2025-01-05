@@ -8,7 +8,24 @@
         <h2>Layanan</h2>
         <p>Layanan Kami</p>
       </div>
-
+      <div class="row p-0">
+        <div class="col-md-4">
+          <h3>Pilihan Layanan</h3>
+          <form action="#" method="get">
+            <div class="input-group gap-2">
+              <select id="filter" name="filter" class="form-control">
+                <option value="paket-standar" selected>Paket Standar</option>
+                <option value="promo">Promo</option>
+                <option value="paket-spesial">Paket Spesial</option>
+                <option value="paket-gaming">Paket Gaming</option>
+              </select>
+              <div class="input-group-append">
+                <button type="submit" class="btn btn-primary">Terapkan</button>
+              </div>
+            </div>
+          </form>
+        </div>        
+      </div>
       {{-- tag selengkapnya --}}
       <style>
         /* Styling teks dengan batas baris */

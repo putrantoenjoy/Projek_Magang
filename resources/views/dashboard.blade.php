@@ -15,6 +15,7 @@
         <div class="content__boxed">
             <div class="content__wrap p-0">
                 <div class="row">
+                    @if(!auth()->user()->hasRole('user'))
                     <div class="col-md-4 mb-4">
                         <div class="card">
                             <div class="card-body d-flex align-items-center gap-3">
@@ -48,22 +49,44 @@
                             </div>
                         </div>
                     </div>
+                    @endif
+                    
+                    @hasrole('user')
+                    <div class="col-md-4 mb-4">
+                        <div class="card">
+                            <div class="card-body d-flex align-items-center gap-3">
+                                <i class="bi bi-images" style="font-size: 4rem;"></i>
+                                <div class="ms-3"> 
+                                    <p class="mar-no">Tagihan</p>
+                                    <p class="text-2x mar-no text-semibold">{{ $galeri }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    @endhasrole('user')
                 </div>                
                 
                 <div class="row">
                     <div class="col-sm-12">
                         <div class="card">
                             <div class="card-header">
+                                @if(!auth()->user()->hasRole('user'))
                                 <h4 class="card-title mb-0">Artikel Terbaru</h4>
+                                @endif
+                                @hasanyrole('user')
+                                <h4 class="card-title mb-0">Daftar Tagihan</h4>
+                                @endhasanyrole
                             </div>
+                            
+                            @if(!auth()->user()->hasRole('user'))
                             <div class="card-body">
                                 <div class="row">
                                     @foreach ($artikelTerbaru as $artikelTerbaru)
-                                        <div class="col-sm-4 mb-4">
-                                            <div class="card" style="box-shadow: 0 4px 8px rgba(0,0,0,0.2); border-radius: 10px;">
-                                                <div class="card-header">
-                                                    <h4 class="card-title mb-0"><a href="{{ route('artikel-kami.show', $artikelTerbaru->id)}}" style="color: black; text-decoration: none;">{{ $artikelTerbaru->judul }}</a></h4>
-                                                    <p class="text-muted mb-0">{{ $artikelTerbaru->created_at->format('d M Y') }}</p>
+                                    <div class="col-sm-4 mb-4">
+                                        <div class="card" style="box-shadow: 0 4px 8px rgba(0,0,0,0.2); border-radius: 10px;">
+                                            <div class="card-header">
+                                                <h4 class="card-title mb-0"><a href="{{ route('artikel-kami.show', $artikelTerbaru->id)}}" style="color: black; text-decoration: none;">{{ $artikelTerbaru->judul }}</a></h4>
+                                                <p class="text-muted mb-0">{{ $artikelTerbaru->created_at->format('d M Y') }}</p>
                                                 </div>
                                                 <div class="card-body">
                                                     <p>{{($artikelTerbaru->deskripsi) }}</p>
@@ -73,6 +96,26 @@
                                     @endforeach
                                 </div>
                             </div>
+                            @endif
+                            @hasrole('user')
+                            <div class="card-body">
+                                <div class="row">
+                                    @foreach ($artikelTerbaru as $artikelTerbaru)
+                                    <div class="col-sm-4 mb-4">
+                                        <div class="card" style="box-shadow: 0 4px 8px rgba(0,0,0,0.2); border-radius: 10px;">
+                                            <div class="card-header">
+                                                <h4 class="card-title mb-0"><a href="{{ route('artikel-kami.show', $artikelTerbaru->id)}}" style="color: black; text-decoration: none;">{{ $artikelTerbaru->judul }}</a></h4>
+                                                <p class="text-muted mb-0">{{ $artikelTerbaru->created_at->format('d M Y') }}</p>
+                                                </div>
+                                                <div class="card-body">
+                                                    <p>{{($artikelTerbaru->deskripsi) }}</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    @endforeach
+                                </div>
+                            </div>
+                            @endhasrole
                         </div>
                     </div>
                 </div>       

@@ -64,13 +64,20 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        // Create the user
         $user = User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
+
+        // Assign role 'user' after registration
         $user->assignRole('user');
 
-        return $user;
+        // Debugging: Check assigned roles
+        dd($user->roles); // Will show the roles assigned to the user
+
+        // Redirect to the dashboard (after dd)
+        return redirect($this->redirectTo);
     }
 }

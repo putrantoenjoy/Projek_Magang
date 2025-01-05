@@ -17,24 +17,34 @@ class CreateNewUser implements CreatesNewUsers
      *
      * @param  array<string, string>  $input
      */
-    public function create(array $input): User
+    public function create(array $input)
     {
-        Validator::make($input, [
+        // Validasi input sebelum pembuatan pengguna
+        $validated = Validator::make($input, [
             'name' => ['required', 'string', 'max:255'],
-            'email' => [
-                'required',
-                'string',
-                'email',
-                'max:255',
-                Rule::unique(User::class),
-            ],
-            'password' => $this->passwordRules(),
-        ])->validate();
-
-        return User::create([
-            'name' => $input['name'],
-            'email' => $input['email'],
-            'password' => Hash::make($input['password']),
+            'email' => ['required', 'email', 'unique:users,email'],
+            'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
+
+        // Jika validasi gagal
+        if ($validated->fails()) {
+            return back()->withErrors($validated)->withInput();
+        }
+
+        // Mendapatkan data yang sudah tervalidasi
+        $validatedData = $validated->validated(); 
+
+        // Membuat pengguna baru menggunakan data yang sudah tervalidasi
+        $user = User::create([
+            'name' => $validatedData['name'],  // Gunakan $validatedData, bukan $validated
+            'email' => $validatedData['email'],
+            'password' => Hash::make($validatedData['password']),
+        ]);
+
+        // Menetapkan role 'user' langsung setelah registrasi
+        $user->assignRole('user');  // Pastikan role 'user' sudah ada di database
+
+        // Mengembalikan user atau respons lain
+        return $user;  // Atau return redirect atau response lain sesuai kebutuhan
     }
 }

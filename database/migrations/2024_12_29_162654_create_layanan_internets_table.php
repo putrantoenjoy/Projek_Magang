@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('harga')->nullable();
             $table->string('kecepatan')->nullable();
             $table->string('deskripsi')->nullable();
+            $table->integer('masa_aktif')->nullable();
             $table->integer('created_by')->nullable();
             $table->integer('updated_by')->nullable();
             $table->integer('deleted_by')->nullable();
