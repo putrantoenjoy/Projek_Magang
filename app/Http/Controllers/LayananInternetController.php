@@ -15,24 +15,14 @@ class LayananInternetController extends Controller
     public function index(Request $request)
     {
         // $data_pelanggan = Data::get();
+        if (auth()->user()->hasRole('user')) {
+            // Jika memiliki role 'user', arahkan ke halaman tertentu
+            $data_layanan = Layanan_internet::get();
+            return view('user_layanan.index', compact('data_layanan'));
+        }
         $data_layanan = Layanan_internet::get();
-
-        // $statuses = EventStatus::get();
-        // $query = Event::where('soft_delete', 0);
-
-        // if ($request->has('cari') && !empty($request->cari)) {
-        //     $cari = $request->cari;
-        //     $query->where('tempat', 'like', "%". $cari ."%");
-        // } else {
-        //     $cari = ''; 
-        // }
     
-        // $set = [
-        //     'data' => $query->paginate(10),
-        //     'cari' => $cari, 
-        //     'statuses' => $statuses, 
-        // ];
-    
+        // Jika pengguna tidak memiliki role 'user', arahkan ke halaman admin
         return view('admin_layanan.index', compact('data_layanan'));
     }
 
@@ -45,6 +35,7 @@ class LayananInternetController extends Controller
         $data->kecepatan = $request->kecepatan;
         $data->deskripsi = $request->deskripsi;
         $data->benefit_id = 1;
+        $data->masa_aktif = $request->masa_aktif;
         $data->created_by = Auth::user()->id;
         $data->save();
 
@@ -60,6 +51,7 @@ class LayananInternetController extends Controller
             'kecepatan' => $request->kecepatan,
             'deskripsi' => $request->deskripsi,
             'benefit_id' => 1,
+            'masa_aktif' => $request->masa_aktif,
             'updated_by' => auth()->user()->id
         ];
 

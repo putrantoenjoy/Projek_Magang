@@ -4,8 +4,8 @@
 <div class="container">
     <div class="d-flex flex-column m-3">
         <div class="card bg-transparent">
-            <p class="text-white fs-5">Layanan Internet</p>
-            <h3 class="text-white" class="fw-bold">Data Layanan Internet</h3>
+            <p class="text-white fs-5">Transaksi Internet</p>
+            <h3 class="text-white" class="fw-bold">Data Transaksi Internet</h3>
         </div>
        
             <div class="content__boxed">
@@ -28,7 +28,7 @@
 
                     <div class="card">
                         <div class="card-header">
-                            <h5 class="card-title mb-3">Tabel Layanan Internet</h5>
+                            <h5 class="card-title mb-3">Tabel Transaksi Internet</h5>
                             <div class="row">
                                 <div class="col-md-6 d-flex gap-1 align-items-center mb-3">
                                     @can('tim-create')
@@ -57,46 +57,17 @@
                                     <thead>
                                         <tr>
                                             <th>No</th>
-                                            <th>Nama Paket</th>
-                                            <th>Kategori</th>
-                                            <th>Harga</th>
-                                            <th>Kecepatan</th>
-                                            {{-- <th>Deskripsi</th> --}}
-                                            <th>Benefit</th>
-                                            <th>Masa Aktif</th>
+                                            <th>Transaksi ID</th>
+                                            <th>Layanan ID</th>
+                                            <th>Tanggal Transaksi</th>
+                                            <th>Total Bayar</th>
+                                            <th>Status</th>
                                             {{-- @canany(['tim-update', 'tim-delete']) --}}
-                                                <th>Aksi</th>
+                                                {{-- <th>Aksi</th> --}}
                                             {{-- @endcanany --}}
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach ($data_layanan as $row => $value)
-                                        <tr class="align-middle">
-                                            <td>{{ $loop->iteration }}</td>
-                                            <td>{{ $value->nama_paket }}</td>
-                                            <td>{{ $value->kategori }}</td>
-                                            <td>Rp {{ $value->harga }}</td>
-                                            <td>{{ $value->kecepatan }} Mbps</td>
-                                            {{-- <td>{{ $value->deskripsi }}</td> --}}
-                                            <td>{{ 'benefit' }}</td>
-                                            <td>{{ $value->masa_aktif }} Hari</td>
-                                            {{-- <td><img src="{{ url('storage/img/tim/'. $value->foto) }}" alt="foto" width="50px" height="50px" style="object-fit: cover"></td> --}}
-                                            <td>
-                                                <div class="d-flex align-items-center">
-                                                    <form action="{{ route('layanan.hapus', $value->id) }}" class="m-0" method="post">
-                                                        @csrf
-                                                        @method('delete')
-                                                        {{-- @can('tim-update') --}}
-                                                            <button class="btn btn-primary" type="button" id="btn-edit" data-data='{{ json_encode($value) }}' data-bs-toggle="modal" data-bs-target="#ModalEdit">Ubah</button>
-                                                        {{-- @endcan --}}
-                                                        {{-- @can('tim-delete') --}}
-                                                            <button class="btn btn-danger" type="submit">Hapus</button>
-                                                        {{-- @endcan --}}
-                                                    </form>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        @endforeach
                                     </tbody>
                                 </table>
                             </div>

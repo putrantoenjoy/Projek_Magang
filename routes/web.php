@@ -72,6 +72,12 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
     Route::post('/tim', [App\Http\Controllers\TimController::class, 'simpan'])->name('tim.simpan');
     Route::put('/tim/{id}', [App\Http\Controllers\TimController::class, 'update'])->name('tim.update');
     Route::delete('/tim/{id}', [App\Http\Controllers\TimController::class, 'hapus'])->name('tim.hapus');
+    
+    //user (layanan, pembayaran, transaksi, settings)
+    Route::get('/transaksi', [App\Http\Controllers\TransaksiController::class, 'index'])->name('transaksi.index');
+    Route::get('/layanan-internet/checkout/{id}', [App\Http\Controllers\TransaksiController::class, 'checkout'])->name('checkout.index');
+    Route::get('/layanan-internet/checkout/{id}/pembayaran', [App\Http\Controllers\TransaksiController::class, 'pembayaran'])->name('pembayaran.index');
+    Route::post('/layanan-internet/checkout/{id}/bayar', [App\Http\Controllers\TransaksiController::class, 'bayar'])->name('checkout.bayar');
 
     // permission
     Route::post('/permission', [App\Http\Controllers\PermissionControler::class, 'create'])->name('permission-create');

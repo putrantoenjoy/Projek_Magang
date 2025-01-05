@@ -15,7 +15,7 @@
                                         @csrf
                                         <div class="col-md-12">
                                             <label for="_dm-inputnama" class="form-label">Nama Paket</label>
-                                            <input id="_dm-inputnama" type="text" name="nama_paket" required placeholder="Nama" class="form-control">
+                                            <input id="_dm-inputnama" type="text" name="nama_paket" required placeholder="Nama Paket" class="form-control">
                                         </div>
                                         <div class="col-md-12">
                                             <label for="_dm-inputnama" class="form-label">Kategori</label>
@@ -32,7 +32,7 @@
                                         </div>
                                         <div class="col-md-12">
                                             <label for="_dm-inputnama" class="form-label">Kecepatan</label>
-                                            <input id="_dm-inputnama" type="text" name="kecepatan" required placeholder="Nama" class="form-control">
+                                            <input id="_dm-inputnama" type="text" name="kecepatan" required placeholder="Kecepatan" class="form-control">
                                         </div>
                                         <div class="col-md-12">
                                             <label for="_dm-inputnama" class="form-label">Benefit</label>
@@ -44,6 +44,10 @@
                                             <label for="_dm-inputnama" class="form-label">Deskripsi</label>
                                             <textarea name="deskripsi" id="" cols="30" class="form-control" rows="10"></textarea>
                                             {{-- <input id="_dm-inputnama" type="text" name="deskripsi" required placeholder="Nama" class="form-control"> --}}
+                                        </div>
+                                        <div class="col-md-12">
+                                            <label for="_dm-inputnama" class="form-label">Masa Aktif (hari)</label>
+                                            <input id="_dm-inputnama" type="text" name="masa_aktif" required placeholder="Masa Aktif" class="form-control">
                                         </div>
                                     </form>
                                 </div>

@@ -77,12 +77,12 @@
         @endrole
         @role('user')
         <li class="nav-item my-1">
-            <a href="{{ route('layanan.index') }}" class="mininav-toggle nav-link {{ Route::is('layanan.index') ? 'active' : ''  }}" id="menuLayanan"> <i class="bi bi-reception-4 fs-5 me-2"></i>
+            <a href="{{ route('layanan.index') }}" class="mininav-toggle nav-link {{ Route::is('layanan.index', 'checkout.index', 'pembayaran.index') ? 'active' : ''  }}" id="menuLayanan"> <i class="bi bi-reception-4 fs-5 me-2"></i>
                 <span class="nav-label ms-1">Layanan</span>
             </a>
         </li>
         <li class="nav-item my-1">
-            <a href="{{ route('layanan.index') }}" class="mininav-toggle nav-link {{ Route::is('layanan.index') ? 'active' : ''  }}" id="menuLayanan"> <i class="bi bi-cash-coin fs-5 me-2"></i>
+            <a href="{{ route('transaksi.index') }}" class="mininav-toggle nav-link {{ Route::is('transaksi.index') ? 'active' : ''  }}" id="menuTransaksi"> <i class="bi bi-cash-coin fs-5 me-2"></i>
                 <span class="nav-label ms-1">Transaksi</span>
             </a>
         </li>

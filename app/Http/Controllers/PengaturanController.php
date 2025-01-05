@@ -10,6 +10,10 @@ class PengaturanController extends Controller
     //
     public function index(){
         $footer = Footer::find(1);
+        if (auth()->user()->hasRole('user')) {
+
+            return view('user_setting.index');
+        }
         
         return view('admin_setting.footer.index', compact('footer'));
     }
