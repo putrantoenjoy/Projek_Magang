@@ -19,20 +19,20 @@
               Layanan service 24 Jam nonstop untuk semua pengguna jaringan kami, dengan tenaga profesional yang selalu siap untuk membuat Anda nyaman menggunakan jaringan internet kami.
             </p>
           </div>
-          <div class="content mb-3">
-            <h3 class="mb-3 py-0"><strong>Visi</strong></h3>
+          <div class="content py-0 mb-3">
+            <h3 class="mb-3"><strong>Visi</strong></h3>
             <p>
               Menjadi penyedia layanan internet terdepan yang menghubungkan setiap individu dan bisnis di seluruh Indonesia dengan teknologi terbaik, layanan cepat, dan akses internet yang dapat diandalkan untuk mendukung kemajuan digital masyarakat.
             </p>
           </div>
-          <div class="content mb-3">
-            <h3 class="mb-3 py-0"><strong>Misi</strong></h3>
+          <div class="content py-0 mb-3">
+            <h3 class="mb-3"><strong>Misi</strong></h3>
             <p>
               Misi ini merinci langkah-langkah konkret yang akan diambil oleh perusahaan untuk mencapai visi tersebut. Mulai dari menyediakan akses internet yang cepat dan stabil, layanan pelanggan yang responsif, hingga berinovasi dalam teknologi untuk mendukung pertumbuhan ekonomi dan pendidikan digital.
             </p>
           </div>
-          <div class="content mb-3">
-            <h3 class="mb-3 py-0"><strong>Mengapa Memilih NUSA DATA PRIMA?</strong></h3>
+          <div class="content py-0 mb-3">
+            <h3 class="mb-3"><strong>Mengapa Memilih NUSA DATA PRIMA?</strong></h3>
           </div>
 
           <div class="accordion-list">
