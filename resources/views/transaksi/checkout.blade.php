@@ -38,7 +38,7 @@
                             </div>
                             <div class="m-3">
                                 <label for="nomor_telepon">Nomor Telepon</label>
-                                <input type="text" id="nomor_telepon" class="form-control" value="{{ auth()->user()->phone ?? '' }}" disabled>
+                                <input type="text" id="nomor_telepon" class="form-control" value="{{ auth()->user()->no_telepon ?? '' }}" disabled>
                             </div>
                             <div class="m-3">
                                 <label for="email">Email</label>
@@ -46,10 +46,10 @@
                             </div>
                             <div class="m-3">
                                 <label for="lokasi_pemasangan">Lokasi Pemasangan</label>
-                                <input type="text" id="lokasi_pemasangan" class="form-control" value="{{ $userLocation ?? '' }}" disabled>
+                                <input type="text" id="lokasi_pemasangan" class="form-control" value="{{ auth()->user()->lokasi_pemasangan ?? '' }}" disabled>
                             </div>
                             <div class="m-3 d-flex justify-content-center">
-                                <a href="" class="btn btn-primary">Ubah Data Diri</a>
+                                <a href="{{ route('transaksi.pengaturan', ['id' => $id]) }}" class="btn btn-primary">Ubah Data Diri</a>
                             </div>
                         </div>
 

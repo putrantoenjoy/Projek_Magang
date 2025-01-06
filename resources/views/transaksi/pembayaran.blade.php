@@ -35,12 +35,14 @@
                             <h5>Total Tagihan</h5>
                             <div class="col-12">
                                 <label for="total_tagihan" class="form-label">Total Tagihan</label>
-                                <input id="total_tagihan" type="text" name="total_tagihan" required class="form-control" value="{{ $totalTagihan ?? '' }}" disabled>
+                                <input id="total_tagihan" type="text" name="total_tagihan" required class="form-control" value="{{ $data->harga }}" disabled>
                             </div>
                         </form>
                     </div>
                     <div class="d-flex justify-content-end p-3">
-                        <button type="submit" form="footer-ubah" class="btn btn-primary">Bayar</button>
+                        <form action="" method="post">
+                            <button type="submit" form="footer-ubah" class="btn btn-primary">Bayar</button>
+                        </form>
                     </div>
                 </div>
             </div>

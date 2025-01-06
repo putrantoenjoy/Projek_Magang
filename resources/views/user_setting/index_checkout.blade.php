@@ -31,31 +31,42 @@
                 <div class="card">
                     <div class="card-header">
                         <!-- Data Diri -->
-                        <div class="p-3">
-                            <div class="m-3">
-                                <label for="nama_lengkap">Nama Lengkap</label>
-                                <input type="text" id="nama_lengkap" class="form-control" value="{{ auth()->user()->name ?? '' }}">
-                            </div>
-                            <div class="m-3">
-                                <label for="nomor_telepon">Nomor Telepon</label>
-                                <input type="text" id="nomor_telepon" class="form-control" value="{{ auth()->user()->phone ?? '' }}">
-                            </div>
-                            <div class="m-3">
-                                <label for="email">Email</label>
-                                <input type="text" id="email" class="form-control" value="{{ auth()->user()->email ?? '' }}">
-                            </div>
-                            <div class="m-3">
-                                <label for="lokasi_pemasangan">Lokasi Pemasangan</label>
-                                <input type="text" id="lokasi_pemasangan" class="form-control" value="{{ $userLocation ?? '' }}">
-                            </div>
-                        </div>
+                        <form method="POST" action="{{ route('transaksi.datadiri', ['id' => $id]) }}">
+                            @csrf
+                            @method('PUT') <!-- Jika menggunakan metode PUT untuk update data -->
+                            <div class="p-3">
+                                <!-- Email -->
+                                <div class="m-3">
+                                    <label for="email">Email</label>
+                                    <input type="email" id="email" name="email" class="form-control" value="{{ auth()->user()->email ?? '' }}" disabled>
+                                </div>
 
-                        <!-- Metode Pembayaran -->
-                        <div class="p-3">
-                            <div class="m-3 d-flex justify-content-end">
-                                <a href="" class="btn btn-primary">Simpan</a>
+                                <!-- Nama Lengkap -->
+                                <div class="m-3">
+                                    <label for="nama_lengkap">Nama Lengkap</label>
+                                    <input type="text" id="nama_lengkap" name="name" class="form-control" value="{{ auth()->user()->name ?? '' }}">
+                                </div>
+
+                                <!-- Nomor Telepon -->
+                                <div class="m-3">
+                                    <label for="nomor_telepon">Nomor Telepon</label>
+                                    <input type="number" id="no_telepon" name="no_telepon" class="form-control" value="{{ auth()->user()->no_telepon ?? '' }}">
+                                </div>
+
+                                <!-- Lokasi Pemasangan -->
+                                <div class="m-3">
+                                    <label for="lokasi_pemasangan">Lokasi Pemasangan</label>
+                                    <input type="text" id="lokasi_pemasangan" name="lokasi_pemasangan" class="form-control" value="{{ auth()->user()->lokasi_pemasangan ?? '' }}">
+                                </div>
                             </div>
-                        </div>
+
+                            <div class="p-3">
+                                <div class="m-3 d-flex justify-content-end">
+                                    <button type="submit" class="btn btn-primary">Simpan</button>
+                                </div>
+                            </div>
+                        </form>
+
                     </div>
                     {{-- @include('transaksi.bayar') --}}
                 </div>

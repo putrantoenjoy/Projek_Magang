@@ -75,6 +75,8 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
     
     //user (layanan, pembayaran, transaksi, settings)
     Route::get('/transaksi', [App\Http\Controllers\TransaksiController::class, 'index'])->name('transaksi.index');
+    Route::get('/transaksi/data-diri/{id}', [App\Http\Controllers\TransaksiController::class, 'pengaturan'])->name('transaksi.pengaturan');
+    Route::put('/transaksi/data-diri/{id}', [App\Http\Controllers\TransaksiController::class, 'datadiri'])->name('transaksi.datadiri');
     Route::get('/layanan-internet/checkout/{id}', [App\Http\Controllers\TransaksiController::class, 'checkout'])->name('checkout.index');
     Route::get('/layanan-internet/checkout/{id}/pembayaran', [App\Http\Controllers\TransaksiController::class, 'pembayaran'])->name('pembayaran.index');
     Route::post('/layanan-internet/checkout/{id}/bayar', [App\Http\Controllers\TransaksiController::class, 'bayar'])->name('checkout.bayar');
@@ -92,6 +94,7 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
     // export sql
     Route::get('/export/export-sql', [App\Http\Controllers\UserController::class, 'export'])->name('export-sql');
     Route::get('/pengaturan', [App\Http\Controllers\PengaturanController::class, 'index'])->name('pengaturan');
+    Route::put('/user/data-diri', [App\Http\Controllers\PengaturanController::class, 'datadiri'])->name('datadiri.update');
     Route::patch('/pengaturan/update/{id}', [App\Http\Controllers\PengaturanController::class, 'update'])->name('pengaturan-update');
     // Route::get('/backup/download', function () {
     //     // Run the backup command to create a backup
@@ -129,7 +132,7 @@ Route::get('/tim-kerja', [App\Http\Controllers\UserTimController::class, 'index'
 //settings
 
 Fortify::loginView(function () {
-    return view('auth.login');
+    return view('auth.login'); // Pastikan 'auth.login' adalah jalur view yang valid
 });
 Fortify::registerView(function () {
     return view('auth.register');

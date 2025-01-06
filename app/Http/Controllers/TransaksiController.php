@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Layanan_internet;
 use App\Models\Transaksi;
 use Illuminate\Http\Request;
 
@@ -20,10 +21,9 @@ class TransaksiController extends Controller
     }
     public function pembayaran(Request $request, $id)
     {
-        
-
+        $data = Layanan_internet::find($id);
         // Redirect ke halaman checkout setelah berhasil
-        return view('transaksi.pembayaran');
+        return view('transaksi.pembayaran', compact('data'));
     }
 
     public function bayar(Request $request, $id){
@@ -54,5 +54,29 @@ class TransaksiController extends Controller
             'status_pembayaran' => $validatedData['status_pembayaran'],
         ]);
         return back();
+    }
+    public function pengaturan($id)
+    {
+        
+        return view('user_setting.index_checkout', compact('id'));
+    }
+    public function datadiri(Request $request, $id)
+    {
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'no_telepon' => 'nullable|string|max:15',
+            'lokasi_pemasangan' => 'nullable|string|max:255',
+        ]);
+
+        // Mendapatkan pengguna yang sedang login
+        $user = auth()->user();
+
+        $user->update([
+            'name' => $request->name,
+            'no_telepon' => $request->no_telepon,
+            'lokasi_pemasangan' => $request->lokasi_pemasangan,
+        ]);
+
+        return redirect()->route('checkout.index', ['id' => $id])->with('status', 'Data berhasil diperbarui!');
     }
 }

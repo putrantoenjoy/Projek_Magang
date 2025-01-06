@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\Footer;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class PengaturanController extends Controller
@@ -37,4 +38,24 @@ class PengaturanController extends Controller
 
         return back()->with('status', 'Footer berhasil diperbarui!');
     }
+    public function datadiri(Request $request)
+    {
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'no_telepon' => 'nullable|string|max:15',
+            'lokasi_pemasangan' => 'nullable|string|max:255',
+        ]);
+
+        // Mendapatkan pengguna yang sedang login
+        $user = auth()->user();
+
+        $user->update([
+            'name' => $request->name,
+            'no_telepon' => $request->no_telepon,
+            'lokasi_pemasangan' => $request->lokasi_pemasangan,
+        ]);
+
+        return redirect()->back()->with('status', 'Data berhasil diperbarui!');
+    }
+
 }

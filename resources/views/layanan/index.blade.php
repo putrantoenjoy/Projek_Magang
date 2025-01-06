@@ -95,7 +95,7 @@
                 </ul>
                 <div class="d-flex flex-column gap-2 mt-auto p-3">
                   <!-- Tombol Beli -->
-                  <a href="#" class="btn" 
+                  <a href="{{ route('checkout.index', $value->id) }}" class="btn" 
                      style="background-color: #1e78ff; color: white; border-radius: 5px; text-decoration: none; padding: 8px 12px; font-size: 14px; transition: background-color 0.3s, transform 0.2s;" 
                      onmouseover="this.style.backgroundColor='#0056b3'; this.style.transform='scale(1.05)';" 
                      onmouseout="this.style.backgroundColor='#1e78ff'; this.style.transform='scale(1)';">

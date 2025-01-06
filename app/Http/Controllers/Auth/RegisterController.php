@@ -78,6 +78,6 @@ class RegisterController extends Controller
         dd($user->roles); // Will show the roles assigned to the user
 
         // Redirect to the dashboard (after dd)
-        return redirect($this->redirectTo);
+        return $user;
     }
 }
