@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Layanan_internet;
+use App\Models\Pembayaran;
 use App\Models\Transaksi;
 use Illuminate\Http\Request;
 
@@ -10,7 +11,12 @@ class TransaksiController extends Controller
 {
     //
     public function index(){
-        return view('transaksi.index');
+        // $data_pembayaran = Pembayaran::get();
+        // dd($data_pembayaran);
+        $data_pembayaran = Pembayaran::whereHas('transaksi', function($query) {
+            $query->where('user_id', auth()->user()->id);
+        })->get();
+        return view('transaksi.index', compact('data_pembayaran'));
     }
     public function checkout(Request $request, $id)
     {
@@ -27,33 +33,22 @@ class TransaksiController extends Controller
     }
 
     public function bayar(Request $request, $id){
-        // Validasi input
-        $validatedData = $request->validate([
-            'user_id' => 'required|exists:users,id',
-            'tanggal_transaksi' => 'required|date',
-            'total_bayar' => 'required|numeric',
-            'status' => 'required|in:berhasil,pending,gagal',
-            'metode_pembayaran' => 'required|string',
-            'tanggal_pembayaran' => 'required|date',
-            'status_pembayaran' => 'required|in:berhasil,pending,gagal',
-        ]);
-
-        // Simpan transaksi
+        
         $transaction = Transaksi::create([
-            'user_id' => $validatedData['user_id'],
-            'package_id' => $id,
-            'tanggal_transaksi' => $validatedData['tanggal_transaksi'],
-            'total_bayar' => $validatedData['total_bayar'],
-            'status' => $validatedData['status'],
+            'user_id' => auth()->id(),
+            'layanan_id' => $id,      
+            'tanggal_aktif' => now(), 
+            'total_bayar' => Layanan_internet::find($id)->harga, 
+            'status' => 'pending',
         ]);
-
-        // Simpan pembayaran terkait transaksi tersebut
-        $payment = $transaction->payment()->create([
-            'metode_pembayaran' => $validatedData['metode_pembayaran'],
-            'tanggal_pembayaran' => $validatedData['tanggal_pembayaran'],
-            'status_pembayaran' => $validatedData['status_pembayaran'],
+        Pembayaran::create([
+            'transaksi_id' => $transaction->transaksi_id,
+            'metode_pembayaran' => 'BCA',
+            'tanggal_pembayaran' => now(),
+            'total_bayar' => Layanan_internet::find($id)->harga,
+            'status_pembayaran' => 'pending',
         ]);
-        return back();
+        return redirect()->route('transaksi.index')->with('status', 'Pemesanan layanan internet berhasil!');
     }
     public function pengaturan($id)
     {

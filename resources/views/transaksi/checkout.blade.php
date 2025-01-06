@@ -66,7 +66,7 @@
                                 </select>
                             </div>
                             <div class="m-3 d-flex justify-content-end">
-                                <a href="{{ route('pembayaran.index', $id) }}" class="btn btn-primary">Lanjutkan</a>
+                                <a href="{{ route('pembayaran.index', ['id' => $id]) }}" class="btn btn-primary">Lanjutkan</a>
                             </div>
                         </div>
                     </div>

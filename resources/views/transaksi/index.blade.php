@@ -58,7 +58,7 @@
                                         <tr>
                                             <th>No</th>
                                             <th>Transaksi ID</th>
-                                            <th>Layanan ID</th>
+                                            <th>Paket Layanan</th>
                                             <th>Tanggal Transaksi</th>
                                             <th>Total Bayar</th>
                                             <th>Status</th>
@@ -68,6 +68,16 @@
                                         </tr>
                                     </thead>
                                     <tbody>
+                                        @foreach ($data_pembayaran as $row => $value)
+                                        <tr class="align-middle">
+                                            <td>{{ ++$row }}</td>
+                                            <td>{{ $value->transaksi_id }}</td>
+                                            <td>{{ $value->transaksi->layanan_internet->nama_paket }}</td>
+                                            <td>{{ $value->tanggal_pembayaran }}</td>
+                                            <td>{{ $value->total_bayar }}</td>
+                                            <td>{{ $value->status_pembayaran }}</td>
+                                        </tr>
+                                        @endforeach
                                     </tbody>
                                 </table>
                             </div>

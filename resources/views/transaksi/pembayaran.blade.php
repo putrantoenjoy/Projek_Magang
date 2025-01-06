@@ -40,9 +40,10 @@
                         </form>
                     </div>
                     <div class="d-flex justify-content-end p-3">
-                        <form action="" method="post">
-                            <button type="submit" form="footer-ubah" class="btn btn-primary">Bayar</button>
-                        </form>
+                        <form action="{{ route('checkout.bayar', ['id' => $data->id]) }}" method="POST">
+                            @csrf
+                            <button type="submit" class="btn btn-primary">Bayar</button>
+                        </form>                        
                     </div>
                 </div>
             </div>
