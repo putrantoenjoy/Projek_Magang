@@ -117,69 +117,148 @@
     </div>
     <div class="container my-3" data-aos="fade-up">
 
-        <div class="section-title p-0">
-          <h2>Bantuan</h2>
-          <p>Akun</p>
-        </div>
-        <div class="accordion-list">
-          <ul>
+      <div class="section-title p-0">
+        <h2>Bantuan</h2>
+        <p>Umum</p>
+    </div>
+    <div class="accordion-list">
+        <ul>
             <!-- Accordion Item 1 -->
             <li>
-              <a data-bs-toggle="collapse" data-bs-target="#accordion-list-1" class="collapsed" style="display: block; text-decoration: none; padding: 10px; font-size: 16px;">
-                Bagaimana mengatasi lupa password?
-                <i class="bx bx-chevron-down icon-show" style="transition: transform 0.3s;"></i>
-                <i class="bx bx-chevron-up icon-close" style="display: none; transition: transform 0.3s;"></i>
-              </a>
-              <div id="accordion-list-1" class="collapse" data-bs-parent=".accordion-list" style="padding: 10px;">
-                <p style="margin: 0;">Untuk mengatasi lupa password, Anda bisa menggunakan fitur "Lupa Password" yang tersedia di halaman login, lalu mengikuti petunjuk untuk reset password Anda.</p>
-              </div>
+                <a data-bs-toggle="collapse" data-bs-target="#accordion-list-1" class="collapsed" style="display: block; text-decoration: none; padding: 10px; font-size: 16px;">
+                    Apa itu Transaksi?
+                    <i class="bx bx-chevron-down icon-show" style="transition: transform 0.3s;"></i>
+                    <i class="bx bx-chevron-up icon-close" style="display: none; transition: transform 0.3s;"></i>
+                </a>
+                <div id="accordion-list-1" class="collapse" data-bs-parent=".accordion-list" style="padding: 10px;">
+                    <p style="margin: 0;">Transaksi adalah proses pemesanan layanan yang dilakukan oleh pengguna, mencatat informasi terkait paket yang dipesan, tanggal transaksi, dan status pembayaran.</p>
+                </div>
             </li>
-        
+    
             <!-- Accordion Item 2 -->
             <li>
-              <a data-bs-toggle="collapse" data-bs-target="#accordion-list-2" class="collapsed" style="display: block; text-decoration: none; padding: 10px; font-size: 16px;">
-                Bagaimana mengatasi lupa email?
-                <i class="bx bx-chevron-down icon-show" style="transition: transform 0.3s;"></i>
-                <i class="bx bx-chevron-up icon-close" style="display: none; transition: transform 0.3s;"></i>
-              </a>
-              <div id="accordion-list-2" class="collapse" data-bs-parent=".accordion-list" style="padding: 10px;">
-                <p style="margin: 0;">Jika Anda lupa email yang digunakan untuk mendaftar, Anda bisa menghubungi layanan pelanggan kami untuk memverifikasi dan mendapatkan bantuan lebih lanjut.</p>
-              </div>
+                <a data-bs-toggle="collapse" data-bs-target="#accordion-list-2" class="collapsed" style="display: block; text-decoration: none; padding: 10px; font-size: 16px;">
+                    Apa itu Pembayaran?
+                    <i class="bx bx-chevron-down icon-show" style="transition: transform 0.3s;"></i>
+                    <i class="bx bx-chevron-up icon-close" style="display: none; transition: transform 0.3s;"></i>
+                </a>
+                <div id="accordion-list-2" class="collapse" data-bs-parent=".accordion-list" style="padding: 10px;">
+                    <p style="margin: 0;">Pembayaran adalah proses untuk melunasi biaya layanan yang dipesan. Setelah pembayaran dilakukan, status transaksi akan diperbarui dan layanan diaktifkan.</p>
+                </div>
             </li>
-          </ul>
-        </div>
-        
-        <div class="section-title p-0">
-          <p>Pemesanan</p>
-        </div>
-        
-        <div class="accordion-list">
-          <ul>
+    
             <!-- Accordion Item 3 -->
             <li>
-              <a data-bs-toggle="collapse" data-bs-target="#accordion-list-3" class="collapsed" style="display: block; text-decoration: none; padding: 10px; font-size: 16px;">
-                Berapa lama pemesanan?
-                <i class="bx bx-chevron-down icon-show" style="transition: transform 0.3s;"></i>
-                <i class="bx bx-chevron-up icon-close" style="display: none; transition: transform 0.3s;"></i>
-              </a>
-              <div id="accordion-list-3" class="collapse" data-bs-parent=".accordion-list" style="padding: 10px;">
-                <p style="margin: 0;">Proses pemesanan biasanya memakan waktu 1-3 hari kerja tergantung pada lokasi dan jenis layanan yang Anda pilih.</p>
-              </div>
+                <a data-bs-toggle="collapse" data-bs-target="#accordion-list-3" class="collapsed" style="display: block; text-decoration: none; padding: 10px; font-size: 16px;">
+                    Bagaimana cara melakukan pembayaran untuk layanan yang dipesan?
+                    <i class="bx bx-chevron-down icon-show" style="transition: transform 0.3s;"></i>
+                    <i class="bx bx-chevron-up icon-close" style="display: none; transition: transform 0.3s;"></i>
+                </a>
+                <div id="accordion-list-3" class="collapse" data-bs-parent=".accordion-list" style="padding: 10px;">
+                    <p style="margin: 0;">Untuk melakukan pembayaran, pilih metode pembayaran yang diinginkan, lalu lakukan proses pembayaran sesuai dengan instruksi yang diberikan pada halaman checkout.</p>
+                </div>
             </li>
-        
+    
             <!-- Accordion Item 4 -->
             <li>
-              <a data-bs-toggle="collapse" data-bs-target="#accordion-list-4" class="collapsed" style="display: block; text-decoration: none; padding: 10px; font-size: 16px;">
-                Apakah gratis biaya pemasangan?
-                <i class="bx bx-chevron-down icon-show" style="transition: transform 0.3s;"></i>
-                <i class="bx bx-chevron-up icon-close" style="display: none; transition: transform 0.3s;"></i>
-              </a>
-              <div id="accordion-list-4" class="collapse" data-bs-parent=".accordion-list" style="padding: 10px;">
-                <p style="margin: 0;">Biaya pemasangan dapat berbeda-beda tergantung pada paket yang Anda pilih. Namun, kami sering menawarkan promo dengan biaya pemasangan gratis.</p>
-              </div>
+                <a data-bs-toggle="collapse" data-bs-target="#accordion-list-4" class="collapsed" style="display: block; text-decoration: none; padding: 10px; font-size: 16px;">
+                    Bagaimana cara melihat riwayat transaksi saya?
+                    <i class="bx bx-chevron-down icon-show" style="transition: transform 0.3s;"></i>
+                    <i class="bx bx-chevron-up icon-close" style="display: none; transition: transform 0.3s;"></i>
+                </a>
+                <div id="accordion-list-4" class="collapse" data-bs-parent=".accordion-list" style="padding: 10px;">
+                    <p style="margin: 0;">Untuk melihat riwayat transaksi, masuk ke akun Anda dan buka halaman "Transaksi" di dashboard untuk memeriksa semua transaksi yang telah dilakukan beserta status pembayaran dan detail lainnya.</p>
+                </div>
             </li>
-          </ul>
-        </div> 
+    
+            <!-- Accordion Item 5 -->
+            <li>
+                <a data-bs-toggle="collapse" data-bs-target="#accordion-list-5" class="collapsed" style="display: block; text-decoration: none; padding: 10px; font-size: 16px;">
+                    Bagaimana cara mengetahui status pembayaran saya?
+                    <i class="bx bx-chevron-down icon-show" style="transition: transform 0.3s;"></i>
+                    <i class="bx bx-chevron-up icon-close" style="display: none; transition: transform 0.3s;"></i>
+                </a>
+                <div id="accordion-list-5" class="collapse" data-bs-parent=".accordion-list" style="padding: 10px;">
+                    <p style="margin: 0;">Status pembayaran akan diperbarui setelah transaksi diproses. Anda bisa memeriksa status pembayaran melalui halaman riwayat transaksi di akun Anda.</p>
+                </div>
+            </li>
+    
+            <!-- Accordion Item 6 -->
+            <li>
+                <a data-bs-toggle="collapse" data-bs-target="#accordion-list-6" class="collapsed" style="display: block; text-decoration: none; padding: 10px; font-size: 16px;">
+                    Bagaimana cara menghubungi dukungan pelanggan?
+                    <i class="bx bx-chevron-down icon-show" style="transition: transform 0.3s;"></i>
+                    <i class="bx bx-chevron-up icon-close" style="display: none; transition: transform 0.3s;"></i>
+                </a>
+                <div id="accordion-list-6" class="collapse" data-bs-parent=".accordion-list" style="padding: 10px;">
+                    <p style="margin: 0;">Untuk menghubungi dukungan pelanggan, Anda dapat menggunakan fitur live chat di situs kami atau mengirim email ke support@domain.com.</p>
+                </div>
+            </li>
+        </ul>
+    </div>
+    
+    <div class="section-title p-0">
+        <p>Akun</p>
+    </div>
+    <div class="accordion-list">
+        <ul>
+            <!-- Accordion Item 7 -->
+            <li>
+                <a data-bs-toggle="collapse" data-bs-target="#accordion-list-7" class="collapsed" style="display: block; text-decoration: none; padding: 10px; font-size: 16px;">
+                    Bagaimana mengatasi lupa password?
+                    <i class="bx bx-chevron-down icon-show" style="transition: transform 0.3s;"></i>
+                    <i class="bx bx-chevron-up icon-close" style="display: none; transition: transform 0.3s;"></i>
+                </a>
+                <div id="accordion-list-7" class="collapse" data-bs-parent=".accordion-list" style="padding: 10px;">
+                    <p style="margin: 0;">Untuk mengatasi lupa password, Anda bisa menggunakan fitur "Lupa Password" yang tersedia di halaman login, lalu mengikuti petunjuk untuk reset password Anda.</p>
+                </div>
+            </li>
+    
+            <!-- Accordion Item 8 -->
+            <li>
+                <a data-bs-toggle="collapse" data-bs-target="#accordion-list-8" class="collapsed" style="display: block; text-decoration: none; padding: 10px; font-size: 16px;">
+                    Bagaimana mengatasi lupa email?
+                    <i class="bx bx-chevron-down icon-show" style="transition: transform 0.3s;"></i>
+                    <i class="bx bx-chevron-up icon-close" style="display: none; transition: transform 0.3s;"></i>
+                </a>
+                <div id="accordion-list-8" class="collapse" data-bs-parent=".accordion-list" style="padding: 10px;">
+                    <p style="margin: 0;">Jika Anda lupa email yang digunakan untuk mendaftar, Anda bisa menghubungi layanan pelanggan kami untuk memverifikasi dan mendapatkan bantuan lebih lanjut.</p>
+                </div>
+            </li>
+        </ul>
+    </div>
+    
+    <div class="section-title p-0">
+        <p>Pemesanan</p>
+    </div>
+    <div class="accordion-list">
+        <ul>
+            <!-- Accordion Item 9 -->
+            <li>
+                <a data-bs-toggle="collapse" data-bs-target="#accordion-list-9" class="collapsed" style="display: block; text-decoration: none; padding: 10px; font-size: 16px;">
+                    Berapa lama pemesanan?
+                    <i class="bx bx-chevron-down icon-show" style="transition: transform 0.3s;"></i>
+                    <i class="bx bx-chevron-up icon-close" style="display: none; transition: transform 0.3s;"></i>
+                </a>
+                <div id="accordion-list-9" class="collapse" data-bs-parent=".accordion-list" style="padding: 10px;">
+                    <p style="margin: 0;">Proses pemesanan biasanya memakan waktu 1-3 hari kerja tergantung pada lokasi dan jenis layanan yang Anda pilih.</p>
+                </div>
+            </li>
+    
+            <!-- Accordion Item 10 -->
+            <li>
+                <a data-bs-toggle="collapse" data-bs-target="#accordion-list-10" class="collapsed" style="display: block; text-decoration: none; padding: 10px; font-size: 16px;">
+                    Apakah gratis biaya pemasangan?
+                    <i class="bx bx-chevron-down icon-show" style="transition: transform 0.3s;"></i>
+                    <i class="bx bx-chevron-up icon-close" style="display: none; transition: transform 0.3s;"></i>
+                </a>
+                <div id="accordion-list-10" class="collapse" data-bs-parent=".accordion-list" style="padding: 10px;">
+                    <p style="margin: 0;">Biaya pemasangan dapat berbeda-beda tergantung pada paket yang Anda pilih. Namun, kami sering menawarkan promo dengan biaya pemasangan gratis.</p>
+                </div>
+            </li>
+        </ul>
+    </div>
+    
     </div>
 </section><!-- End Services Section -->
 @endsection
