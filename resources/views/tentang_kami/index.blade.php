@@ -20,7 +20,19 @@
             </p>
           </div>
           <div class="content mb-3">
-            <h3 class="mb-3"><strong>Mengapa Memilih NUSA DATA PRIMA?</strong></h3>
+            <h3 class="mb-3 py-0"><strong>Visi</strong></h3>
+            <p>
+              Menjadi penyedia layanan internet terdepan yang menghubungkan setiap individu dan bisnis di seluruh Indonesia dengan teknologi terbaik, layanan cepat, dan akses internet yang dapat diandalkan untuk mendukung kemajuan digital masyarakat.
+            </p>
+          </div>
+          <div class="content mb-3">
+            <h3 class="mb-3 py-0"><strong>Misi</strong></h3>
+            <p>
+              Misi ini merinci langkah-langkah konkret yang akan diambil oleh perusahaan untuk mencapai visi tersebut. Mulai dari menyediakan akses internet yang cepat dan stabil, layanan pelanggan yang responsif, hingga berinovasi dalam teknologi untuk mendukung pertumbuhan ekonomi dan pendidikan digital.
+            </p>
+          </div>
+          <div class="content mb-3">
+            <h3 class="mb-3 py-0"><strong>Mengapa Memilih NUSA DATA PRIMA?</strong></h3>
           </div>
 
           <div class="accordion-list">
@@ -106,23 +118,6 @@
     <div class="container my-3" data-aos="fade-up">
 
         <div class="section-title p-0">
-          <h2>Visi dan Misi</h2>
-          <p>Visi</p>
-        </div>
-        <div style="text-align: justify;">
-          Menjadi penyedia layanan internet terdepan yang menghubungkan setiap individu dan bisnis di seluruh Indonesia dengan teknologi terbaik, layanan cepat, dan akses internet yang dapat diandalkan untuk mendukung kemajuan digital masyarakat.
-      </div>
-      <div class="section-title p-0">
-          <p>Misi</p>
-      </div>
-      <div style="text-align: justify;">
-          Misi ini merinci langkah-langkah konkret yang akan diambil oleh perusahaan untuk mencapai visi tersebut. Mulai dari menyediakan akses internet yang cepat dan stabil, layanan pelanggan yang responsif, hingga berinovasi dalam teknologi untuk mendukung pertumbuhan ekonomi dan pendidikan digital.
-      </div>
-      
-    </div>
-    <div class="container my-3" data-aos="fade-up">
-
-        <div class="section-title p-0">
           <h2>Bantuan</h2>
           <p>Akun</p>
         </div>
@@ -184,8 +179,7 @@
               </div>
             </li>
           </ul>
-        </div>
-                
+        </div> 
     </div>
 </section><!-- End Services Section -->
 @endsection
