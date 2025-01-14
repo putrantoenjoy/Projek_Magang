@@ -68,6 +68,7 @@ class GaleriController extends Controller
 
     public function update(Request $request, $id)
     {
+        // Ambil data yang ingin diupdate
         $data = [
             'judul' => $request->judul,
             'kategori' => $request->kategori,
@@ -75,25 +76,55 @@ class GaleriController extends Controller
             'updated_by' => auth()->user()->id
         ];
 
+        // Ambil file gambar yang baru (jika ada)
         $gambar = $request->file('file');
-        if (!empty($gambar)) {
-            $file_name = $gambar->hashName();
-            $gambar->storeAs('img/galeri', $file_name, 'public');
+        if ($gambar) {
+            // Hapus gambar lama (jika ada)
+            $news = Galeri::findOrFail($id);
+            if ($news->gambar) {
+                $old_image_path = public_path('storage/img/galeri/' . $news->gambar);
+                if (file_exists($old_image_path)) {
+                    unlink($old_image_path); // Hapus file lama
+                }
+            }
+
+            // Simpan gambar baru dengan nama unik
+            $file_name = $gambar->hashName(); // Nama file yang unik
+            $destinationPath = public_path('storage/img/galeri'); // Tentukan folder tujuan
+
+            // Pindahkan file gambar baru ke folder yang benar
+            $gambar->move($destinationPath, $file_name);
+
+            // Simpan nama file gambar baru ke dalam data yang akan diupdate
             $data['gambar'] = $file_name;
         }
 
+        // Update data di database
         Galeri::where('id', $id)->update($data);
 
+        // Kembalikan pesan status setelah update
         return back()->with('status', 'Galeri berhasil diperbarui!');
     }
 
+
     public function hapus($id)
     {
+        // Cari entri galeri yang akan dihapus
         $news = Galeri::findOrFail($id);
-        $image_path = public_path('storage/img/galeri/' . $news->gambar);
-        unlink($image_path);
-        $news->forcedelete();
 
+        // Cek apakah gambar ada, kemudian hapus file gambar terkait
+        if ($news->gambar) {
+            $image_path = public_path('storage/img/galeri/' . $news->gambar);
+            if (file_exists($image_path)) {
+                unlink($image_path); // Hapus file gambar
+            }
+        }
+
+        // Hapus data galeri dari database
+        $news->delete();
+
+        // Kembalikan pesan setelah data dihapus
         return back()->with('delete', 'Galeri berhasil dihapus!');
     }
+
 }
