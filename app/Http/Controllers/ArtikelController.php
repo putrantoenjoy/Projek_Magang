@@ -33,14 +33,7 @@ class ArtikelController extends Controller
 
     public function create(Request $request)
     {
-        $data = [
-            'user_id' => Auth::user()->id,
-            'kategori_id' => $request->kategori,
-            'penulis' => Auth::user()->name,
-            'judul' => $request->judul,
-            'deskripsi' => $request->deskripsi,
-            'konten' => $request->konten,
-        ];
+        // Menyiapkan data untuk artikel baru
         $data = new Blog();
         $data->user_id = Auth::user()->id;
         $data->kategori_id = $request->kategori;
@@ -49,31 +42,32 @@ class ArtikelController extends Controller
         $data->deskripsi = $request->deskripsi;
         $data->konten = $request->konten;
 
+        // Mengecek apakah ada gambar yang di-upload
         $gambar = $request->file('file');
-        if (!empty($gambar)) {
+        if ($gambar) {
+            // Membuat nama file unik untuk gambar
             $file_name = $gambar->hashName();
-            $gambar->storeAs('img/artikel', $file_name, 'public');
-            $data['gambar'] = $file_name;
+            $destinationPath = public_path('storage/img/artikel'); // Menentukan folder tujuan
+
+            // Memindahkan gambar ke folder yang sesuai
+            $gambar->move($destinationPath, $file_name);
+
+            // Menyimpan nama gambar ke dalam data artikel
+            $data->gambar = $file_name;
         }
 
+        // Menyimpan artikel ke dalam database
         $data->save();
 
+        // Mengarahkan kembali dengan pesan sukses
         return redirect()->back()->with('status', 'Artikel berhasil dibuat!');
     }
 
+
     public function update(Request $request, $id)
     {
-        // $data = [
-        //     'user_id' => Auth::user()->id,
-        //     'kategori_id' => $request->kategori,
-        //     'penulis' => Auth::user()->name,
-        //     'judul' => $request->judul,
-        //     'deskripsi' => $request->deskripsi,
-        //     'konten' => $request->konten,
-        // ];
-        // dd($request->all());
-
-        $data = Blog::find($id);
+        // Mencari data artikel yang akan diperbarui
+        $data = Blog::findOrFail($id);
         $data->user_id = Auth::user()->id;
         $data->kategori_id = $request->kategori;
         $data->penulis = Auth::user()->name;
@@ -81,49 +75,81 @@ class ArtikelController extends Controller
         $data->deskripsi = $request->deskripsi;
         $data->konten = $request->editkonten;
 
+        // Mengecek apakah ada gambar baru yang di-upload
         $gambar = $request->file('file');
-        if (!empty($gambar)) {
+        if ($gambar) {
+            // Menghapus gambar lama jika ada
+            if ($data->gambar) {
+                $old_image_path = public_path('storage/img/artikel/' . $data->gambar);
+                if (file_exists($old_image_path)) {
+                    unlink($old_image_path); // Menghapus gambar lama
+                }
+            }
+
+            // Membuat nama file unik untuk gambar baru
             $file_name = $gambar->hashName();
-            $gambar->storeAs('img/artikel', $file_name, 'public');
-            $data['gambar'] = $file_name;
+            $destinationPath = public_path('storage/img/artikel'); // Menentukan folder tujuan
+
+            // Memindahkan gambar baru ke folder yang sesuai
+            $gambar->move($destinationPath, $file_name);
+
+            // Menyimpan nama gambar baru
+            $data->gambar = $file_name;
         }
 
-        $data->update();
+        // Menyimpan perubahan data artikel
+        $data->save();
 
+        // Mengarahkan kembali dengan pesan sukses
         return redirect()->back()->with('status', 'Artikel berhasil diperbarui!');
     }
+
     public function delete($id)
     {
-        Blog::find($id)->delete();
+        // Mencari data artikel yang akan dihapus
+        $blog = Blog::findOrFail($id);
+
+        // Menghapus gambar terkait jika ada
+        if ($blog->gambar) {
+            $image_path = public_path('storage/img/artikel/' . $blog->gambar);
+            if (file_exists($image_path)) {
+                unlink($image_path); // Menghapus gambar
+            }
+        }
+
+        // Menghapus artikel dari database
+        $blog->delete();
+
+        // Mengarahkan kembali dengan pesan sukses
         return redirect()->back()->with('delete', 'Artikel berhasil dihapus!');
     }
+
     public function uploadImg(Request $request)
     {
-        // $request->validate([
-        //     'file' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-        // ]);
-
-        // $image = $request->file('file');
-        // $imageName = time().'.'.$image->extension();
-        // $image->storeAs('img/froala', $imageName);
-
-        // return redirect()->back();
-
+        // Validasi file gambar yang diunggah
         $request->validate([
             'file' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
-        // Menyimpan file gambar yang diunggah
+        // Mengambil file gambar yang diunggah
         $gambar = $request->file('file');
         if ($gambar) {
-            $file_name = $gambar->hashName();
-            $gambar->storeAs('public/img/galeri', $file_name); // Simpan di direktori public/img/galeri
-            $url = Storage::url('img/galeri/' . $file_name); // Dapatkan URL publik
+            // Membuat nama file unik untuk gambar
+            $file_name = $gambar->hashName(); // Nama file yang unik
+            $destinationPath = public_path('storage/img/galeri'); // Menentukan folder tujuan
+
+            // Memindahkan file gambar ke folder yang sesuai
+            $gambar->move($destinationPath, $file_name);
+
+            // Mendapatkan URL gambar yang dapat diakses publik
+            $url = Storage::url('img/galeri/' . $file_name); // Menghasilkan URL gambar
 
             // Mengembalikan URL gambar dalam respons JSON
             return response()->json(['link' => $url]);
         }
 
+        // Mengembalikan error jika gagal mengunggah gambar
         return response()->json(['error' => 'Gagal mengunggah gambar'], 500);
     }
+
 }
