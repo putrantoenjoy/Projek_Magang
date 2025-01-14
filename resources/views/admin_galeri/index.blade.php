@@ -71,7 +71,7 @@
                                         @foreach ($data as $row => $value)
                                         <tr class="align-middle">
                                             <td>{{ $loop->iteration }}</td>
-                                            <td><img src="{{ url('storage/img/galeri/'. $value->gambar) }}" alt="gambar" width="50px" height="50px" style="object-fit: cover"></td>
+                                            <td><img src="{{ asset('storage/img/galeri/'.$value->gambar) }}" alt="gambar" width="50px" height="50px" style="object-fit: cover"></td>
                                             <td>{{ $value->judul }}</td>
                                             <td>{{ ucwords(str_replace('_', ' ', $value->kategori)) }}</td>
                                             <td>{{ $value->deskripsi }}</td>

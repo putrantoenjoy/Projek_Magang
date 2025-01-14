@@ -13,10 +13,16 @@ class TransaksiController extends Controller
     public function index(){
         // $data_pembayaran = Pembayaran::get();
         // dd($data_pembayaran);
-        $data_pembayaran = Pembayaran::whereHas('transaksi', function($query) {
-            $query->where('user_id', auth()->user()->id);
-        })->get();
-        return view('transaksi.index', compact('data_pembayaran'));
+        if (auth()->user()->hasRole('user')) {
+            $data_pembayaran = Pembayaran::whereHas('transaksi', function($query) {
+                $query->where('user_id', auth()->user()->id);
+            })->get();
+            return view('transaksi.index', compact('data_pembayaran'));
+        }
+        
+        $data_pembayaran = Pembayaran::get();
+        return view('admin_layanan.transaksi.index', compact('data_pembayaran'));
+            
     }
     public function checkout(Request $request, $id)
     {

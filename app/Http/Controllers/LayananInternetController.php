@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Layanan_internet;
+use App\Models\Pembayaran;
 use Auth;
 use Illuminate\Http\Request;
 
@@ -60,16 +61,8 @@ class LayananInternetController extends Controller
         return back()->with('status', 'Layanan internet berhasil diperbarui!');
     }
 
-    // public function hapus($id)
-    // {
-    //     $data = [
-    //         'soft_delete' => 1,
-    //         'deleted_at' => date('Y-m-d H:i:s'),
-    //         'deleted_by' => auth()->user()->id
-    //     ];
-
-    //     Event::where('id', $id)->update($data);
-
-    //     return back()->with('delete', 'Event berhasil dihapus!');
+    // public function transaksi(){
+    //     $data_pembayaran = Pembayaran::get();
+    //     return view('admin_layanan.transaksi.index', compact('data_pembayaran'));
     // }
 }
