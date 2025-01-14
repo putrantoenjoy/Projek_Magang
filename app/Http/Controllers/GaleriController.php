@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Galeri;
-use Illuminate\Support\Facades\Validator;
 
 class GaleriController extends Controller
 {
@@ -35,39 +34,35 @@ class GaleriController extends Controller
 
     public function simpan(Request $request)
     {
-        // Validasi input
-        $validator = Validator::make($request->all(), [
-            'judul' => 'required|string|max:255',
-            'kategori' => 'required|string|max:255',
-            'deskripsi' => 'nullable|string',
-            'file' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048', // Validasi file gambar
-        ]);
-
-        // Jika validasi gagal
-        if ($validator->fails()) {
-            return back()->withErrors($validator)->withInput();
-        }
-
-        // Persiapan data untuk disimpan
         $data = [
+            // 'post_id' => $request->post_id,
             'judul' => $request->judul,
             'kategori' => $request->kategori,
             'deskripsi' => $request->deskripsi,
-            'created_by' => auth()->user()->id,
+            'created_by' => auth()->user()->id
         ];
 
-        // Proses upload gambar jika ada
-        if ($request->hasFile('file')) {
-            $gambar = $request->file('file');
-            $file_name = $gambar->hashName(); // Mendapatkan nama file unik
-            $gambar->storeAs('img/galeri', $file_name, 'public'); // Simpan gambar di storage
-            $data['gambar'] = $file_name; // Tambahkan nama file ke data
+        // Ambil file gambar dari request
+        $gambar = $request->file('file');
+
+        if ($gambar) {
+            // Nama file yang akan disimpan
+            $file_name = $gambar->getClientOriginalName();  // Atau bisa gunakan hashName() jika ingin nama unik
+
+            // Tentukan folder tujuan di public/storage
+            $destinationPath = public_path('storage/img/galeri');
+
+            // Pindahkan file ke folder yang diinginkan
+            $gambar->move($destinationPath, $file_name);
+
+            // Menyimpan nama file di database
+            $data['gambar'] = $file_name;
         }
 
         // Simpan data ke database
         Galeri::create($data);
 
-        // Redirect kembali dengan pesan sukses
+
         return back()->with('status', 'Galeri berhasil dibuat!');
     }
 
