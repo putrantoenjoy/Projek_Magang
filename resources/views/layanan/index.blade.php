@@ -11,18 +11,19 @@
       <div class="row p-0">
         <div class="col-md-4">
           <h3>Pilihan Layanan</h3>
-          <form action="#" method="get">
-            <div class="input-group gap-2">
-              <select id="filter" name="filter" class="form-control">
-                <option value="paket-standar" selected>Paket Standar</option>
-                <option value="promo">Promo</option>
-                <option value="paket-spesial">Paket Spesial</option>
-                <option value="paket-gaming">Paket Gaming</option>
-              </select>
-              <div class="input-group-append">
-                <button type="submit" class="btn btn-primary">Terapkan</button>
+          <form action="{{ url()->current() }}" method="get">
+              <div class="input-group gap-2">
+                  <select id="filter" name="filter" class="form-control">
+                      <option value="" {{ request('filter') == '' ? 'selected' : '' }}>-- Semua Kategori --</option>
+                      <option value="normal" {{ request('filter') == 'normal' ? 'selected' : '' }}>Paket Standar</option>
+                      <option value="promo" {{ request('filter') == 'promo' ? 'selected' : '' }}>Promo</option>
+                      <option value="spesial" {{ request('filter') == 'spesial' ? 'selected' : '' }}>Paket Spesial</option>
+                      <option value="gaming" {{ request('filter') == 'gaming' ? 'selected' : '' }}>Paket Gaming</option>
+                  </select>
+                  <div class="input-group-append">
+                      <button type="submit" class="btn btn-primary">Terapkan</button>
+                  </div>
               </div>
-            </div>
           </form>
         </div>        
       </div>
