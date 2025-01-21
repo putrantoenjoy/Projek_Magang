@@ -59,6 +59,7 @@
                                             <th>Transaksi ID</th>
                                             <th>Paket Layanan</th>
                                             <th>Tanggal Transaksi</th>
+                                            <th>Metode Pembayaran</th>
                                             <th>Total Bayar</th>
                                             <th>Status</th>
                                             {{-- @canany(['tim-update', 'tim-delete']) --}}
@@ -73,6 +74,7 @@
                                             <td>{{ $value->transaksi_id }}</td>
                                             <td>{{ $value->transaksi->layanan_internet->nama_paket }}</td>
                                             <td>{{ $value->tanggal_pembayaran }}</td>
+                                            <td>{{ $value->metode_pembayaran }}</td>
                                             <td>{{ $value->total_bayar }}</td>
                                             <td>{{ $value->status_pembayaran }}</td>
                                         </tr>
